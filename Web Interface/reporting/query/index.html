@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="reporting.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:,400,100,600' rel='stylesheet' type='text/css'>
+    <title>Reporting</title>
+</head>
+    
+<body>
+    <img src="http://www.up.ac.za/themes/up/img/up-logo.jpg" alt="error" style="padding-top:10px;padding-bottom:20px">
+        
+    <nav class="navbar navbar-default" style="background-color:#20549d">
+      <div class="container-fluid">
+        <div class="navbar-header">
+        </div>
+      </div>
+    </nav>
+        
+    <div style="background-color:#f9f2e3;width:100%; height:65px;padding-top:-20px">
+        You are here - <a href="#">Back</a> 
+        <p id="heading">Reporting<p>
+    </div>
+        
+    <form role="form">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Publication </span>
+            <input type="text" class="form-control" placeholder="type" aria-describedby="basic-addon1">
+        </div>
+        <br>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Entity</span>
+            <input type="text" class="form-control" placeholder="person or group" aria-describedby="basic-addon1">
+        </div>
+        <br>
+        <br>
+        <div class="btn-group">
+            <button type="button" class="form-control btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Select lifecycle states <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">state1</a></li>
+                <li><a href="#">state2</a></li>
+                <li><a href="#">state3</a></li>
+                <li><a href="#">...</a></li>
+            </ul>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-danger">generate Report</button>
+        <!--Just some javascript to change the state of the lifecycle div when selecting the dropdown list
+        <script>
+            $('.dropdown-menu a').on('click', function(){    
+            $('.dropdown-toggle').html($(this).html() + '<span class="caret"></span>');})
+        </script> -->
+
+    </form>
+        
+</body>
+
+</html>
