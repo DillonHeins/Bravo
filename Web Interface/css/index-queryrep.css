@@ -10,7 +10,7 @@ body {
 
 form{
 	width:65%;
-	position: fixed;
+	position: relative;
 	left: 50%;
 	padding-top: 20px;
 
