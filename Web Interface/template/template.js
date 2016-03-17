@@ -1,6 +1,6 @@
 var usersArray = { // this is the mock object
 	title: "List of collaborators", // this is the title that will be used
-	users: [{ // this is the array that will be looped
+	users: [{ // this is the array that will be looped in the {{#each}} expression
 		firstName: "John",
 		lastName: "Doe"
 	}, {
