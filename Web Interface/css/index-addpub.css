@@ -10,6 +10,13 @@ form{
 	position: relative;
 	left: 50%;
 	padding-top: 20px;
-
-	transform: translate(-50%);
+	/*transform: translate(-50%);*/
+	margin-left:-25%;
+}
+.dropzone{
+	color: #aaa;
+	border-style: dashed;
+	border-color: #ccc;
+	line-height: 200px;
+	text-align: center;
 }
