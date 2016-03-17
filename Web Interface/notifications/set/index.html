@@ -2,17 +2,27 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="generatedReport.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Raleway:,400,100,600' rel='stylesheet' type='text/css'>
     <title>Set Notification</title>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Javascript imports -->
+    <script type="text/javascript" src="../../js/primary.js"></script>
+
+    <!-- CSS imports -->
+    <link rel="stylesheet" type="text/css" href="../../css/primary.css">
+    <link rel="stylesheet" type="text/css" href="../../css/index-addpub.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:,400,100,600' rel='stylesheet' type='text/css'>
 </head>
     
 <body>
-    <img src="http://www.up.ac.za/themes/up/img/up-logo.jpg" alt="error" style="padding-top:10px;padding-bottom:20px">
-        
+    <img src="http://www.up.ac.za/themes/up/img/up-logo.jpg" alt="UP Logo">
+    
     <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -26,7 +36,7 @@
       <div class="collapse navbar-collapse" id="navMain">
         <ul class="nav navbar-nav">
           <li><a href="../../">Home <span class="sr-only">(current)</span></a></li>
-          <li class="dropdown">
+          <li class="dropdown active">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Publications <span class="caret"></span></a>
             <ul class="dropdown-menu">
                       <li><a href="../../publications/add/">Add Publication</a></li>
@@ -36,26 +46,26 @@
               <li><a href="#">Other section</a></li>
             </ul>
           </li>
-          <li class="dropdown ">
+          <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Persons <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="../../persons/add/index.html">Add Person</a></li>
-              <li><a href="../../persons/edit/index.html">Edit Person</a></li>
+              <li><a href="../../persons/add/">Add Person</a></li>
+              <li><a href="../../persons/edit/">Edit Person</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Add Research Catagory</a></li>
             </ul>
           </li>
-          <li class="dropdown active">
+          <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notifications <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="../../notifications/add/">Set Notification</a></li>
+              <li><a href="../../notifications/set/">Set Notification</a></li>
               <li><a href="../../notifications/view/">View Notifications</a></li>
             </ul>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reporting <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="../../reporting/query/">Query Report</a></li>
+                      <li><a href="../../reporting/query/">Query Report</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Other section</a></li>
             </ul>
@@ -73,30 +83,22 @@
       </div>
     </div>
   </nav>
-    
-    <div style="background-color:#f9f2e3;width:100%; height:65px;padding-top:-20px">
-        You are here - <a href="#">Back</a> 
-        <p id="heading"><p>
-    </div>
-    <br>
-    
-    <h2> Set Notification </h2>
-    <br><br>
-    <h3> Reminder </h3>
-    <form role="form">
+  <div id="main">
+    <header>
+          You are here - <a href="nowhereyet">Back</a><br> <!-- Fix link -->
+          <h1>Set Notification</h1>
+    </header>
+    <section>
+      <form role="form">
         <div class="form-group">
-          <textarea class="form-control" rows="3" cols="20" >
-	  Enter reminder here
-          </textarea>
-	  
+          <textarea class="form-control" rows="3" cols="20" placeholder="Reminder details"></textarea>
         </div>
-	
-	Date
-	<input type="date" name="remind" placeholder="On which date">	
-	<br>
-	<button type="submit" class="btn btn-danger">Set reminder</button>
-	
-    </form>
-    
+      	<div class="form-group">
+        	<label for="date">Date</label>
+        	<input type="date" name="remind" id="date">	
+          <br>
+        	<button type="submit" class="btn btn-danger" style="margin-left: 20px; margin-top: 20px;">Set reminder</button>
+      </form>
+  </div>
     
 </body>
