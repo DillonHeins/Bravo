@@ -17,6 +17,10 @@
 
     <!-- Javascript imports -->
     <script type="text/javascript" src="../../js/primary.js"></script>
+    <!--javaScript that uses handlebars.js-->
+    <script type="text/javascript" src="./generateReport.js"></script>
+    <!--handlebars.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
 
     <!-- CSS imports -->
     <link rel="stylesheet" type="text/css" href="../../css/primary.css">
@@ -24,7 +28,7 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway:,400,100,600' rel='stylesheet' type='text/css'>
 </head>
 
-<body>
+<body onload="init()">
     <img src="http://www.up.ac.za/themes/up/img/up-logo.jpg" alt="UP Logo" id="logo">
     
     <nav class="navbar navbar-default">
@@ -107,17 +111,21 @@
             </div>
             <br>
             <br>
-            <div class="btn-group">
-                <button type="button" class="form-control btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Select lifecycle states <span class="caret"></span>
+            
+            <div class="dropdown" id="listStates"> </div>
+            <script id="list-states" type="text/x-handlebars-template">​
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  {{title}}
+                  <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">state1</a></li>
-                    <li><a href="#">state2</a></li>
-                    <li><a href="#">state3</a></li>
-                    <li><a href="#">...</a></li>
-                </ul>
-            </div>
+                
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    {{#each states}} 
+                   <li><a href="#">{{state}}</a></li> 
+                    {{/each}}
+                </ul>   
+            ​</script>
+            
             <br>
             <br>
             <br>
