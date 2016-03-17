@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>View Report</title>
+
+    <!-- imports -->
+    <!-- TODO: <link rel="import" href="./navbar.html">
+    <link rel="import" href="./bootstrap.html"> -->
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Javascript imports -->
+    <script type="text/javascript" src="../../js/primary.js"></script>
+
+    <!-- CSS imports -->
+    <link rel="stylesheet" type="text/css" href="../../css/primary.css">
+    <link rel="stylesheet" type="text/css" href="../../css/index-genrep.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:,400,100,600' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <img src="http://www.up.ac.za/themes/up/img/up-logo.jpg" alt="UP Logo" id="logo">
+    
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navMain" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="nav navbar-nav">
+            <li><a href="../../">Home <span class="sr-only">(current)</span></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Publications <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../publications/add/">Add Publication</a></li>
+                <li><a href="../../publications/view/">View Publication</a></li>
+                <li><a href="../../publications/change/">Edit Publication</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Other section</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Persons <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../persons/add/">Add Person</a></li>
+                <li><a href="../../persons/edit/">Edit Person</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Add Research Catagory</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notifications <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../notifications/set/">Set Notification</a></li>
+                <li><a href="../../notifications/view/">View Notifications</a></li>
+              </ul>
+            </li>
+            <li class="dropdown active">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reporting <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../reporting/query/">Query Report</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Other section</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Import/Export <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../importexport/import/">Import</a></li>
+                <li><a href="../../importexport/export/">Export</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Other section</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="main">
+
+      <header>
+          You are here - <a href="nowhereyet">Back</a><br> <!-- Fix link -->
+          <h1>View Report</h1>
+      </header>
+        <section>
+          <div id="search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go</button>
+                    </span>
+                  </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+          <br>
+          <br>
+          <form role="form">
+              <div class="form-group">
+                <textarea class="form-control" rows="15" id="comment">
+                  content from database to be displayed here
+                    .....
+                    .....
+                </textarea>
+              </div>
+            </form>
+      </section>
+    
+    
+</body>
