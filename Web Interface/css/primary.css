@@ -33,6 +33,10 @@ body {
 	min-height: 100%;
 }
 
+#main > section {
+	padding: 30px;
+}
+
 #main > header:nth-child(1) {
 	background-color: #f9f2e3;
 	width: 100%;
