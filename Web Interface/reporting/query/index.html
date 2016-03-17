@@ -2,65 +2,135 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="reporting.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>Query Report</title>
+
+    <!-- imports -->
+    <!-- TODO: <link rel="import" href="./navbar.html">
+    <link rel="import" href="./bootstrap.html"> -->
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Javascript imports -->
+    <script type="text/javascript" src="../../js/primary.js"></script>
+
+    <!-- CSS imports -->
+    <link rel="stylesheet" type="text/css" href="../../css/primary.css">
+    <link rel="stylesheet" type="text/css" href="../../css/index-queryrep.css">
     <link href='https://fonts.googleapis.com/css?family=Raleway:,400,100,600' rel='stylesheet' type='text/css'>
-    <title>Reporting</title>
 </head>
-    
+
 <body>
-    <img src="http://www.up.ac.za/themes/up/img/up-logo.jpg" alt="error" style="padding-top:10px;padding-bottom:20px">
-        
-    <nav class="navbar navbar-default" style="background-color:#20549d">
+    <img src="http://www.up.ac.za/themes/up/img/up-logo.jpg" alt="UP Logo" id="logo">
+    
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navMain" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="nav navbar-nav">
+            <li><a href="../../">Home <span class="sr-only">(current)</span></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Publications <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../publications/add/">Add Publication</a></li>
+                <li><a href="../../publications/view/">View Publication</a></li>
+                <li><a href="../../publications/change/">Edit Publication</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Other section</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Persons <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../persons/add/">Add Person</a></li>
+                <li><a href="../../persons/edit/">Edit Person</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Add Research Catagory</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notifications <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../notifications/add/">Set Notification</a></li>
+                <li><a href="../../notifications/view/">View Notifications</a></li>
+              </ul>
+            </li>
+            <li class="dropdown active">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reporting <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../reporting/query/">Query Report</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Other section</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Import/Export <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../importexport/import/">Import</a></li>
+                <li><a href="../../importexport/export/">Export</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Other section</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
-        
-    <div style="background-color:#f9f2e3;width:100%; height:65px;padding-top:-20px">
-        You are here - <a href="#">Back</a> 
-        <p id="heading">Reporting<p>
-    </div>
-        
-    <form role="form">
-        <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Publication </span>
-            <input type="text" class="form-control" placeholder="type" aria-describedby="basic-addon1">
-        </div>
-        <br>
-        <br>
-        <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Entity</span>
-            <input type="text" class="form-control" placeholder="person or group" aria-describedby="basic-addon1">
-        </div>
-        <br>
-        <br>
-        <div class="btn-group">
-            <button type="button" class="form-control btn btn-default dropdown-toggle" data-toggle="dropdown">
-                Select lifecycle states <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="#">state1</a></li>
-                <li><a href="#">state2</a></li>
-                <li><a href="#">state3</a></li>
-                <li><a href="#">...</a></li>
-            </ul>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <button type="submit" class="btn btn-danger">generate Report</button>
-        <!--Just some javascript to change the state of the lifecycle div when selecting the dropdown list
-        <script>
-            $('.dropdown-menu a').on('click', function(){    
-            $('.dropdown-toggle').html($(this).html() + '<span class="caret"></span>');})
-        </script> -->
+    <div id="main">
 
-    </form>
+      <header>
+          You are here - <a href="nowhereyet">Back</a><br> <!-- Fix link -->
+          <h1>Query Report</h1>
+      </header>
+      <section>
+        <form role="form">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Publication </span>
+                <input type="text" class="form-control" placeholder="type" aria-describedby="basic-addon1">
+            </div>
+            <br>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Entity</span>
+                <input type="text" class="form-control" placeholder="person or group" aria-describedby="basic-addon1">
+            </div>
+            <br>
+            <br>
+            <div class="btn-group">
+                <button type="button" class="form-control btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Select lifecycle states <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">state1</a></li>
+                    <li><a href="#">state2</a></li>
+                    <li><a href="#">state3</a></li>
+                    <li><a href="#">...</a></li>
+                </ul>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-danger">Generate Report</button>
+            <!--Just some javascript to change the state of the lifecycle div when selecting the dropdown list
+            <script>
+                $('.dropdown-menu a').on('click', function(){    
+                $('.dropdown-toggle').html($(this).html() + '<span class="caret"></span>');})
+            </script> -->
+
+        </form>
+    </section>
         
 </body>
 
