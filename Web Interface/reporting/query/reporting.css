@@ -1,0 +1,37 @@
+body {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+}
+
+form{
+	width:50%;
+	position: fixed;
+	left: 50%;
+	padding-top: 20px;
+
+	transform: translate(-50%);
+}
+#heading{
+	font-weight: 100;
+	font-size: 30px;
+}
+
+a{
+	color:#e4432d;
+}
+
+.btn {
+    cursor: default;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.caret {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}
+
+
+.btn-group {width: 100%}
+.dropdown-menu {width: 100%;}

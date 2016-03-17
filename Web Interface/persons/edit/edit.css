@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
 	font-family: 'Raleway', sans-serif;
 	font-weight: 600;
@@ -16,4 +17,24 @@ form{
 	left: 50%;
 	padding-top: 20px;
 	transform: translate(-50%);
+=======
+body {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+}
+
+#heading{
+	font-weight: 100;
+	font-size: 35px;
+}
+a{
+	color:#e4432d;
+}
+form{
+	width:50%;
+	position: absolute;
+	left: 50%;
+	padding-top: 20px;
+	transform: translate(-50%);
+>>>>>>> origin/master
 }
