@@ -16,3 +16,7 @@ body {
 a{
 	color:#e4432d;
 }
+#result{
+    background-color: #e4432d;
+    color: white;   
+}
