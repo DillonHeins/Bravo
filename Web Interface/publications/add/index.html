@@ -13,7 +13,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 	<!-- Javascript imports -->
-	<script type="text/javascript" src="./js/primary.js"></script>
+	<script type="text/javascript" src="../../js/primary.js"></script>
 
 	<!-- CSS imports -->
 	<link rel="stylesheet" type="text/css" href="../../css/primary.css">
@@ -83,93 +83,94 @@
 			</div>
 		</div>
 	</nav>
+	<div id="main">
+	    <header>
+		        You are here - <a href="nowhereyet">Back</a><br> <!-- Fix link -->
+		        <h1>Add Publication</h1><button class="btn btn-danger" data-toggle="modal" data-target="#UploadFile">Import from CSV file</button>
+	    </header>
+	    <form class="center-form" role="form">
+	      <div class="form-group">
+	        <label for="pubname">Publication Name:</label>
+	        <input type="input" class="form-control" id="pubname" required>
+	      </div>
+	      <div class="form-group">
+	        <label for="pubwebsite">Publication Website:</label>
+	        <input type="input" class="form-control" id="pubwebsite">
+	      </div>
+	      <div class="form-group">
+	        <div class="checkbox">
+	        <label><input type="checkbox">Is Completed</label>
+	      </div>
+	      <!-- Below will be greyed out if checkbox is activated -->
+	    <div class="form-group">
+	        <label for="pubduedate">Due Date:</label> <!--Add a calender widget -->
+	        <input type="input" class="form-control" id="pubduedate">
+	    </div>
+	    <div class="form-group">
+	        <label for="pubprogress">Progress(%):</label> <!--Update Progress bar when this changes-->
+	        <input type="input" class="form-control" id="pubprogess" style="padding-bottom:20px">
+	        <div class="progress"> <!--Just for illustration for now-->
+	          <div class="progress-bar progress-bar-striped active" role="progressbar"
+	          aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+	            40%
+	          </div>
+	        </div>
+	    </div>
 
-    <header>
-	        You are here - <a href="nowhereyet">Back</a> <!-- Fix link -->
-	        <h1>Add Publication</h1><button class="btn btn-danger" data-toggle="modal" data-target="#UploadFile" style="float:right; margin-right: 50px;">Import from CSV file</button>
-    </header>
-    <form class="form" role="form">
-      <div class="form-group">
-        <label for="pubname">Publication Name:</label>
-        <input type="input" class="form-control" id="pubname" required>
-      </div>
-      <div class="form-group">
-        <label for="pubwebsite">Publication Website:</label>
-        <input type="input" class="form-control" id="pubwebsite">
-      </div>
-      <div class="form-group">
-        <div class="checkbox">
-        <label><input type="checkbox">Is Completed</label>
-      </div>
-      <!-- Below will be greyed out if checkbox is activated -->
-    <div class="form-group">
-        <label for="pubduedate">Due Date:</label> <!--Add a calender widget -->
-        <input type="input" class="form-control" id="pubduedate">
-    </div>
-    <div class="form-group">
-        <label for="pubprogress">Progress(%):</label> <!--Update Progress bar when this changes-->
-        <input type="input" class="form-control" id="pubprogess" style="padding-bottom:20px">
-        <div class="progress"> <!--Just for illustration for now-->
-          <div class="progress-bar progress-bar-striped active" role="progressbar"
-          aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-            40%
-          </div>
-        </div>
-    </div>
+	    <div class="panel panel-default">
+	        <div class="panel-heading">Collaborators</div>
+	        <div class="panel-body">
+	            <div class="form-group">
+	                <label >List of collaborators:</label>
+	                <!--Need to add function to delete the list item if clicked-->
+	                <div class="list-group">
+	                  <a href="#" class="list-group-item active">You</a> <!--Added as default-->
+	                  <a href="#" class="list-group-item">Jon Snow</a> <!--Added as illustration-->
+	                </div>
+	                <div class="btn-group">
+	                  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                    Add another collaborator <span class="caret"></span>
+	                  </button>
+	                  <!--Drop down will be populated with authors and users from database-->
+	                  <ul class="dropdown-menu">
+	                    <li>A1</li>
+	                    <li>A2</li>
+	                    <li>A3</li>
+	                  </ul>
+	                </div>
+	            </div>
+	        </div>
+	    </div>    
+	      <button type="submit" class="btn btn-danger">Add Publication</button>
+	    </form>
 
-    <div class="panel panel-default">
-        <div class="panel-heading">Collaborators</div>
-        <div class="panel-body">
-            <div class="form-group">
-                <label >List of collaborators:</label>
-                <!--Need to add function to delete the list item if clicked-->
-                <div class="list-group">
-                  <a href="#" class="list-group-item active">You</a> <!--Added as default-->
-                  <a href="#" class="list-group-item">Jon Snow</a> <!--Added as illustration-->
-                </div>
-                <div class="btn-group">
-                  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Add another collaborator <span class="caret"></span>
-                  </button>
-                  <!--Drop down will be populated with authors and users from database-->
-                  <ul class="dropdown-menu">
-                    <li>A1</li>
-                    <li>A2</li>
-                    <li>A3</li>
-                  </ul>
-                </div>
-            </div>
-        </div>
-    </div>    
-      <button type="submit" class="btn btn-danger">Add Publication</button>
-    </form>
-
-    <div id="UploadFile" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Select a CSV file</h4>
-            </div>
-            <div class="modal-body">
-              <div class="panel panel-primary">
-                <div class="panel-heading" style="background-color:#20549d;">Upload CSV file below</div>
-                <div class="panel-body">
-                  <div class="dropzone" id="drop-zone">
-                    Drag and drop your file here <!-- Still need to implement this functionality -->
-                  </div>
-                    <form id="modal-form" action="#" method="POST">
-                      <p style="float:left"> or <input type="file" id="file-choose"/></p>
-                      <div class="btn-group" style="float:right; padding-top: 15px">
-                        <input type="submit" class="btn btn-danger btn-sm" value="Upload File" required> <!-- Not sure if we need to check the file format or not -->
-                        <button class="btn btn-danger btn-sm" data-dismiss="modal" >Cancel</button>
-                      </div>
-                    </form>
-                  </div>
-              </div>
-            </div>
-        </div>
-      </div>
-    </div>
+		<div id="UploadFile" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Select a CSV file</h4>
+					</div>
+					<div class="modal-body">
+						<div class="panel panel-primary">
+						<div class="panel-heading" style="background-color:#20549d;">Upload CSV file below</div>
+						<div class="panel-body">
+							<div class="dropzone" id="drop-zone">
+								Drag and drop your file here <!-- Still need to implement this functionality -->
+							</div>
+							<form id="modal-form" action="#" method="POST">
+								<div class="max-width">or <input type="file" id="file-choose" required></div>
+								<div class="btn-group" style="padding-top: 15px">
+									<button type="submit" class="btn btn-danger btn-sm">Upload File</button> <!-- Not sure if we need to check the file format or not -->
+									<button class="btn btn-danger btn-sm" data-dismiss="modal" >Cancel</button>
+								</div>
+							</form>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
