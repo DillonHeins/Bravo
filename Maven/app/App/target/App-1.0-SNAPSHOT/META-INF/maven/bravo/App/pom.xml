@@ -9,8 +9,16 @@
   </parent>
 
   <groupId>bravo</groupId>
-  <artifactId>Greeter</artifactId>
+  <artifactId>App</artifactId>
   <packaging>jar</packaging>
 
-  <name>Greeter</name>
+  <name>App</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>bravo</groupId>
+      <artifactId>Greeter</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
 </project>
