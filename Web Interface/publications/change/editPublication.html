@@ -18,6 +18,9 @@
 
     <!-- Javascript imports -->
     <script type="text/javascript" src="../../js/primary.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script> <!-- import this javascript library -->
+    <script type="text/javascript" src="../../template/template.js"></script>
+  
 
     <!-- CSS imports -->
     <link rel="stylesheet" type="text/css" href="../../css/primary.css">
@@ -140,27 +143,41 @@
             </div>
         </div>
 
+
         <div class="panel panel-default">
             <div class="panel-heading">Collaborators</div>
             <div class="panel-body">
                 <div class="form-group">
-                    <label >List of collaborators:</label>
-                    <!--Need to add function to delete the list item if clicked-->
-                    <div class="list-group">
-                      <a href="#" class="list-group-item active">You</a> <!--Added as default-->
-                      <a href="#" class="list-group-item">John Snow</a> <!--Added as illustration-->
+                    <section>
+                  <div class="list-group" id="listUsersOutput"></div> <!-- area where Handlebars will output -->
+                  <script id="list-users" type="text/x-handlebars-template">​
+                    
+                      <div class="panel-body">
+                    <div class="form-group">
+                      <label >{{title}}</label> <!-- Handlebars will substitute {{title}} with the title specified in usersArray
+                      {{#each users}} <!-- loop through the array called "users" defined in the array "usersArray" -->
+                        <a href="#" class="list-group-item">{{firstName}} {{lastName}}</a> <!-- Handlebars will substitute {{firstName}} and {{lastName}} with the corresponding values defined in the array called "users" -->
+                      {{/each}}
                     </div>
+                  </div>
+                    
+              ​   </script>
+                </section>
+
                     <div class="btn-group">
                       <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Add another collaborator <span class="caret"></span>
                       </button>
                       <!--Drop down will be populated with authors and users from database-->
                       <ul class="dropdown-menu">
-                        ...
+                        <li>A1</li>
+                        <li>A2</li>
+                        <li>A3</li>
                       </ul>
                     </div>
                 </div>
             </div>
+        </div>  
         </div>    
           <button type="submit" class="btn btn-danger">Change Publication</button>
         </form>
