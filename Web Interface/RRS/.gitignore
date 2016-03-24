@@ -1,0 +1,17 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!/app/
+
+# ...even if they are in subdirectories
+!*/
+/bower_components/
+/config/
+/dist/
+/node_modules/
+/vendor/
+/public/
+/tests/
+/tmp/
