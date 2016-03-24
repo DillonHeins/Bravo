@@ -1,0 +1,31 @@
+<img src="http://www.up.ac.za/themes/up/img/up-logo.jpg" alt="UP Logo" id="up-logo">
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navMain" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse" id="navMain">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="./">Home <span class="sr-only">(current)</span></a></li>
+				{{#each model as |page|}}
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{page.name}}<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							{{#each page.sub as |sub|}}
+								<li><a href={{concat page.url sub.url}}>{{sub.name}}</a></li>
+							{{/each}}
+						</ul>
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+</nav>
+<div id="main">
+	{{outlet}}
+</div>
