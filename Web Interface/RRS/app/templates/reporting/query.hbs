@@ -27,9 +27,9 @@
                 Select lifecycle states <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <!--  {{#each model as |stateObj|}}
-                    <li> {{stateObj.state}} </li>
-                {{/each}}  -->
+                {{#each model as |stateObj|}}
+                <li><a href="query"> {{stateObj.state}} </a></li>
+                {{/each}} 
             </ul>
         
         </div>
