@@ -1,0 +1,45 @@
+
+<header> 
+      You are here - <a href="nowhereyet">Back</a><br>  <!-- Fix link -->
+     <h1>Query Report</h1>
+</header>
+<section id="mainQuery">
+    
+    <form role="form">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Publication </span>
+            <input type="text" class="form-control" placeholder="type" aria-describedby="basic-addon1">
+        </div>
+        
+        <br>
+        <br>
+        
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Entity</span>
+            <input type="text" class="form-control" placeholder="person or group" aria-describedby="basic-addon1">
+        </div>
+        
+        <br>
+        <br>
+        
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Select lifecycle states <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                {{#each model as |stateObj|}}
+                <li><a href="query"> {{stateObj.state}} </a></li>
+                {{/each}} 
+            </ul>
+        
+        </div>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <button type="submit" class="btn btn-danger">Generate Report</button>
+    </form>
+
+</section>
