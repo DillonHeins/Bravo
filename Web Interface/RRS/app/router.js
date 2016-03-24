@@ -12,13 +12,7 @@ Router.map(function() {
   //   this.route('add');
   //   this.route('edit');
   // });
-    
-    /* reporting section
-    this.route('reporting', { path: '/' }, function() {
-    this.route('query');
-    this.route('view');
-  });
-    */
+
 });
 
 export default Router;
