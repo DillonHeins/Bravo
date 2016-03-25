@@ -1,0 +1,21 @@
+#file-choose
+{
+	opacity: 0;
+	width: 100%;
+	position: relative;
+}
+
+#csvimg
+{
+	height: 30%;
+	width: 25%;
+	position: absolute;
+	margin-top: 2%;
+	margin-left: 30%;
+	background-color: #E9E9E9;
+}
+
+#resets, #fileName
+{
+	display: inline-block;
+}
