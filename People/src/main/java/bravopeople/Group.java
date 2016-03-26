@@ -62,4 +62,29 @@ class Group implements GroupInterface {
 	public void setEntities(ArrayList<Entity> entities) {
 		this.entities = entities;
 	}
+
+    /**
+     * Checks if the group is active or inactive
+     * @return true if active (default), false if inactive.
+     */
+    public boolean isActive()
+    {
+        return true;
+    }
+
+    /**
+     * Sets the group to active (true)
+     */
+    public void activate()
+    {
+
+    }
+
+    /**
+     * Sets the group to inactive (false)
+     */
+    public void deactivete()
+    {
+
+    }
 }
