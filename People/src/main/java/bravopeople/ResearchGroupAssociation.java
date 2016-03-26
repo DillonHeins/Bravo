@@ -131,4 +131,29 @@ class ResearchGroupAssociation implements ResearchGroupAssociationInterface{
 		if (group != null)
 			this.group = group;
 	}
+
+	/**
+	 * Checks if the association is active or inactive
+	 * @return true if active (default), false if inactive.
+	 */
+	public boolean isActive()
+    {
+        return true;
+    }
+
+	/**
+	 * Sets the association to active (true)
+	 */
+	public void activate()
+    {
+
+    }
+
+	/**
+	 * Sets the association to inactive (false)
+	 */
+	public void deactivete()
+    {
+
+    }
 }	// End of ResearchGroupAssociation class

@@ -63,5 +63,20 @@ public interface ResearchGroupAssociationInterface
      */
     public Group getGroup();
 
+    /**
+     * Checks if the association is active or inactive
+     * @return true if active (default), false if inactive.
+     */
+    public boolean isActive();
+
+    /**
+     * Sets the association to active (true)
+     */
+    public void activate();
+
+    /**
+     * Sets the association to inactive (false)
+     */
+    public void deactivete();
 
 }
