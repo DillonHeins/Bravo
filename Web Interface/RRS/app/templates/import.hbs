@@ -8,7 +8,7 @@
 				<h4 class="modal-title">Select a CSV file</h4>
 			</div>
 			<div class="modal-body">
-				{{!-- <form id="modal-form" action="#" method="POST"> --}}
+				<form id="modal-form" action="#" method="POST">
 					<div class="panel panel-primary" id="dropzone" style="border-style:hidden">
 						<div class="panel-heading" style="background-color:#20549d;">
 							Drag and Drop your file below or click to choose your file
@@ -21,11 +21,13 @@
 							<h5 id="fileName">{{fileName}}</h5><button type="reset" id="resets" class="btn btn-link glyphicon glyphicon-trash" style="visibility:hidden" onclick={{action 'reset'}}></button>
 						</div>
 					</div>
+					<p id="error" style="color:red; font-weight: bold; padding-bottom:-5%"></p>
+					<br/>
 					<div class="btn-group" style="padding-top: 15px; margin-left: 35%;">
-						<button {{!-- type="submit" --}} class="btn btn-danger" onclick={{action "isCSV"}}><span class="glyphicon glyphicon-upload"></span> Upload File</button>
+						<button type="submit" class="btn btn-danger" onclick={{action "isCSV"}}><span class="glyphicon glyphicon-upload"></span> Upload File</button>
 						<button type="reset" class="btn btn-danger" data-dismiss="modal" id="reset" onclick={{action 'reset'}}><span class="glyphicon glyphicon-cancel"></span>Cancel</button>
 					</div>
-				{{!-- </form> --}}
+				</form>
 			</div>
 		</div>
 	</div>
