@@ -1,0 +1,101 @@
+/**
+*	Author: Charl Jansen van Vuuren
+*	Student number: 13054903
+*	Bravo-People
+*	Person Interface
+*   This File defines the Person Interface to be implemented.
+*/
+
+package bravopeople;
+
+import java.util.LinkedList;
+
+
+public interface PersonInterface
+{
+    /**
+     * Sets the person's name
+     * @param name Name of the person to be set to.
+     */
+    public void setName(String name);
+
+    /**
+     * Sets the person's surname
+     * @param surname Surname to be set to.
+     */
+    public void setSurname(String surname);
+    
+    /**
+     * Sets the person's ID
+     * @param id ID to be set to.
+     */
+    public void setID(String id);
+    
+    /**
+     * Sets the person's Primary email address 
+     * @param email Primary email to be set to.
+     */
+    public void setEmail(String email);
+    
+    /**
+	* Sets the organisation the person belongs to.
+	* @param organisation Organisation to be set to.
+    */
+    public void setOrganisation(String organisation);
+    
+    /**
+     * Sets the Research Group associated with that Person.
+     * @param group Group to be set to.
+     */
+    public void setResearchGroupAssociation(ResearchGroupAssociation group);
+    
+    /**
+     * Sets the Person's Research Category
+     * @param category Category to be set.
+     */
+    public void setResearchCategory(researchCategory category);
+    
+    /**
+     * 
+     * @return Name of the Person
+     */
+    public String getName();
+    
+    /**
+     * 
+     * @return Surname of the Person
+     */
+    public String getSurname();
+    
+    /**
+     * 
+     * @return ID of the Person
+     */
+    public String getID();
+    
+    /**
+     * 
+     * @return Primary email of the Person
+     */
+    public String getEmail();
+    
+    /**
+     * 
+     * @return List of Organisations the Person belongs to.
+     */
+    public LinkedList<Organisation> getOrganisation();
+    
+    /**
+     * 
+     * @return List of research categories this person is associated with.
+     */
+    public LinkedList<researchCategory> getResearchCategory();
+    
+    /**
+     * 
+     * @return List of research groups this person is associated with.
+     */
+    public LinkedList<ResearchGroupAssociation> getResearchGroupAssociation();
+    
+    
+}
