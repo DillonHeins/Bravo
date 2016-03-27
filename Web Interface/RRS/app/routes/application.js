@@ -5,7 +5,7 @@ export default Ember.Route.extend({
         let todos = [
             {
                 name: "Publications",
-                url: "#",
+                url: "",
 								sub: [{
 									name: "Add",
 	                url: "/add",
