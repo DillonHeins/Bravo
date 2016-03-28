@@ -7,7 +7,6 @@
 */
 
 package bravopeople;
-
 import java.util.LinkedList;
 
 
@@ -96,6 +95,13 @@ public interface PersonInterface
      * @return List of research groups this person is associated with.
      */
     public LinkedList<ResearchGroupAssociation> getResearchGroupAssociation();
+    
+    /**
+     * 
+     * @return string of the object, to be defined in concrete classes
+     */
+    @Override
+    public String toString();
     
     
 }
