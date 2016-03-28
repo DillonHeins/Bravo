@@ -15,8 +15,8 @@ Router.map(function() {
   // });
 
   this.route('reporting', { path: '/reporting' }, function() {
-    this.route('query', { path: '/reporting/query' });
-    this.route('view', { path: '/reporting/view' });
+    this.route('query', { path: '/query' });
+    this.route('view', { path: '/view' });
   });
 });
 

@@ -6,17 +6,24 @@ export default Ember.Route.extend({
             {
                 name: "Publications",
                 url: "#",
-								sub: [{
-									name: "Add",
-	                url: "/add",
-								}, {
-									name: "Edit",
-	                url: "/edit",
-								}],
+                sub: [{
+                    name: "Add",
+                    url: "/add",
+                }, {
+                    name: "Edit",
+                    url: "/edit",
+                }],
             },
             {
-								name: "Persons",
-								url: "#",
+				name: "Reporting",
+				url: "#",
+                sub: [{
+                    name: "Query",
+                    url: "/reporting/query",
+                }, {
+                    name: "View",
+                    url: "/reporting/view",
+                }],
             }
         ];
         return todos;
