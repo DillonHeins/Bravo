@@ -1,0 +1,68 @@
+<header> 
+      You are here - <a href="nowhereyet">Back</a><br>  <!-- Fix link -->
+     <h1>Add User</h1>
+</header>
+   <section>
+      <form class="center-form" role="form">
+        <div class="form-group">
+          <label for="firstname">First Names:</label>
+          <input type="input" class="form-control" id="firstname">
+        </div>
+        <div class="form-group">
+          <label for="surname">Surname:</label>
+          <input type="input" class="form-control" id="surname">
+        </div>
+        <div class="form-group">
+  		<label for="organization">Organization:</label>
+          <input type="input" class="form-control" id="organization">
+  	  </div>
+      <div class="form-group">
+          <label for="pubduedate">Email Address:</label>
+          <input type="email" class="form-control" id="pubduedate">
+      </div>
+  	<div class="form-group">
+  	<label for="catselect">Select researcher category</label>
+  	<div class="dropdown" id="catselect">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Categories
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Category 1</a></li>
+            <li><a href="#">Category 2</a></li>
+            <li><a href="#">Category 3</a></li>
+            <li><a href="#">Category 4</a></li>
+          </ul>
+      </div>
+      </div>
+        <button type="submit" class="btn btn-danger">Add User</button>
+      </form>
+
+      <div id="UploadFile" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Select a CSV file</h4>
+            </div>
+            <div class="modal-body">
+              <div class="panel panel-primary">
+              <div class="panel-heading" style="background-color:#20549d;">Upload CSV file below</div>
+              <div class="panel-body">
+                <div class="dropzone" id="drop-zone">
+                  Drag and drop your file here <!-- Still need to implement this functionality -->
+                </div>
+                <form id="modal-form" action="#" method="POST">
+                  <div class="max-width">or <input type="file" id="file-choose" required></div>
+                  <div class="btn-group" style="padding-top: 15px">
+                    <button type="submit" class="btn btn-danger btn-sm">Upload File</button> <!-- Not sure if we need to check the file format or not -->
+                    <button class="btn btn-danger btn-sm" data-dismiss="modal" >Cancel</button>
+                  </div>
+                </form>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
