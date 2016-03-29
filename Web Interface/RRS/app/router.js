@@ -17,11 +17,12 @@ Router.map(function() {
   this.route('reporting', { path: '/reporting' }, function() {
     this.route('query', { path: '/query' });
     this.route('view', { path: '/view' });
+  });
 
   this.route('persons', { path: '/persons' }, function() {
     this.route('edit', { path: '/edit' });
     this.route('add', { path: '/add' });
-	this.route('add-research', { path: '/add-research' });
+    this.route('add-research', { path: '/add-research' });
   });
 });
 
