@@ -1,4 +1,3 @@
-//find out why its not working?
 import Ember from 'ember';
 
 export default Ember.Route.extend({
