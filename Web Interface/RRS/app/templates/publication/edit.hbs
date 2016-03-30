@@ -4,7 +4,21 @@
     <h1>Edit Publication</h1>
 </header>
 <section id="mainPubAdd">
-
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Select publication to edit <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            {{#each model as |page|}}
+                {{#each page.pubname as |sub|}}
+            <li><a href="query"> {{sub.name}}</a></li>
+                {{/each}}
+            {{/each}}
+        </ul>
+    
+    </div>
+    <br>
+    <!-- bellow will be disabled if nothing is selected -->
     <form role="form">
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Publication Title </span>
