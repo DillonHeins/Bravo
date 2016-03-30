@@ -1,5 +1,5 @@
 <header id="currLocation">
-    You are here - <a href="/">home</a>-&gt;<a href="/report/query">publication add</a><br>  <!-- Fix link -->
+    You are here - <a href="/">home</a>-&gt;<a href="/publication/add">publication add</a><br>  <!-- Fix link -->
       <!-- TODO change names of edits to comply with reqirements -->
     <h1>Add Publication</h1>
 </header>
@@ -39,9 +39,11 @@
                 Select lifecycle states <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <!-- {{#each model as |stateObj|}}
-                <li><a href="query"> {{stateObj.state}} </a></li>
-                {{/each}}  -->
+                {{#each model as |page|}}
+                    {{#each page.state as |sub|}}
+                <li><a href="query"> {{sub.state}}</a></li>
+                    {{/each}}
+                {{/each}}
             </ul>
         
         </div>
@@ -63,9 +65,9 @@
                         <div class="list-group" id="listUsersOutput"></div>
                         <div class="panel-body">
                             <div class="form-group">
-                                {{#each model as |NameObj|}}
-                                    {{#each NameObj.names as |nn|}}
-                                    <a href="#" class="list-group-item">{{NameObj}}</a>
+                                {{#each model as |page|}}
+                                    {{#each page.name as |sub|}}
+                                    <a href="#" class="list-group-item">{{sub.name}}</a>
                                     {{/each}}
                                 {{/each}} 
                             </div>
@@ -81,11 +83,11 @@
                 Add Collaborator <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <!-- {{#each model as |NameObj|}}
-                    {{#each NameObj.names as |names|}}
-                    <li><a href="query"> {{names.state}} </a></li>
+                {{#each model as |page|}}
+                    {{#each page.name as |sub|}}
+                    <li><a href="query"> {{sub.name}} </a></li>
                     {{/each}} 
-                {{/each}} --> 
+                {{/each}}
             </ul>
         
         </div>
