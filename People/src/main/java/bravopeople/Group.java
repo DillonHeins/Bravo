@@ -83,7 +83,7 @@ class Group implements GroupInterface {
     /**
      * Sets the group to inactive (false)
      */
-    public void deactivete()
+    public void deactivate()
     {
 
     }
