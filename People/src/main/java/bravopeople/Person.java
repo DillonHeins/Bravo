@@ -8,7 +8,7 @@
 package bravopeople;
 import java.util.LinkedList;
 
-public class Person
+public class Person implements PersonInterface
 {
 	private String Name;
 	private String Surname;
@@ -145,7 +145,7 @@ public class Person
 	* Getter
 	* @return The  primary of the person
 	*/
-	String getEmail()
+	public String getEmail()
 	{
 		return email_address;
 	}
