@@ -6,21 +6,21 @@ import java.util.Date;
 * 12265731
 * Bravo-People
 */
-public class researchCategory  implements ResearchCategoryInterface
+public class ResearchCategory  implements ResearchCategoryInterface
 {
 	
 	String ID;
 	String name;
 	Date effectiveDate;
 	
-	public researchCategory()
+	public ResearchCategory()
 	{
 		ID = "dummy12345";
 		name = "dummy";
 		effectiveDate = new Date();
 	}
 	
-	public researchCategory(String _ID, String _name, Date _date)
+	public ResearchCategory(String _ID, String _name, Date _date)
 	{
 		ID = _ID;
 		name = _name;

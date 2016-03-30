@@ -4,8 +4,8 @@
 *	Bravo-People
 *	Research Category Interface
 */
-import java.util.Date;
 package bravopeople;
+import java.util.Date;
 
 public interface ResearchCategoryInterface
 {
