@@ -1,12 +1,10 @@
-//find out why its not working?
 import Ember from 'ember';
 
 export default Ember.Route.extend({
     model() {
-        let addPArray = [
-                {
-                names: [
-                { 
+        let todos = [
+            {
+                state: [{ 
                     state: "inProgress",
                 }, { 
                     state: "Submitted",
@@ -17,20 +15,17 @@ export default Ember.Route.extend({
                 }, {
                     state: "Abandoned",
                 }],
-                states: [
-                { 
-                    state: "inProgress",
+            },
+            {
+                name: [{ 
+                    name: "John Snow",
                 }, { 
-                    state: "Submitted",
-                }, { 
-                    state: "Accepted",
-                }, { 
-                     state: "InRevision",
-                }, {
-                    state: "Abandoned",
+                    name: "Jane Doe",
                 }],
-            }];
-        return addPArray;
+            },
+            
+        ];
+        return todos;
   }
 
 });

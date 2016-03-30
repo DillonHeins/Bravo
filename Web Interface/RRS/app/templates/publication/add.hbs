@@ -39,9 +39,11 @@
                 Select lifecycle states <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <!-- {{#each model as |stateObj|}}
-                <li><a href="query"> {{stateObj.state}} </a></li>
-                {{/each}}  -->
+                {{#each model as |page|}}
+                    {{#each page.state as |sub|}}
+                <li><a href="query"> {{sub.state}}</a></li>
+                    {{/each}}
+                {{/each}}
             </ul>
         
         </div>
@@ -63,9 +65,9 @@
                         <div class="list-group" id="listUsersOutput"></div>
                         <div class="panel-body">
                             <div class="form-group">
-                                {{#each model as |NameObj|}}
-                                    {{#each NameObj.names as |nn|}}
-                                    <a href="#" class="list-group-item">{{NameObj}}</a>
+                                {{#each model as |page|}}
+                                    {{#each page.name as |sub|}}
+                                    <a href="#" class="list-group-item">{{sub.name}}</a>
                                     {{/each}}
                                 {{/each}} 
                             </div>
@@ -73,31 +75,26 @@
 
                     </section>
                 </div>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Add Collaborator <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    {{#each model as |page|}}
+                        {{#each page.name as |sub|}}
+                        <li><a href="query"> {{sub.name}} </a></li>
+                        {{/each}} 
+                    {{/each}}
+                </ul>
+            
+            </div>
+            <br>
         </div>
-        <br>
         <!-- add seperate handlebars for dropdown -->
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Add Collaborator <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <!-- {{#each model as |NameObj|}}
-                    {{#each NameObj.names as |names|}}
-                    <li><a href="query"> {{names.state}} </a></li>
-                    {{/each}} 
-                {{/each}} --> 
-            </ul>
-        
-        </div>
         <br>
 
-
-
-
-
-<br>
         
-        <button type="submit" class="btn btn-danger">Add User</button>
+        <button type="submit" class="btn btn-danger">Add Publication</button>
     </form>
 
 </section>

@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('publication', {path: '/publication'}, function () {
     this.route('add', { path: '/add'});
     this.route('edit', { path: '/edit'});
+    this.route('view', { path: '/view'});
   });
 
   this.route('reporting', { path: '/reporting' }, function() {
