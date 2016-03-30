@@ -52,7 +52,7 @@ public interface PersonInterface
      * Sets the Person's Research Category
      * @param category Category to be set.
      */
-    public void setResearchCategory(researchCategory category);
+    public void setResearchCategory(ResearchCategory category);
     
     /**
      * 
@@ -88,7 +88,7 @@ public interface PersonInterface
      * 
      * @return List of research categories this person is associated with.
      */
-    public LinkedList<researchCategory> getResearchCategory();
+    public LinkedList<ResearchCategory> getResearchCategory();
     
     /**
      * 
