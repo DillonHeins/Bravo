@@ -26,13 +26,25 @@ a{
 	background-color: #20549d !important;
 }
 
-.navbar li.dropdown a:hover, .navbar li.dropdown.open a, .navbar .dropdown-menu {
+.navbar li.dropdown > a:hover, .navbar li.dropdown.open > a {
 	background-color: #4180d8 !important;
 }
 
+.navbar li.dropdown.open ul li a:hover {
+	background-color: #4180d8 !important;
+}
+
+.navbar .dropdown-menu {
+	background-color: #20549d !important;
+}
+
 .navbar a {
-	color: black !important;
+	color: white !important;
 	font-weight: 400;
+}
+
+.navbar a > span {
+	color: white !important;
 }
 
 .navbar .active > a, .navbar .active > a:hover {

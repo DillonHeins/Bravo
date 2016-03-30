@@ -8,10 +8,10 @@ export default Ember.Route.extend({
                 url: "#",
                 sub: [{
                     name: "Add",
-                    url: "/add",
+                    url: "/publications/add",
                 }, {
                     name: "Edit",
-                    url: "/edit",
+                    url: "/publications/edit",
                 }],
             },
             {
