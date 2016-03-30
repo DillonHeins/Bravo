@@ -11,7 +11,7 @@ export default Ember.Route.extend({
                     url: "publication/add",
                 }, {
                     name: "Edit",
-                    url: "/edit",
+                    url: "publication/edit",
                 }],
             },
             {
