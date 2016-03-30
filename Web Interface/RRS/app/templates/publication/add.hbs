@@ -39,9 +39,9 @@
                 Select lifecycle states <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                {{#each model as |stateObj|}}
+                <!-- {{#each model as |stateObj|}}
                 <li><a href="query"> {{stateObj.state}} </a></li>
-                {{/each}} 
+                {{/each}}  -->
             </ul>
         
         </div>
@@ -64,7 +64,9 @@
                         <div class="panel-body">
                             <div class="form-group">
                                 {{#each model as |NameObj|}}
-                                    <a href="#" class="list-group-item">{{NameObj.names}}</a>
+                                    {{#each NameObj.names as |nn|}}
+                                    <a href="#" class="list-group-item">{{NameObj}}</a>
+                                    {{/each}}
                                 {{/each}} 
                             </div>
                         </div>
@@ -79,9 +81,11 @@
                 Add Collaborator <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                {{#each model as |NameObj|}}
-                <li><a href="query"> {{NameObj.names}} </a></li>
-                {{/each}} 
+                <!-- {{#each model as |NameObj|}}
+                    {{#each NameObj.names as |names|}}
+                    <li><a href="query"> {{names.state}} </a></li>
+                    {{/each}} 
+                {{/each}} --> 
             </ul>
         
         </div>
