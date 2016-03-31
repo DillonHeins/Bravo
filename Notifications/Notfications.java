@@ -18,6 +18,65 @@ class Notifications{
             String message = "LOL";
             submitMultipartMail(emailList[0], message,file);
 	}
+	
+	public boolean[] Login(JSONObject s)
+    {
+        //email address & password of JSON object
+        String Jmail=s.getString("email");
+        String Jpass=s.getString("password");
+      
+        //initializing array of structure [fail,user , group head,admin]
+        boolean arr[]=new boolean[4];
+        arr[0]=true;
+        arr[1]=false;
+        arr[2]=false;
+        arr[3]=false;
+        
+                 try{
+      //postgreSQL database connection ,assuming that the database name is accounts & there is a table called users
+Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/accounts","postgres", "postgres");
+          Statement    stmt = c.createStatement();
+         ResultSet rs = stmt.executeQuery( "SELECT * FROM users;" );
+         while ( rs.next() ) {  
+             //String person=rs.getString("person");
+            String  email = rs.getString("email");          
+            String  pass = rs.getString("password");
+            
+            //checking for matching login details
+            if (email.compareTo(Jmail)==0 && pass.compareTo(Jpass)==0){
+     
+            arr[0]=false;
+              /*  if (person.compareTo("Admin")==0)
+                    {
+                        arr[1]=true;
+                        arr[2]=true;
+                        arr[3]=true;
+                    }
+                else if (person.compareTo("Group Head")==0)
+                    {
+                        arr[1]=true;
+                        arr[2]=true;
+                        arr[3]=false;
+                    }
+                else
+                {
+                        arr[1]=true;
+                        arr[2]=false;
+                        arr[3]=false;
+                }*/
+     //       System.out.println("User logged in ");
+                            break;
+                                        }
+                }
+          }
+          catch(Exception e){
+          e.printStackTrace();
+         System.err.println(e.getClass().getName()+": "+e.getMessage());
+         System.exit(0);
+          }
+               
+        return arr;
+    }
 
 	/*
 		@param emailList[] it will be an array containing all the email addresses the notification must be sent to
