@@ -127,17 +127,20 @@ Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/acc
 			This will be used to email plain text emails no images/files etc. 
 			will use buildMessage to assist the contruction of the message.
 		*/
-		String recipientList= email;
+		String[] recipientList= emailList;
 		message = "sample message"; //the message to be sent to the recipient
 		String subje="subject of message";
 		//list of recipients seperated by commas : e.g banele@gmail.com , u12201911@tuks.co.za , mm@webmaster.com
-			/*for (int i=1;i<email.length;i++)
-			{
+		/*for (int i=1;i<email.length;i++)
+		{
 				recipientList+=","+emailList[i];
-			}*/
-			//address,subject,message
-			//submitEmail(recipientList,subje,message);
-			
+		}*/
+		//address,subject,message
+		//submitEmail(recipientList,subje,message);
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		new Client(emailList);
 	}
         
         /*
@@ -150,7 +153,7 @@ Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/acc
 			This will be used to email plain text emails no images/files etc. 
 			will use buildMessage to assist the contruction of the message.
 		*/
-		String recipientList = email;
+		String[] recipientList = emailList;
 		message= "sample message"; //the message to be sent to the recipient
 		String subje= "subject of message";
 		//list of recipients seperated by commas : e.g banele@gmail.com , u12201911@tuks.co.za , mm@webmaster.com
@@ -162,10 +165,6 @@ Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/acc
 			//submitEmail(recipientList,subje,message);
 			
 	}
-
-	/*
-		@param typeOfRequest specifies the type of request it will be eg a notification or a change notice.
-	*/
 
 	/*
 		@param email this variable allows the sql request to the data base to allow us to get teh user's name for the mail;
