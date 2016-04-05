@@ -36,6 +36,28 @@ public class Session
     {
         this(host, 25, recipient, sender, subject, message);
     }
+    
+    public void close()
+    {
+        try
+        {
+            in.close();
+            out.close();
+            socket.close();
+        }
+        catch (Exception ex)
+        { }
+    }
+
+    protected void connect() throws IOException
+    {
+        socket = new Socket(host, port);
+
+        socket.setSoTimeout(timeout);
+
+        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        out = new OutputStreamWriter(socket.getOutputStream());
+    }
 
     public void sendMessage() throws IOException
     {
