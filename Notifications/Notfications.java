@@ -122,7 +122,7 @@ Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/acc
 		@param emailList[] it will be an array containing all the email addresses the change notice must be sent to
 		@param message this will be the generated message from our side to be sent to the user via a simple text only mail
 	*/
-	public void submitTextMail(String email, String message){
+	public void submitTextMail(String emailList[], String message){
 		/*
 			This will be used to email plain text emails no images/files etc. 
 			will use buildMessage to assist the contruction of the message.
@@ -145,7 +145,7 @@ Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/acc
 		@param message this will be the generated message from our side to be sent to the user via a simple text only mail
                 @param file (type still to be discussed) the file that has to be attached to the email.
 	*/
-        public void submitMultipartMail(String email, String message, String file){
+        public void submitMultipartMail(String emailList[], String message, String file){
 		/*
 			This will be used to email plain text emails no images/files etc. 
 			will use buildMessage to assist the contruction of the message.
