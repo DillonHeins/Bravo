@@ -1,10 +1,15 @@
 package com.bravonotifications.notifications;
 
+import java.io.File;
+
 class Notifications{
+	Private String reportPathString = "C:/temp/reports/";	//the path where reports are stored
+	
 	/*
 		@param emailList[] it will be an array containing all the email addresses the report must be sent to
 		@param file this will be the generated report file that needs to be sent as an attachment with the email
 	*/
+
 	public void sendReport(String emailList[], String file){
 		/*
 			This function must take the list of emails and add each one to be sent to, ask buildMessage to generate the appropriate message
@@ -15,8 +20,18 @@ class Notifications{
             
                         Submitting an email to be sent must be done one email address at a time so all looping must be done here.
 		*/
-            String message = "LOL";
-            submitMultipartMail(emailList[0], message,file);
+            //String message = "LOL";
+            //submitMultipartMail(emailList[0], message,file);
+		
+		File f = new File(reportPathString + file);
+		if(f.exists() && !f.isDirectory()) { 	//test if file exists
+			for (int i = 0; i < emailList.length; i ++){
+				if (emailList[i] != null && !emailList[i].isEmpty()){
+					message = buildMessage(emailList[i], "Report");
+					submitMultipartMail(emailList[i], message, f);
+				}
+			}
+		}
 	}
 	
 	public boolean[] Login(JSONObject s)
