@@ -3,14 +3,13 @@ package com.bravonotifications.notifications;
 import java.io.File;
 
 class Notifications{
-	private String reportPathString = "C:/temp/reports/";	//the path where reports are stored
-	
-	/*
-		@param emailList[] it will be an array containing all the email addresses the report must be sent to
-		@param file this will be the generated report file that needs to be sent as an attachment with the email
-	*/
+    private String reportPathString = "C:/temp/reports/";	//the path where reports are stored
 
-	public void sendReport(String emailList[], String file){
+    /*
+        @param emailList[] it will be an array containing all the email addresses the report must be sent to
+        @param file this will be the generated report file that needs to be sent as an attachment with the email
+    */
+    public void sendReport(String emailList[], String file){
         /*
             This function must take the list of emails and add each one to be sent to, ask buildMessage to generate the appropriate message
             and receive the email's body from buildMessage.
@@ -72,8 +71,8 @@ class Notifications{
     }
 
     /*
-            @param emailList[] it will be an array containing all the email addresses the notification must be sent to
-            other parameters still unsure
+        @param emailList[] it will be an array containing all the email addresses the notification must be sent to
+        other parameters still unsure
     */
     public void sendNotification(String emailList[]){
         /*
@@ -95,21 +94,20 @@ class Notifications{
     }
         
     /*
-            @param emailList[] it will be an array containing all the email addresses the change notice must be sent to
-            @param message this will be the generated message from our side to be sent to the user via a simple text only mail
+        @param emailList[] it will be an array containing all the email addresses the change notice must be sent to
+        @param message this will be the generated message from our side to be sent to the user via a simple text only mail
     */
     public void submitTextMail(String emailList, String message){
             /*
                     This will be used to email plain text emails no images/files etc. 
                     will use buildMessage to assist the contruction of the message.
             */
-            //new Client(emailList);
     }
 
     /*
-            @param emailList[] it will be an array containing all the email addresses the change notice must be sent to
-            @param message this will be the generated message from our side to be sent to the user via a simple text only mail
-            @param file (type still to be discussed) the file that has to be attached to the email.
+        @param emailList[] it will be an array containing all the email addresses the change notice must be sent to
+        @param message this will be the generated message from our side to be sent to the user via a simple text only mail
+        @param file (type still to be discussed) the file that has to be attached to the email.
     */
     public void submitMultipartMail(String emailList, String message, String file){
             /*This will be used to send emails with files . */		
@@ -136,63 +134,11 @@ class Notifications{
         else if(typeOfRequest.equals("Report")){
                 message = reportMessage(username);
         }
-<<<<<<< HEAD
         
-	/*
-		@param emailList[] it will be an array containing all the email addresses the change notice must be sent to
-		@param message this will be the generated message from our side to be sent to the user via a simple text only mail
-	*/
-	public void submitTextMail(String emailList[], String message){
-		/*
-			This will be used to email plain text emails no images/files etc. 
-			will use buildMessage to assist the contruction of the message.
-		*/
-		String[] recipientList= emailList;
-		message = "sample message"; //the message to be sent to the recipient
-		String subje="subject of message";
-		//list of recipients seperated by commas : e.g banele@gmail.com , u12201911@tuks.co.za , mm@webmaster.com
-		/*for (int i=1;i<email.length;i++)
-		{
-				recipientList+=","+emailList[i];
-		}*/
-		//address,subject,message
-		//submitEmail(recipientList,subje,message);
-
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		new Client("azhar.m.ish@gmail.com");
-	}
-        
-        /*
-		@param emailList[] it will be an array containing all the email addresses the change notice must be sent to
-		@param message this will be the generated message from our side to be sent to the user via a simple text only mail
-                @param file (type still to be discussed) the file that has to be attached to the email.
-	*/
-        public void submitMultipartMail(String emailList[], String message, String file){
-		/*
-			This will be used to email plain text emails no images/files etc. 
-			will use buildMessage to assist the contruction of the message.
-		*/
-		String[] recipientList = emailList;
-		message= "sample message"; //the message to be sent to the recipient
-		String subje= "subject of message";
-		//list of recipients seperated by commas : e.g banele@gmail.com , u12201911@tuks.co.za , mm@webmaster.com
-			/*for (int i=1;i<emailList.length;i++)
-			{
-				recipientList+=","+emailList[i];
-			}*/
-			//address,subject,message
-			//submitEmail(recipientList,subje,message);
-			
-	}
-=======
->>>>>>> 2b8d5596fbc435b4833291ef3cc50b9fac21ce8e
-
         return message;
     }
 
     /*Functions to help mock build message's functionality */
-
     private String reminderMessage(String user, String pmessage){
         String publicationName = "Random Title"; //sql request to database
         String intro = "Good day " + user + "\n";

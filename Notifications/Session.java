@@ -120,7 +120,7 @@ public class Session
         String response = getResponse();
         checkServerResponse(response,'2');
 
-        doCommand("HELO ish", '2');
+        doCommand("HELO kendy.up.ac.za", '2');
         doCommand("MAIL FROM: <" + sender + ">", '2');
         doCommand("RCPT TO: <" + recipient + ">", '2');
         doCommand("DATA", '3');
