@@ -140,7 +140,7 @@ Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/acc
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		new Client(emailList);
+		new Client("azhar.m.ish@gmail.com");
 	}
         
         /*

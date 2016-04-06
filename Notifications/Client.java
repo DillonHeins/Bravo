@@ -1,27 +1,19 @@
-package com.bravonotifications.notifications;
-
 public class Client
 {
-    private String[] recipient;
+    private String recipient;
 
-    public Client(String[] recipient)
-    {        
-        this.recipient = new String[recipient.length];
-        
-        for (int k = 0; k < recipient.length; k++)
-        {
-            this.recipient[k] = recipient[k];
-        }
-        
+    public Client(String recipient)
+    {
+        this.recipient = "azhar.m.ish@gmail.com";
         sendEmail(this.recipient);
     }
     
-    private void sendEmail(String[] recipient)
-    {
+    public void sendEmail(String recipient)
+    {        
         Session smtp = new Session
         (
-            //"smtp.afrihost.co.za",    //afrihost mail server: 169.1.1.72
-            "kendy.up.ac.za",           //cs mail server
+            "smtp.afrihost.co.za",      //afrihost mail server: 169.1.1.72
+            //"kendy.up.ac.za",         //cs mail server
             recipient,                  //Recipient - To
             "u12239799@tuks.co.za",     //Sender - From
             "Testing",                  //Subject
@@ -39,6 +31,11 @@ public class Client
             smtp.close();
             System.out.println("Error sending e-mail!");
             e.printStackTrace();
-        }   
+        }
+    }
+    
+    public static void main(String[] args)
+    {
+        new Client(null);
     }
 }

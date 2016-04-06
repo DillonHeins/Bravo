@@ -1,12 +1,10 @@
-package com.bravonotifications.notifications;
-
 import java.io.*;
 import java.net.*;
 import java.util.*;
 
 public class Session
 {
-    public static final int timeout = 15*1000;
+    public static final int timeout = 15000;
 
     private String host;
     private int port;
@@ -14,26 +12,21 @@ public class Session
     protected BufferedReader in;
     protected OutputStreamWriter out;
 
-    private String[] recipient;
+    private String recipient;
     private String sender;
     private String subject;
     private String message;
 
-    public Session(String host, String[] recipient, String sender, String subject, String message)
+    public Session(String host, String recipient, String sender, String subject, String message)
     {
         this(host, 25, recipient, sender, subject, message);
     }
 
-    public Session(String host, int port, String[] recipient, String sender, String subject, String message)
+    public Session(String host, int port, String recipient, String sender, String subject, String message)
     {
         this.host = host;
         this.port = port;
-
-        for (int k = 0; k < recipient.length; k++)
-        {
-            this.recipient[k] = recipient[k];
-        }
-
+        this.recipient = recipient;
         this.message = message;
         this.sender = sender;
         this.subject = subject;
@@ -114,21 +107,7 @@ public class Session
         headers += "Date: " + new Date().toString() + "\n";
         headers += "Sender: " + sender + "\n";
         headers += "From: " + sender + "\n";
-
-        if (recipient.length == 1)
-        {
-            headers += "To: " + recipient[0] + "\n";
-        }
-        else if (recipient.length > 1)
-        {
-            headers += "To: " + recipient[0] + "\n";
-
-            for (int k = 1; k < recipient.length; k++)
-            {
-                headers += "Cc: " + recipient[k] + "\n";
-            }
-        }
-
+        headers += "To: " + recipient + "\n";
         headers += "Subject: " + subject + "\n";
 
         return headers + "\n\n";
@@ -141,21 +120,9 @@ public class Session
         String response = getResponse();
         checkServerResponse(response,'2');
 
-        doCommand("HELO " + socket.getLocalAddress().toString(), '2');
+        doCommand("HELO ish", '2');
         doCommand("MAIL FROM: <" + sender + ">", '2');
-
-        if (recipient.length == 1)
-        {
-            doCommand("RCPT TO: <" + recipient[0] + ">", '2');
-        }
-        else if (recipient.length > 1)
-        {
-            for (int k = 0; k < recipient.length; k++)
-            {
-                doCommand("RCPT TO: <" + recipient[k] + ">", '2');
-            }
-        }
-
+        doCommand("RCPT TO: <" + recipient + ">", '2');
         doCommand("DATA", '3');
 
         out.write(getMessageHeaders());
