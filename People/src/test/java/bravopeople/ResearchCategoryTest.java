@@ -4,9 +4,9 @@ import junit.framework.TestCase;
 
 import java.util.Date;
 
-public class researchCategoryTest extends TestCase
+public class ResearchCategoryTest extends TestCase
 {
-    public researchCategoryTest(String testName) { super(testName); }
+    public ResearchCategoryTest(String testName) { super(testName); }
 
     /**
      *
@@ -16,7 +16,7 @@ public class researchCategoryTest extends TestCase
      */
     public void testResearchCategory()
     {
-        researchCategory test = new researchCategory("ID", "name", new Date(1451606400000L));
+        ResearchCategory test = new ResearchCategory("ID", "name", new Date(1451606400000L));
         assertEquals("ID", test.getID());
         assertEquals("name", test.getName());
         assertEquals(new Date(1451606400000L), test.getDate());
