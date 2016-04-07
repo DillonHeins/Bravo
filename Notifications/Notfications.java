@@ -89,8 +89,16 @@ class Notifications{
     /*
         @param emailList[] the list of people that need to receive their reminders
     */
-    public void sendReminder(String emailList[]){
-
+    public void sendReminder(String emailList[])		// Should be boolean
+	{
+		for (int i = 0; i < emailList.length; i++)
+		{
+			// Connect to DB
+			// Compare reminder date to current date
+			
+			String message = buildMessage(emailList[i], "Reminder");
+			submitTextMail(emailList[i], "2 Day Reminder", message);
+		}
     }
         
     /*
