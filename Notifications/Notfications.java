@@ -80,10 +80,10 @@ class Notifications{
             Thus each mail must be sent one by one so each user can get his/her personalised notfication.
             This will still buildMessage as that function will get the personalised message from the data base.
         */
-        String message = "Sample message"; //this will be replaced with code to fetch the message stored on the database
-        message = message + "Sent via automatic notifications";
-
-        submitTextMail(emailList[0], message);
+        for (int i = 0; i < emailList.length; i++) {
+            String message = buildMessage(emailList[i], "Notification");
+            submitTextMail(emailList[i], "Automatic Notification", message);
+        }
     }
 
     /*
@@ -210,3 +210,42 @@ Banele's commented out code from login
      //       System.out.println("User logged in ");
  ***************************************************
 */
+/*
+ * ****************************
+ * Daniel's Proposed Function addition
+ *    public void findNotifications() {
+        boolean found = false;
+        int sleep = 2000;
+        while (true) {
+            try {
+                Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/accounts", "postgres", "postgres");
+                Statement stmt = c.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT * FROM users;");
+                while (rs.next()) {
+                    String notify = rs.getString("notification");
+
+                    if (notify != null) {
+                        sendNotification(rs.getString("email"));
+                        found = true;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.err.println(e.getClass().getName() + ": " + e.getMessage());
+                System.exit(0);
+            }
+            if (found) {
+                found = false;
+                sleep = 2000;
+            } else {
+                if (sleep <= 100000) {
+                    Thread.sleep(sleep);
+                    sleep *= 2;
+                } else {
+                    Thread.sleep(sleep);
+                }
+            }
+        }
+    }
+ ***************************
+ */
