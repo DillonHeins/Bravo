@@ -97,11 +97,13 @@ class Notifications{
         @param emailList[] it will be an array containing all the email addresses the change notice must be sent to
         @param message this will be the generated message from our side to be sent to the user via a simple text only mail
     */
-    public void submitTextMail(String emailList, String message){
-            /*
-                    This will be used to email plain text emails no images/files etc. 
-                    will use buildMessage to assist the contruction of the message.
-            */
+    public void submitTextMail(String recipient, String subject, String body){
+        /*
+            This will be used to email plain text emails no images/files etc. 
+            will use buildMessage to assist the contruction of the message.
+        */
+        
+        new Client(recipient, subject, body);
     }
 
     /*
@@ -109,13 +111,13 @@ class Notifications{
         @param message this will be the generated message from our side to be sent to the user via a simple text only mail
         @param file (type still to be discussed) the file that has to be attached to the email.
     */
-    public void submitMultipartMail(String emailList, String message, String file){
-            /*This will be used to send emails with files . */		
+    public void submitMultipartMail(String recipient, String subject, String body, String file){
+        /*This will be used to send emails with files . */		
     }
 
     /*
-            @param email this variable allows the sql request to the data base to allow us to get teh user's name for the mail;
-            @param typeOfRequest specifies the type of request it will be eg a notification or a change notice.
+        @param email this variable allows the sql request to the data base to allow us to get teh user's name for the mail;
+        @param typeOfRequest specifies the type of request it will be eg a notification or a change notice.
     */
     private String buildMessage(String email, String typeOfRequest){ // Frederick
         /*

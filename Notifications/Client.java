@@ -1,35 +1,48 @@
 public class Client
 {
+    private String mailServer;
     private String recipient;
+    private String sender;
+    private String subject;
+    private String body;
+    
+    private static final String clearScreen = "\033[H\033[2J";
+    private static final String green = "\u001B[32m";
+    private static final String reset = "\u001B[0m";
+    private static final String red = "\u001B[31m";
 
-    public Client(String recipient)
+    public Client(String recipient, String subject, String body)
     {
-        this.recipient = "azhar.m.ish@gmail.com";
-        sendEmail(this.recipient);
+        this.mailServer = "kendy.up.ac.za";
+        this.recipient = recipient;
+        this.sender = "donotreply@cs.up.ac.za";
+        this.subject = subject;
+        this.body = body;
+        
+        sendEmail();
     }
     
-    public void sendEmail(String recipient)
+    public void sendEmail()
     {        
         Session smtp = new Session
         (
-            "smtp.afrihost.co.za",      //afrihost mail server: 169.1.1.72
-            //"kendy.up.ac.za",         //cs mail server
-            recipient,                  //Recipient - To
-            "u12239799@tuks.co.za",     //Sender - From
-            "Testing",                  //Subject
-            "Test Successful"           //Body
+            mailServer,
+            recipient, //to
+            sender, //from
+            subject,
+            body
         );
 
         try
         {
             System.out.println("Sending e-mail...");
             smtp.sendMessage();
-            System.out.println("E-mail sent...");
+            System.out.println(clearScreen + green + "E-mail sent..." + reset);
         }
         catch (Exception e)
         {
             smtp.close();
-            System.out.println("Error sending e-mail!");
+            System.out.println(clearScreen + red + "Error sending e-mail!" + reset);
             e.printStackTrace();
         }
     }
