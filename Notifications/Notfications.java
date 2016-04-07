@@ -27,7 +27,7 @@ class Notifications{
                 for (int i = 0; i < emailList.length; i ++){
                     if (emailList[i] != null && !emailList[i].isEmpty()){
                         message = buildMessage(emailList[i], "Report");
-                        submitMultipartMail(emailList[i], message, file);
+                        submitMultipartMail(emailList[i], "Report ready to download" ,message, file);
                     }
                 }
             }
