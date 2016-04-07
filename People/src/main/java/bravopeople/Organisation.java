@@ -6,7 +6,7 @@
 	
 package bravopeople;
 
-class Organisation
+class Organisation implements OrganisationInterface
 {
 	String name;
 	//String ID;

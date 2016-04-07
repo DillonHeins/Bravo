@@ -17,7 +17,7 @@ public class Person implements PersonInterface
 	
 	private LinkedList<Organisation> organisations;  	///Person can belong to 0 or more organisations
 	private LinkedList<ResearchGroupAssociation> research_groups; 	///Person can have multiple associations with research groups
-	private LinkedList<researchCategory> research_category;  ///Person may be associated with a research Category
+	private LinkedList<ResearchCategory> research_category;  ///Person may be associated with a research Category
 	
 	/**
 		Default contructor with dummy data
@@ -32,7 +32,7 @@ public class Person implements PersonInterface
 		
 		organisations = new LinkedList<Organisation>();
 		research_groups = new LinkedList<ResearchGroupAssociation>();
-		research_category = new LinkedList<researchCategory>();
+		research_category = new LinkedList<ResearchCategory>();
 	}
 	
 	/**
@@ -108,7 +108,7 @@ public class Person implements PersonInterface
 	* Setter 	
 	* @param category Research category that the of the person is associated with
 	*/
-	public void setResearchCategory(researchCategory category)
+	public void setResearchCategory(ResearchCategory category)
 	{
 		research_category.add(category);
 	}
@@ -167,7 +167,7 @@ public class Person implements PersonInterface
 	* @return the list of research categories this person is associated with or may return null if they if they are not associated with any.
 	*/
 	
-	public LinkedList<researchCategory> getResearchCategory()
+	public LinkedList<ResearchCategory> getResearchCategory()
 	{
 		if(research_category.isEmpty())
 			return null;
