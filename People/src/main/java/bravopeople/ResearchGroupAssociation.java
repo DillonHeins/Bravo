@@ -14,6 +14,7 @@ class ResearchGroupAssociation implements ResearchGroupAssociationInterface{
 	private Date endDate;		// [0..1]
 	private ResearchGroupAssociationType role;
 	private Group group;
+	private Boolean active;
 	private enum ResearchGroupAssociationType {		
 		STUDENT, COLLABORATOR, MEMBER, GROUPLEADER
 	}
@@ -27,6 +28,7 @@ class ResearchGroupAssociation implements ResearchGroupAssociationInterface{
 		this.endDate = null;
 		this.role = ResearchGroupAssociationType.MEMBER;
 		this.group = new Group();
+		this.active = true;
 	}
 	
 	/**
@@ -74,7 +76,16 @@ class ResearchGroupAssociation implements ResearchGroupAssociationInterface{
 	 * Getter
 	 * @return Role of the person within the research group
 	 */
-	public String getRole() { return "STUDENT"; }
+	public String getRole() {
+		if (this.role == ResearchGroupAssociationType.STUDENT)
+			return "Student";
+		else if (this.role == ResearchGroupAssociationType.COLLABORATOR)
+			return "Collaborator";
+		else if (this.role == ResearchGroupAssociationType.MEMBER)
+			return "Member";
+		else (this.role == ResearchGroupAssociationType.GROUPLEADER)
+			return "Groupleader";
+	}
 
 	/**
 	 * Getter
@@ -138,7 +149,7 @@ class ResearchGroupAssociation implements ResearchGroupAssociationInterface{
 	 */
 	public boolean isActive()
     {
-        return true;
+        return active;
     }
 
 	/**
@@ -146,7 +157,7 @@ class ResearchGroupAssociation implements ResearchGroupAssociationInterface{
 	 */
 	public void activate()
     {
-
+		this.active = true;
     }
 
 	/**
@@ -154,6 +165,6 @@ class ResearchGroupAssociation implements ResearchGroupAssociationInterface{
 	 */
 	public void deactivete()
     {
-
+		this.active = false;
     }
 }	// End of ResearchGroupAssociation class
