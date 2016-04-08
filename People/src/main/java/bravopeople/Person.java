@@ -8,7 +8,7 @@
 package bravopeople;
 import java.util.LinkedList;
 
-public class Person implements PersonInterface
+public class Person extends Entity implements PersonInterface
 {
 	private String Name;
 	private String Surname;

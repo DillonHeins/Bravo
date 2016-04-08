@@ -83,7 +83,7 @@ class ResearchGroupAssociation implements ResearchGroupAssociationInterface{
 			return "Collaborator";
 		else if (this.role == ResearchGroupAssociationType.MEMBER)
 			return "Member";
-		else (this.role == ResearchGroupAssociationType.GROUPLEADER)
+		else
 			return "Groupleader";
 	}
 
