@@ -1,3 +1,4 @@
+package com.bravonotifications.notifications;
 public class AzharEmailTest 
 {
     public static void submitTextMail(String recipient, String subject, String body)

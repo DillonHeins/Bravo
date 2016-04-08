@@ -1,3 +1,4 @@
+package com.bravonotifications.notifications;
 public class Client
 {
     private String mailServer;
