@@ -1,23 +1,47 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+
     repositories {
         jcenter()
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE")
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
+apply plugin: 'spring-boot'
+apply plugin: 'java'
+
 allprojects {
     repositories {
         jcenter()
+        //mavenCentral()
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+jar {
+    baseName = 'gs-consuming-rest'
+    version =  '0.1.0'
 }
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+
+    testCompile("junit:junit")
+    //Android API to implement REST
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'com.fasterxml.jackson.core:jackson-databind'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+

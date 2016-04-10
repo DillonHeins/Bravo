@@ -3,13 +3,50 @@
     <head>
         <title>Start Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="jquery.min.js"></script>
     </head>
     <body>
         <h1>Enter Publication</h1>
-        <form method="POST" action="/webapi/publications/postPublication">
+        <form method="POST" action="publications/webapi/publicationsResource/addPublication">
             Title: <input name="title" type="text">
             Staff Number: <input name="staffNumber" type="text">
             <input type="submit">
         </form>
+        
+        <h1>Enter Person</h1>
+        <!-- <form method="POST" action="/webapi/people/addPerson"> -->
+            First Name: <input name="firstName" type="text" id="firstName">
+            Surname: <input name="surname" type="text" id="surname">
+            Staff Number: <input name="staffNumber" type="text" id="staffNumber">
+            <input type="button" id="addPerson" value="clik">
+        <!-- </form> -->
+
+        <a href="../people/webapi/peopleResource/getPerson">GetPerson</a>
+
+        <script type="text/javascript">
+        	$("#addPerson").on("click", function() {
+        		$.ajax({
+        			type: 'POST',
+                    contentType: 'application/json',
+        			url: '../people/webapi/peopleResource/addPerson',
+        			dataType: 'json',
+        			data: formToJSON(),
+        			success: function(data, textStatus, jqXHR){
+                        alert('Person created successfully');
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        alert('error: ' + textStatus);
+                    }
+        		});
+        	});
+
+            function formToJSON() {
+                return JSON.stringify({
+                    "firstName": $('#firstName').val(),
+                    "surname": $('#surname').val(),
+                    "staffNumber": $('#staffNumber').val()
+                });
+            }
+        </script>
     </body>
 </html>

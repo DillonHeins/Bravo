@@ -5,49 +5,42 @@
  */
 package bravo.publications.resource;
 
-import bravo.publications.ejb.PublicationsBean;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import bravo.publications.ejb.*;
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
-import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
-
 
 /**
  *
  * @author Dillon
  */
-@Path("publications")
+@Path("publicationsResource")
 public class PublicationsResource {
-    @EJB
-    private PublicationsBean publicationsBean;
-    
-    @GET
-    @Path("createPublication")
-    public void createPublication() {
-        publicationsBean.createPublication("Publication Name", "14035538");
-    }
-    
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Path("postPublication")
-    public void postPublication(@FormParam("title") String title, @FormParam("staffNumber") String staffNumber) {
-        publicationsBean.createPublication(title, staffNumber);
+    @Path("addPublication")
+    public void addPublication(@FormParam("title") String title, @FormParam("staffNumber") String staffNumber) {
+        publicationsBean.addPublication(title, staffNumber);
     }
     
     @GET
-    @Produces("text/plain")
-    @Path("getPublication")
-    public String getPublication() {
-        String publications = "";
+    @Produces(MediaType.TEXT_PLAIN)
+    @Path("getPublications")
+    public String getPublications() {
+        String titles = "";
         
-        for (int i = 0; i < publicationsBean.getPublications().size(); ++i) {
-            publications += publicationsBean.getPublications().get(i) + "\n";
+        for (int i = 0; i < publicationsBean.getTitle("14035538").size(); ++i) {
+            titles += publicationsBean.getTitle("14035538").get(i) + "\n";
         }
         
-        return publications;
+        return titles;
     }
+    
+    @EJB
+    PublicationsBean publicationsBean;
 }

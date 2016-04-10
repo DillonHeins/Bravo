@@ -6,11 +6,11 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>people_test</module>
-        <module>main</module>
+        <module>people</module>
         <module>publications</module>
-    <module>people</module>
-    <module>people_ejb</module>
+        <module>mainweb</module>
+        <module>reporting</module>
+    <module>notifications</module>
   </modules>
     <properties>
         <javaee.api.version>7.0</javaee.api.version>
@@ -66,4 +66,12 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    
+    <repositories>
+        <repository>
+            <id>snapshots</id>
+            <name>Snapshots</name>
+            <url>http://ec2-54-213-154-144.us-west-2.compute.amazonaws.com:8081/nexus/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
 </project>
