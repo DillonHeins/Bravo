@@ -5,6 +5,8 @@
  */
 package bravo.people.test;
 
+import bravo.people.entity.PersonEntity;
+import bravo.people.implementations.Group;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
@@ -16,23 +18,25 @@ import org.junit.Test;
  * @author Dillon
  */
 public class PeopleTest {
-    private static Person mockPerson;
+    private static PersonEntity mockPerson;
     
     @BeforeClass
     public static void setUp() {
-        mockPerson = mock(Person.class);
+        mockPerson = mock(PersonEntity.class);
         
-        when(mockPerson.getFirstName()).thenReturn("Dillon");
-        when(mockPerson.getSurname()).thenReturn("Heins");
-        when(mockPerson.getStaffNumber()).thenReturn("14035538");
-        when(mockPerson.getEmail()).thenReturn("dheins@gmail.com");
+        Person person = new Person("Dillon", "Heins", "14035538", "dheins@gmail.com");
+        Group group = new Group("CIRG");
+        
+        when(mockPerson.getPerson()).thenReturn(person);
+        when(mockPerson.getGroup()).thenReturn(group);
     }
     
     @Test
     public void testGetPerson() {
-        assertEquals("Dillon", mockPerson.getFirstName());
-        assertEquals("Heins", mockPerson.getSurname());
-        assertEquals("14035538", mockPerson.getStaffNumber());
-        assertEquals("dheins@gmail.com", mockPerson.getEmail());
+        assertEquals("Dillon", mockPerson.getPerson().getFirstName());
+        assertEquals("Heins", mockPerson.getPerson().getSurname());
+        assertEquals("14035538", mockPerson.getPerson().getStaffNumber());
+        assertEquals("dheins@gmail.com", mockPerson.getPerson().getEmail());
+        assertEquals("CIRG", mockPerson.getGroup().getName());
     }
 }

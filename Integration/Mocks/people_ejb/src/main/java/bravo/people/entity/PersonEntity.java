@@ -1,5 +1,7 @@
 package bravo.people.entity;
 
+import bravo.people.implementations.Group;
+import bravo.people.implementations.Organisation;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +24,7 @@ import javax.persistence.OneToOne;
     @NamedQuery(name = "getPerson",
         query = "SELECT p.person FROM PersonEntity p WHERE p.person.staffNumber = '14035538'"),
     @NamedQuery(name="getID",
-              query="SELECT p.id FROM PersonEntity p WHERE p.person.firstName = 'Hank'")
+              query="SELECT p.id FROM PersonEntity p WHERE p.person.firstName = 'Thomas'")
 })
 public class PersonEntity implements Serializable {
 
@@ -34,19 +36,19 @@ public class PersonEntity implements Serializable {
     @Embedded
     Person person;
     
-//    private String firstName;
-//    private String surname;
-//    private String staffNumber;
-
+    @Embedded
+    Group group;
+    
+    @Embedded
+    Organisation organisation;
+    
     public PersonEntity() {
         
     }
     
-    public PersonEntity(Person person) {
+    public PersonEntity(Person person, Group group) {
         this.person = person;
-//        this.firstName = firstName;
-//        this.surname = surname;
-//        this.staffNumber = staffNumber;
+        this.group = group;
     }
     
     public Person getPerson() {
@@ -57,29 +59,13 @@ public class PersonEntity implements Serializable {
         this.person = person;
     }
     
-//    public String getFirstName() {
-//        return firstName;
-//    }
-//
-//    public void setFirstName(String firstName) {
-//        this.firstName = firstName;
-//    }
-//
-//    public String getSurname() {
-//        return surname;
-//    }
-//
-//    public void setSurname(String surname) {
-//        this.surname = surname;
-//    }
-//
-//    public String getStaffNumber() {
-//        return staffNumber;
-//    }
-//
-//    public void setStaffNumber(String staffNumber) {
-//        this.staffNumber = staffNumber;
-//    }
+     public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 
     public Long getId() {
         return id;

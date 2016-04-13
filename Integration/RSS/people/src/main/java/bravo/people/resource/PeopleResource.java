@@ -7,7 +7,6 @@ package bravo.people.resource;
 
 import javax.ws.rs.Path;
 import bravo.people.ejb.*;
-import bravo.people.model.*;
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
@@ -17,7 +16,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import bravo.people.implementations.Person;
+import bravo.people.implementations.PersonModel;
 
 /**
  *
@@ -35,8 +34,9 @@ public class PeopleResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("addPerson")
-    public Response addPerson(Person person) {
-        peopleBean.addPerson(person.getFirstName(), person.getSurname(), person.getStaffNumber(), person.getEmail());
+    public Response addPerson(PersonModel personModel) {
+        peopleBean.addPerson(personModel.getFirstName(), personModel.getSurname(),
+                personModel.getStaffNumber(), personModel.getEmail(), personModel.getGroup());
         return Response.ok("{}", MediaType.APPLICATION_JSON).build();
     }
     

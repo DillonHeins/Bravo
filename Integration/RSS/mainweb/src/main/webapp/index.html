@@ -20,6 +20,7 @@
             First Name: <input name="firstName" type="text" id="firstName">
             Surname: <input name="surname" type="text" id="surname">
             Staff Number: <input name="staffNumber" type="text" id="staffNumber">
+            Group Name: <input name="group" type="text" id="group">
             <input type="button" id="addPerson" value="clik">
         <!-- </form> -->
 
@@ -46,7 +47,8 @@
                 return JSON.stringify({
                     "firstName": $('#firstName').val(),
                     "surname": $('#surname').val(),
-                    "staffNumber": $('#staffNumber').val()
+                    "staffNumber": $('#staffNumber').val(),
+                    "group": $("#group").val()
                 });
             }
         </script>

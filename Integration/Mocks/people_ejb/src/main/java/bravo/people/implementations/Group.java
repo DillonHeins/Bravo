@@ -2,90 +2,99 @@ package bravo.people.implementations;
 
 import bravo.people.interfaces.GroupInterface;
 import java.util.*;
+import javax.persistence.Embeddable;
 
 /**
  * <h1>Group</h1>
- * The group class to which either a person or subgroups can belong to (Composite pattern).
+ * The group class to which either a person or subgroups can belong to
+ * (Composite pattern).
+ *
  * @author Bravo Team
  * @version 1.0
  */
+@Embeddable
 public class Group implements GroupInterface {
-	private String name;
-//	private ArrayList<Entity> entities;		// Composite Pattern
 
-	/**
-	 * Default constructor - Dummy object creation
-	 */
-	public Group() {
-		this.name = "MockGroup";
-//		this.entities = new ArrayList<Entity>();
-	}
+    private String name;
 
-	/**
-	 * Creates a group object which may consist of sub groups or people.
-	 * @param name Name of the group 
-	 * @param entities Subgroups or people contain in the Group class
-	 */
-	/*public Group(String name, ArrayList<Entity> entities) {
+    /**
+     * Default constructor - Dummy object creation
+     */
+    public Group() {
+    }
+
+    public Group(String groupName) {
+        this.name = groupName;
+    }
+
+    /**
+     * Creates a group object which may consist of sub groups or people.
+     *
+     * @param name Name of the group
+     * @param entities Subgroups or people contain in the Group class
+     */
+    /*public Group(String name, ArrayList<Entity> entities) {
 		this.name = name;
 //		this.entities = entities;
 	}*/
+    /**
+     * Getter
+     *
+     * @return Group's name
+     */
+    public String getName() {
+        return this.name;
+    }
 
-	/**
-	 * Getter
-	 * @return Group's name
-	 */
-	public String getName() { return name; }
+    /**
+     * Getter
+     *
+     * @return Dynamically re-sizable ArrayList used to store subgroups or
+     * person objects
+     */
+    /*public ArrayList<Entity> getEntities() { return entities; }*/
+    /**
+     * Setter
+     *
+     * @param name Group's name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	/**
-	 * Getter
-	 * @return Dynamically re-sizable ArrayList used to store subgroups or person objects 
-	 */
-	/*public ArrayList<Entity> getEntities() { return entities; }*/
-
-	/**
-	 * Setter
-	 * @param name Group's name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/*public void addEntity(Entity entity)
+    /*public void addEntity(Entity entity)
 	{
 		this.entities.add(entity);
 	}*/
-
-	/**
-	 * Setter
-	 * @param entities Dynamically re-sizable ArrayList used to store subgroups or person objects 
-	 */
-	/*public void setEntities(ArrayList<Entity> entities) {
+    /**
+     * Setter
+     *
+     * @param entities Dynamically re-sizable ArrayList used to store subgroups
+     * or person objects
+     */
+    /*public void setEntities(ArrayList<Entity> entities) {
 		this.entities = entities;
 	}*/
-
     /**
      * Checks if the group is active or inactive
+     *
      * @return true if active (default), false if inactive.
      */
-    public boolean isActive()
-    {
+    public boolean isActive() {
         return true;
     }
 
     /**
      * Sets the group to active (true)
      */
-    public void activate()
-    {
+    public void activate() {
 
     }
 
     /**
      * Sets the group to inactive (false)
      */
-    public void deactivate()
-    {
+    public void deactivate() {
 
     }
 }
