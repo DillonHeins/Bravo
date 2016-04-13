@@ -1,0 +1,52 @@
+<header id="currLocation">
+    You are here - <a href="/">home</a>-&gt;<a href="/reporting">reporting</a>-&gt;<a href="/reporting/view">view</a><br>
+    <h1>View Report</h1>
+</header>
+<section id="mainView">
+    <div id="search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go</button>
+            </span>
+          </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+    
+    <br>
+    <br>
+    
+    <form role="form">
+        <div class="form-group">
+            <div class="panel panel-default">
+                <div id ="result" class="panel-heading">Results</div>
+                <div class="panel-body" id="listDetails">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Group</th>
+                              <th>Publication Type</th>
+                              <th>Progress Status</th>
+                              <th>State</th>
+                              <th>Due Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each model as |reportObj|}}
+                            <tr>
+                              <th scope="row">{{reportObj.number}}</th>
+                              <td>{{reportObj.group}}</td>
+                              <td>{{reportObj.pupType}}</td>
+                              <td>{{reportObj.ProgStat}}</td>
+                              <th>{{reportObj.state}}</th>
+                              <th>{{reportObj.dueDate}}</th>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+</section>
