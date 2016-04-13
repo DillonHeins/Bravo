@@ -1,4 +1,4 @@
-package bravopeople;
+package bravo.people.interfaces;
 
 import java.util.ArrayList;
 
@@ -23,19 +23,19 @@ public interface GroupInterface
      * Sets the entities related to the group.
      * @param entities An ArrayList of all the entities.
      */
-    public void setEntities(ArrayList<Entity> entities);
+//    public void setEntities(ArrayList<Entity> entities);
 
     /**
      * Adds an entity relationship to the group.
      * @param entity The entity to be added.
      */
-    public void addEntity(Entity entity);
+//    public void addEntity(Entity entity);
 
     /**
      * Gets the entities related to the group.
      * @return An ArrayList of all the entities.
      */
-    public ArrayList<Entity> getEntities();
+//    public ArrayList<Entity> getEntities();
 
     /**
      * Checks if the group is active or inactive

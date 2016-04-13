@@ -15,13 +15,16 @@ import javax.persistence.PersistenceContext;
 @LocalBean
 public class PeopleBean {
     public void addPerson(String firstName, String surname, String staffNumber) {
-        PersonEntity person = new PersonEntity(firstName, surname, staffNumber);
-        em.persist(person);
+        Person person = new Person();
+        PersonEntity personEntity = new PersonEntity(person);
+        em.persist(personEntity);
     }
 
-    public List<String> getPerson() {
-        List<String> firstNames = (List<String>) em.createNamedQuery("getPerson").getResultList();
-        return firstNames;
+    public String getPerson() {
+//        List<String> firstNames = (List<String>) em.createNamedQuery("getPerson").getResultList();
+//        return firstNames;
+        Person tempPerson = (Person) em.createNamedQuery("getPerson").getSingleResult();
+        return tempPerson.getEmail() + " " + tempPerson.getName();
     }
     
     @PersistenceContext

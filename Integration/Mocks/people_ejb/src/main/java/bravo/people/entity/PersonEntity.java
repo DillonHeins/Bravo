@@ -7,13 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
+import bravo.people.ejb.Person;
+
 /**
  *
  * @author Dillon
  */
 @Entity
 @NamedQuery(name = "getPerson",
-        query = "SELECT p.firstName FROM PersonEntity p WHERE p.staffNumber = '14035538'")
+        query = "SELECT p.person FROM PersonEntity p WHERE p.person.email = 'email@domain.com'")
 public class PersonEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -21,43 +23,48 @@ public class PersonEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    private String firstName;
+    Person person;
+    
+    /*private String firstName;
     private String surname;
-    private String staffNumber;
+    private String staffNumber;*/
 
     public PersonEntity() {
         
     }
     
-    public PersonEntity(String firstName, String surname, String staffNumber) {
-        this.firstName = firstName;
+    public PersonEntity(Person person) {
+        this.person = person;
+        /*this.firstName = firstName;
         this.surname = surname;
-        this.staffNumber = staffNumber;
+        this.staffNumber = staffNumber;*/
     }
     
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getStaffNumber() {
-        return staffNumber;
-    }
-
-    public void setStaffNumber(String staffNumber) {
-        this.staffNumber = staffNumber;
-    }
+    
+    
+//    public String getFirstName() {
+//        return firstName;
+//    }
+//
+//    public void setFirstName(String firstName) {
+//        this.firstName = firstName;
+//    }
+//
+//    public String getSurname() {
+//        return surname;
+//    }
+//
+//    public void setSurname(String surname) {
+//        this.surname = surname;
+//    }
+//
+//    public String getStaffNumber() {
+//        return staffNumber;
+//    }
+//
+//    public void setStaffNumber(String staffNumber) {
+//        this.staffNumber = staffNumber;
+//    }
 
     public Long getId() {
         return id;
