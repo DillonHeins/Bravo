@@ -1,34 +1,38 @@
-<button class="btn btn-danger" data-toggle="modal" data-target="#UploadFile">Import from CSV file</button>
+{{!-- <div id="importFromCSV"> --}}
+	<button class="btn btn-danger" data-toggle="modal" data-target="#UploadFile">Import from CSV file</button>
 
-<div id="UploadFile" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Select a CSV file</h4>
-			</div>
-			<div class="modal-body">
-				<form id="modal-form" action="#" method="POST">
-					<div class="panel panel-primary" id="dropzone" style="border-style:hidden">
-						<div class="panel-heading" style="background-color:#20549d;">
-							Drag and Drop your file below or click to choose your file
-						</div>
-						<div class="panel-body" style="border-style:hidden dashed dashed; border-width:3px; border-color:#20549d;">
+	<div id="UploadFile" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Select a CSV file</h4>
+				</div>
+				<div class="modal-body">
+					<form id="modal-form" action="#" method="POST">
+						<div class="panel panel-primary" id="dropzone" style="border-style:hidden">
+							<div class="panel-heading" style="background-color:#20549d;">
+								Drag and Drop your file below or click to choose your file
+							</div>
+							<div class="panel-body" style="border-style:hidden dashed dashed; border-width:3px; border-color:#20549d;">
+									
+									<img src="http://s7.postimg.org/x0wdbwv17/csv_file_upload.png" alt="Upload CSV File" id="csvimg"/>
 								
-								<img src="http://s7.postimg.org/x0wdbwv17/csv_file_upload.png" alt="Upload CSV File" id="csvimg"/>
-							
-							<input type="file" id="file-choose" style="height:100px;" onchange={{action 'fileChange'}} required/>
-							<h5 id="fileName">{{fileName}}</h5><button type="reset" id="resets" class="btn btn-link glyphicon glyphicon-trash" style="visibility:hidden" onclick={{action 'reset'}}></button>
+								<input type="file" id="file-choose" style="height:100px;" onchange={{action 'fileChange'}} required/>
+								<h5 id="fileName">{{fileName}}</h5><button type="reset" id="resets" class="btn btn-link" style="visibility:hidden" onclick={{action 'reset'}}><span id="trash">Remove</span></button>
+							</div>
 						</div>
-					</div>
-					<p id="error" style="color:red; font-weight: bold; padding-bottom:-5%"></p>
-					<br/>
-					<div class="btn-group" style="padding-top: 15px; margin-left: 35%;">
-						<button type="submit" class="btn btn-danger" onclick={{action "isCSV"}}><span class="glyphicon glyphicon-upload"></span> Upload File</button>
-						<button type="reset" class="btn btn-danger" data-dismiss="modal" id="reset" onclick={{action 'reset'}}><span class="glyphicon glyphicon-cancel"></span>Cancel</button>
-					</div>
-				</form>
+						<div id="error">
+						</div>
+						<br/>
+						<div class="btn-group" style="padding-top: 15px; margin-left: 35%;">
+							<button type="submit" class="btn btn-danger" onclick={{action "isCSV"}}>Upload File</button>
+							<button type="reset" class="btn btn-danger" data-dismiss="modal" id="reset" onclick={{action 'reset'}}><span class="glyphicon glyphicon-cancel"></span>Cancel</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+{{!-- </div> --}}
+{{!-- <br/>--}}

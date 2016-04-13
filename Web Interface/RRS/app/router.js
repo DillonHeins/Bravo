@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('home', {path: '/'});
-
+  this.route('import', { path: '/import'});
   //TODO: Create a route and add sub routes to it. E.g.:
   this.route('publication', {path: '/publication'}, function () {
     this.route('add', { path: '/add'});
