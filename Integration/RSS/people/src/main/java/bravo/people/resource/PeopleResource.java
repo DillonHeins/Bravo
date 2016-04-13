@@ -40,16 +40,23 @@ public class PeopleResource {
     
     @GET
     @Produces(MediaType.TEXT_PLAIN)
+    @Path("getID")
+    public String getID() {
+        return peopleBean.getID();
+    }
+    
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
     @Path("getPerson")
     public String getPerson() {
-//        String persons = "";
-//        
+        String persons = "";
+        
 //        for (int i = 0; i < peopleBean.getPerson().size(); ++i) {
 //            persons += peopleBean.getPerson().get(i) + "\n";
 //        }
         
-//        return persons;
         return peopleBean.getPerson();
+//        return peopleBean.getPerson();
     }
     
     @EJB
