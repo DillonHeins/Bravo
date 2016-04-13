@@ -8,16 +8,20 @@
 package bravopeople;
 import java.util.LinkedList;
 
-public class Person
+public class Person extends Entity implements PersonInterface
 {
 	private String Name;
 	private String Surname;
 	private String ID;
 	private String email_address;
+    private UserRight rights;
+	private enum UserRight {
+	RESEARCHER, RESEARCHGROUPLEADER, ADMIN
+	}
 	
 	private LinkedList<Organisation> organisations;  	///Person can belong to 0 or more organisations
 	private LinkedList<ResearchGroupAssociation> research_groups; 	///Person can have multiple associations with research groups
-	private LinkedList<researchCategory> research_category;  ///Person may be associated with a research Category
+	private LinkedList<ResearchCategory> research_category;  ///Person may be associated with a research Category
 	
 	/**
 		Default contructor with dummy data
@@ -29,10 +33,11 @@ public class Person
 		Surname = "Surname";
 		ID= "00000000000";
 		email_address = "email@domain.com";
+        rights = RESEARCHER;
 		
 		organisations = new LinkedList<Organisation>();
 		research_groups = new LinkedList<ResearchGroupAssociation>();
-		research_category = new LinkedList<researchCategory>();
+		research_category = new LinkedList<ResearchCategory>();
 	}
 	
 	/**
@@ -42,12 +47,13 @@ public class Person
 	*	@param id Identity number of the person
 	*	@param email Email Address of the person
 	*/
-	Person(String name,String surname,String id,String email)
+	Person(String name,String surname,String id,String email, String right)
 	{
 		setName(name);
 		setSurname(surname);
 		setEmail(email);
 		setID(id);
+        setUserRights(right);
 	}
 	
 	/**
@@ -108,7 +114,7 @@ public class Person
 	* Setter 	
 	* @param category Research category that the of the person is associated with
 	*/
-	public void setResearchCategory(researchCategory category)
+	public void setResearchCategory(ResearchCategory category)
 	{
 		research_category.add(category);
 	}
@@ -145,7 +151,7 @@ public class Person
 	* Getter
 	* @return The  primary of the person
 	*/
-	String getEmail()
+	public String getEmail()
 	{
 		return email_address;
 	}
@@ -167,7 +173,7 @@ public class Person
 	* @return the list of research categories this person is associated with or may return null if they if they are not associated with any.
 	*/
 	
-	public LinkedList<researchCategory> getResearchCategory()
+	public LinkedList<ResearchCategory> getResearchCategory()
 	{
 		if(research_category.isEmpty())
 			return null;
@@ -186,6 +192,37 @@ public class Person
 		else
 			return research_groups;
 	}
+
+    /**
+     *  Setter
+     *  Set the user rights.
+     * @param right Can be:
+     *              ADMIN
+     *              RESEARCHER
+     *              RESEARCHGROUPLEADER
+     */
+	public void setUserRights(String right)
+    {
+        if (right.toUpperCase().equals("ADMIN"))
+            rights = ADMIN;
+        else if (right.toUpperCase().equals("RESEARCHER"))
+            rights = RESEARCHER;
+        else if (right.toUpperCase().equals("RESEARCHGROUPLEADER"))
+            rights = RESEARCHGROUPLEADER;
+    }
+
+    /**
+     * Getter
+     * @return The user rights for the person. Returns:
+     *                                          ADMIN
+     *                                          RESEARCHER
+     *                                          RESEARCHGROUPLEADER
+     */
+    public UserRight getUserRights()
+    {
+        return rights;
+    }
+
 }
 
   

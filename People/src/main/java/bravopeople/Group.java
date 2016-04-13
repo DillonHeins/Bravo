@@ -8,7 +8,7 @@ import java.util.*;
  * @author Bravo Team
  * @version 1.0
  */
-class Group implements GroupInterface {
+class Group extends Entity implements GroupInterface {
 	private String name;
 	private ArrayList<Entity> entities;		// Composite Pattern
 
@@ -52,7 +52,7 @@ class Group implements GroupInterface {
 
 	public void addEntity(Entity entity)
 	{
-		
+		this.entities.add(entity);
 	}
 
 	/**
@@ -62,4 +62,29 @@ class Group implements GroupInterface {
 	public void setEntities(ArrayList<Entity> entities) {
 		this.entities = entities;
 	}
+
+    /**
+     * Checks if the group is active or inactive
+     * @return true if active (default), false if inactive.
+     */
+    public boolean isActive()
+    {
+        return true;
+    }
+
+    /**
+     * Sets the group to active (true)
+     */
+    public void activate()
+    {
+
+    }
+
+    /**
+     * Sets the group to inactive (false)
+     */
+    public void deactivate()
+    {
+
+    }
 }

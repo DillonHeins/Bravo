@@ -36,4 +36,20 @@ public interface GroupInterface
      * @return An ArrayList of all the entities.
      */
     public ArrayList<Entity> getEntities();
+
+    /**
+     * Checks if the group is active or inactive
+     * @return true if active (default), false if inactive.
+     */
+    public boolean isActive();
+
+    /**
+     * Sets the group to active (true)
+     */
+    public void activate();
+
+    /**
+     * Sets the group to inactive (false)
+     */
+    public void deactivate();
 }
