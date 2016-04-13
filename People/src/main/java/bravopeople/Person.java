@@ -14,6 +14,10 @@ public class Person extends Entity implements PersonInterface
 	private String Surname;
 	private String ID;
 	private String email_address;
+    private UserRight rights;
+	private enum UserRight {
+	RESEARCHER, RESEARCHGROUPLEADER, ADMIN
+	}
 	
 	private LinkedList<Organisation> organisations;  	///Person can belong to 0 or more organisations
 	private LinkedList<ResearchGroupAssociation> research_groups; 	///Person can have multiple associations with research groups
@@ -29,6 +33,7 @@ public class Person extends Entity implements PersonInterface
 		Surname = "Surname";
 		ID= "00000000000";
 		email_address = "email@domain.com";
+        rights = RESEARCHER;
 		
 		organisations = new LinkedList<Organisation>();
 		research_groups = new LinkedList<ResearchGroupAssociation>();
@@ -42,12 +47,13 @@ public class Person extends Entity implements PersonInterface
 	*	@param id Identity number of the person
 	*	@param email Email Address of the person
 	*/
-	Person(String name,String surname,String id,String email)
+	Person(String name,String surname,String id,String email, String right)
 	{
 		setName(name);
 		setSurname(surname);
 		setEmail(email);
 		setID(id);
+        setUserRights(right);
 	}
 	
 	/**
@@ -186,6 +192,37 @@ public class Person extends Entity implements PersonInterface
 		else
 			return research_groups;
 	}
+
+    /**
+     *  Setter
+     *  Set the user rights.
+     * @param right Can be:
+     *              ADMIN
+     *              RESEARCHER
+     *              RESEARCHGROUPLEADER
+     */
+	public void setUserRights(String right)
+    {
+        if (right.toUpperCase().equals("ADMIN"))
+            rights = ADMIN;
+        else if (right.toUpperCase().equals("RESEARCHER"))
+            rights = RESEARCHER;
+        else if (right.toUpperCase().equals("RESEARCHGROUPLEADER"))
+            rights = RESEARCHGROUPLEADER;
+    }
+
+    /**
+     * Getter
+     * @return The user rights for the person. Returns:
+     *                                          ADMIN
+     *                                          RESEARCHER
+     *                                          RESEARCHGROUPLEADER
+     */
+    public UserRight getUserRights()
+    {
+        return rights;
+    }
+
 }
 
   

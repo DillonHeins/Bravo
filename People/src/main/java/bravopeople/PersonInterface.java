@@ -95,6 +95,27 @@ public interface PersonInterface
      * @return List of research groups this person is associated with.
      */
     public LinkedList<ResearchGroupAssociation> getResearchGroupAssociation();
+
+
+
+    /**
+     *  Setter
+     *  Set the user rights.
+     * @param right Can be:
+     *              ADMIN
+     *              RESEARCHER
+     *              RESEARCHGROUPLEADER
+     */
+    public void setUserRights(String right);
+
+    /**
+     * Getter
+     * @return The user rights for the person. Returns:
+     *                                          ADMIN
+     *                                          RESEARCHER
+     *                                          RESEARCHGROUPLEADER
+     */
+    public UserRight getUserRights();
     
     /**
      * 
