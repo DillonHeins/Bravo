@@ -1,4 +1,5 @@
 package bravo.notifications.ejb;
+
 public class Client
 {
     private String mailServer;
@@ -19,6 +20,17 @@ public class Client
         this.sender = "donotreply@cs.up.ac.za";
         this.subject = subject;
         this.body = body;
+        
+        sendEmail();
+    }
+    
+    public Client(String recipient, String subject, String body, String file)
+    {
+        this.mailServer = "kendy.up.ac.za";
+        this.recipient = recipient;
+        this.sender = "donotreply@cs.up.ac.za";
+        this.subject = subject;
+        this.body = body + "\n\n" + file;
         
         sendEmail();
     }

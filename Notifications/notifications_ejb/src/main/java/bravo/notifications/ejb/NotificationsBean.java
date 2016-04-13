@@ -133,8 +133,12 @@ public class NotificationsBean {
         @param message this will be the generated message from our side to be sent to the user via a simple text only mail
         @param file (type still to be discussed) the file that has to be attached to the email.
      */
-    public void submitMultipartMail(String recipient, String subject, String body, String file) {
+    public boolean submitMultipartMail(String recipient, String subject, String body, String file) {
         /*This will be used to send emails with files . */
+        
+        new Client(recipient, subject, body, file);
+        
+        return true;
     }
 
     /*
