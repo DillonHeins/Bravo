@@ -1,0 +1,52 @@
+<header id="currLocation">
+    You are here - <a href="/">home</a>-&gt;<a href="/persons">persons</a>-&gt;<a href="/persons/edit">edit</a><br>
+    <h1>Edit Person</h1>
+</header>
+   
+      <label for="userselect">Select the user you want to edit</label>
+      <div class="dropdown" id="userselect">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Users
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+           {{#each model as |uName|}}
+                 <li><a href="#">{{uName.Name}}</a></li> 
+         {{/each}}
+        </ul>
+      </div>
+      <hr />
+	   <form role="form" hidden>
+        <div class="form-group">
+        <label for="Firstname">First Names:</label>
+        <input type="input" class="form-control" id="Firstname">
+      </div>
+     <div class="form-group">
+        <label for="Surname">Surname:</label>
+        <input type="input" class="form-control" id="Surname">
+      </div>
+      <div class="form-group">
+	  <label for="organization">Organization:</label>
+	  <input type="input" class="form-control" id="organization">
+	  </div>
+    <div class="form-group">
+        <label for="email">Email Address:</label> 
+        <input type="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+	<label for="catselect">Select researcher category</label>
+	<div class="dropdown" id="catselect">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Categories
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <li><a href="#">Category 1</a></li>
+          <li><a href="#">Category 2</a></li>
+          <li><a href="#">Category 3</a></li>
+          <li><a href="#">Category 4</a></li>
+        </ul>
+    </div>
+    </div>
+      <button type="submit" class="btn btn-danger">Save Changes</button>
+</form>
