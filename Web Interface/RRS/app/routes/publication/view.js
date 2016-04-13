@@ -9,7 +9,7 @@ model () {
                 group: "Alpha",
                 author: "Linda Marshall, Vreda Pieterse",
                 pupType: "Conference Paper",
-                ProgStat: "60%",
+                ProgStat: 100,
                 state: "In Progress",
                 dueDate: "24/04/16"
             }, {
@@ -18,7 +18,7 @@ model () {
                 group: "Olmega",
                 author: "Andries Engelbrecht",
                 pupType: "Journal",
-                ProgStat: "30%",
+                ProgStat: 30,
                 state: "In Progress",
                 dueDate: "01/04/16"
             }
