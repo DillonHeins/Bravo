@@ -1,5 +1,5 @@
 {{!-- <div id="importFromCSV"> --}}
-	<button class="btn btn-danger" data-toggle="modal" data-target="#UploadFile">Import from CSV file</button>
+	<button class="btn btn-danger marginBottom" data-toggle="modal" data-target="#UploadFile">Import from CSV file</button>
 
 	<div id="UploadFile" class="modal fade" role="dialog">
 		<div class="modal-dialog">
@@ -15,9 +15,9 @@
 								Drag and Drop your file below or click to choose your file
 							</div>
 							<div class="panel-body" style="border-style:hidden dashed dashed; border-width:3px; border-color:#20549d;">
-									
+
 									<img src="http://s7.postimg.org/x0wdbwv17/csv_file_upload.png" alt="Upload CSV File" id="csvimg"/>
-								
+
 								<input type="file" id="file-choose" style="height:100px;" onchange={{action 'fileChange'}} required/>
 								<h5 id="fileName">{{fileName}}</h5><button type="reset" id="resets" class="btn btn-link" style="visibility:hidden" onclick={{action 'reset'}}><span id="trash">Remove</span></button>
 							</div>

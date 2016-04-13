@@ -10,16 +10,16 @@
             <span class="input-group-addon" id="basic-addon1">Publication Title </span>
             <input type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon1">
         </div>
-        
+
         <br>
-        
+
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Publication Website</span>
             <input type="text" class="form-control" placeholder="www.atsomewebsite.com" aria-describedby="basic-addon1">
         </div>
-        
+
         <br>
-        
+
         <div class="input-group">
             <div class="checkbox">
                 <label><input type="checkbox">Is Completed</label>
@@ -45,7 +45,7 @@
                     {{/each}}
                 {{/each}}
             </ul>
-        
+
         </div>
         <br>
         <div class="input-group">
@@ -69,7 +69,7 @@
                                     {{#each page.name as |sub|}}
                                     <a href="#" class="list-group-item">{{sub.name}}</a>
                                     {{/each}}
-                                {{/each}} 
+                                {{/each}}
                             </div>
                         </div>
 
@@ -83,18 +83,18 @@
                     {{#each model as |page|}}
                         {{#each page.name as |sub|}}
                         <li><a href="query"> {{sub.name}} </a></li>
-                        {{/each}} 
+                        {{/each}}
                     {{/each}}
                 </ul>
-            
+
             </div>
             <br>
         </div>
         <!-- add seperate handlebars for dropdown -->
         <br>
 
-        
-        <button type="submit" class="btn btn-danger">Add Publication</button>
+
+        <button type="submit" class="btn btn-danger marginBottom">Add Publication</button>
     </form>
 
 </section>

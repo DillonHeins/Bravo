@@ -12,7 +12,7 @@
 				{{#each model as |page|}}
 					{{#each page.name as |sub|}}
 					<li><a href="query"> {{sub.name}} </a></li>
-					{{/each}} 
+					{{/each}}
 				{{/each}}
 			</ul>
 
@@ -27,14 +27,14 @@
 	</form>
 	<br>
 	<div class="panel panel-default">
-		<div class="panel-body">
+		<div class="panel-body" id="pubContainer">
 		{{#each model as |reportObj|}}
 			<div class="well well-lg">
-				<PRE id="pubname">Title:                           {{reportObj.title}}</PRE>
-				<PRE id="group">Group:                         {{reportObj.group}}</PRE>
-				<PRE id="pubtype">Publication Type:    {{reportObj.pupType}}</PRE>
-				<PRE id="due">Due Date:                    {{reportObj.dueDate}}</PRE>
-				<PRE id="state">State:                             {{reportObj.state}}</PRE>
+				<PRE class="pubname" data-name="{{reportObj.title}}">Title:                           {{reportObj.title}}</PRE>
+				<PRE class="group">Group:                         {{reportObj.group}}</PRE>
+				<PRE class="pubtype">Publication Type:    {{reportObj.pupType}}</PRE>
+				<PRE class="due">Due Date:                    {{reportObj.dueDate}}</PRE>
+				<PRE class="state">State:                             {{reportObj.state}}</PRE>
 				<div class="exportTo">
 					<div class="progress">
 						<div class="progress-bar progress-bar-striped active" role="progressbar"
@@ -42,10 +42,10 @@
 						Progress Completed: {{reportObj.ProgStat}}%
 						</div>
 					</div>
-					<div class="btn-group"><a class="btn btn-danger" id="csv" href="{{reportObj.title}}.csv" download>Export to CSV</a></div>
+					<div class="btn-group"><a class="btn btn-danger class" href="{{reportObj.title}}.csv" download>Export to CSV</a></div>
 				</div>
 			</div>
-			
+
 		{{/each}}
 		</div>
 	</div>
