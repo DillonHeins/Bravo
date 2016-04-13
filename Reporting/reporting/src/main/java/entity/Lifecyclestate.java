@@ -10,7 +10,15 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Lifecyclestate.findAll", query="SELECT l FROM Lifecyclestate l")
+@Table(name = "lifecyclestate")
+@NamedQueries({
+    @NamedQuery(name = "Lifecyclestate.findAll", query = "SELECT l FROM Lifecyclestate l"),
+    @NamedQuery(name = "Lifecyclestate.findByAccepted", query = "SELECT l FROM Lifecyclestate l WHERE l.accepted = :accepted"),
+    @NamedQuery(name = "Lifecyclestate.findBySubmitted", query = "SELECT l FROM Lifecyclestate l WHERE l.submitted = :submitted"),
+    @NamedQuery(name = "Lifecyclestate.findByInRevision", query = "SELECT l FROM Lifecyclestate l WHERE l.inRevision = :inRevision"),
+    @NamedQuery(name = "Lifecyclestate.findByPublishedID", query = "SELECT l FROM Lifecyclestate l WHERE l.publishedID = :publishedID"),
+    @NamedQuery(name = "Lifecyclestate.findByInProgressID", query = "SELECT l FROM Lifecyclestate l WHERE l.inProgressID = :inProgressID"),
+    @NamedQuery(name = "Lifecyclestate.findByLifeCycleStateID", query = "SELECT l FROM Lifecyclestate l WHERE l.lifeCycleStateID = :lifeCycleStateID")})
 public class Lifecyclestate implements Serializable {
 	private static final long serialVersionUID = 1L;
 

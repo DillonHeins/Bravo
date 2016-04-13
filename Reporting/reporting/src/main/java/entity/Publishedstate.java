@@ -11,16 +11,25 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Publishedstate.findAll", query="SELECT p FROM Publishedstate p")
+@Table(name = "publishedstate")
+@NamedQueries({
+    @NamedQuery(name = "Publishedstate.findAll", query = "SELECT p FROM Publishedstate p"),
+    @NamedQuery(name = "Publishedstate.findByPublishedID", query = "SELECT p FROM Publishedstate p WHERE p.publishedID = :publishedID"),
+    @NamedQuery(name = "Publishedstate.findByPublicationDate", query = "SELECT p FROM Publishedstate p WHERE p.publicationDate = :publicationDate")})
 public class Publishedstate implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Basic(optional = false)
+	@Column(name = "publishedID")
 	private int publishedID;
 
 	@Lob
+	@Column(name = "bibTexReference")
 	private byte[] bibTexReference;
 
+	@Column(name = "publicationDate")
 	@Temporal(TemporalType.DATE)
 	private Date publicationDate;
 
