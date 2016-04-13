@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
-import bravo.people.ejb.Person;
+import bravo.people.implementations.Person;
 import javax.persistence.Embedded;
 import javax.persistence.FetchType;
 import javax.persistence.NamedQueries;

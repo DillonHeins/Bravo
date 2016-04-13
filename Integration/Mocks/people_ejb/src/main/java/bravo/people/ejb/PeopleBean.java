@@ -1,11 +1,12 @@
 package bravo.people.ejb;
 
+import bravo.people.implementations.Person;
 import bravo.people.entity.*;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import static org.mockito.Mockito.*;
 
 /**
  *
@@ -14,8 +15,8 @@ import javax.persistence.PersistenceContext;
 @Stateless
 @LocalBean
 public class PeopleBean {
-    public void addPerson(String firstName, String surname, String staffNumber) {
-        Person person = new Person(firstName, surname, staffNumber);
+    public void addPerson(String firstName, String surname, String staffNumber, String email) {
+        Person person = new Person(firstName, surname, staffNumber, email);
         PersonEntity personEntity = new PersonEntity(person);
         em.persist(personEntity);
     }

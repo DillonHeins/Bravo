@@ -8,9 +8,9 @@
 
 package bravo.people.interfaces;
 import java.util.LinkedList;
-import bravo.people.ejb.ResearchGroupAssociation;
-import bravo.people.ejb.ResearchCategory;
-import bravo.people.ejb.Organisation;
+import bravo.people.implementations.ResearchGroupAssociation;
+import bravo.people.implementations.ResearchCategory;
+import bravo.people.implementations.Organisation;
 
 public interface PersonInterface
 {
@@ -19,9 +19,9 @@ public interface PersonInterface
     }
     /**
      * Sets the person's name
-     * @param name Name of the person to be set to.
+     * @param firstName Name of the person to be set to.
      */
-    public void setName(String name);
+    public void setFirstName(String firstName);
 
     /**
      * Sets the person's surname
@@ -30,10 +30,10 @@ public interface PersonInterface
     public void setSurname(String surname);
     
     /**
-     * Sets the person's ID
-     * @param id ID to be set to.
+     * Sets the person's Staff Number
+     * @param staffNumber Staff Number to be set to.
      */
-    public void setID(String id);
+    public void setStaffNumber(String staffNumber);
     
     /**
      * Sets the person's Primary email address 
@@ -63,7 +63,7 @@ public interface PersonInterface
      * 
      * @return Name of the Person
      */
-    public String getName();
+    public String getFirstName();
     
     /**
      * 
@@ -73,9 +73,9 @@ public interface PersonInterface
     
     /**
      * 
-     * @return ID of the Person
+     * @return staffNumber of the Person
      */
-    public String getID();
+    public String getStaffNumber();
     
     /**
      * 
@@ -128,6 +128,4 @@ public interface PersonInterface
      */
     @Override
     public String toString();
-    
-    
 }

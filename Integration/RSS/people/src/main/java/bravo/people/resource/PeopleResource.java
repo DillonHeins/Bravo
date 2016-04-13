@@ -17,6 +17,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import bravo.people.implementations.Person;
+
 /**
  *
  * @author Dillon
@@ -33,8 +35,8 @@ public class PeopleResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("addPerson")
-    public Response addPerson(PersonModel personModel) {
-        peopleBean.addPerson(personModel.getFirstName(), personModel.getSurname(), personModel.getStaffNumber());
+    public Response addPerson(Person person) {
+        peopleBean.addPerson(person.getFirstName(), person.getSurname(), person.getStaffNumber(), person.getEmail());
         return Response.ok("{}", MediaType.APPLICATION_JSON).build();
     }
     
