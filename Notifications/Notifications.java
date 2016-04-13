@@ -1,7 +1,11 @@
 package com.bravonotifications.notifications;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -186,6 +190,24 @@ public class Notifications {
                 }
             }
         }
+    }
+    
+    public boolean logEntry(String entry)
+    {
+        File log = new File("log.txt");
+        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
+        try {
+            if (log.exists() == false) {
+                System.out.println("We had to make a new file.");
+                log.createNewFile();
+            }
+            PrintWriter out = new PrintWriter(new FileWriter(log, true));
+            out.append(timeStamp + ": " + entry + '\n');
+            out.close();
+        } catch (IOException e) {
+            return false;
+        }
+        return true;
     }
 
     /*Functions to help mock build message's functionality */
