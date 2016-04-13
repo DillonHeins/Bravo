@@ -102,15 +102,34 @@ public class NotificationsBean {
     /*
         @param emailList[] the list of people that need to receive their reminders
      */
-    public void sendReminder(String emailList[]) // Should be boolean
+    public boolean sendReminder(String emailList[])
     {
-        for (int i = 0; i < emailList.length; i++) {
-            // Connect to DB
-            // Compare reminder date to current date
-
-            String message = buildMessage(emailList[i], "Reminder");
-            submitTextMail(emailList[i], "2 Day Reminder", message);
+        // Need to call this function in the login function after checking if reminder needs to be sent
+        boolean failedEmail = false;
+                
+        if (emailList.length > 0)
+        {
+            for (int i = 0; i < emailList.length; i++)  
+            {
+                String message = buildMessage(emailList[i], "Reminder");
+               if (submitTextMail(emailList[i], "2 Day Reminder", message) == false)
+               {
+                   failedEmail = true;
+               }
+            }
+            
+            if (failedEmail == true)
+            {
+               System.out.println("One or more emails failed to send");
+                return false;
+            }
+            else 
+            {
+                return true;
+            }
         }
+        
+        return false;
     }
 
     /*
