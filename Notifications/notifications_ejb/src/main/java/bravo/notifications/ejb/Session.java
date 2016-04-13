@@ -1,4 +1,4 @@
-package com.bravonotifications.notifications;
+package bravo.notifications.ejb;
 import java.io.*;
 import java.net.*;
 import java.util.*;

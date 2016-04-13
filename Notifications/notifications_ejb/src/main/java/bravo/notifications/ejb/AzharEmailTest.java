@@ -1,4 +1,4 @@
-package com.bravonotifications.notifications;
+package bravo.notifications.ejb;
 public class AzharEmailTest 
 {
     public static void submitTextMail(String recipient, String subject, String body)

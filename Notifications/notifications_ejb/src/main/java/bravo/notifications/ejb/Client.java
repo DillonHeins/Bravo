@@ -1,4 +1,4 @@
-package com.bravonotifications.notifications;
+package bravo.notifications.ejb;
 public class Client
 {
     private String mailServer;
