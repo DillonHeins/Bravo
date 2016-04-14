@@ -15,6 +15,12 @@ public interface OrganisationInterface
 	* @param name Name of the Organisation to be set to.
 	*/
 	public void setName(String name);
+	
+	/**
+	* Sets the Persons ID
+	* @param id ID of the Person to be set to.
+	*/
+	public void setID(String id);
 		
 	/**
 	* @return name of the Organisation
