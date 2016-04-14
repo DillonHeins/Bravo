@@ -74,3 +74,10 @@ a{
 	display: inline-block;
 }
 
+.marginBottom {
+	margin-bottom: 20px !important;
+}
+
+.marginLeft {
+	margin-left: 20px;
+}

@@ -1,0 +1,102 @@
+<header id="currLocation">
+    You are here - <a href="/">home</a>-&gt;<a href="/publications">publications</a>-&gt;<a href="/publications/add">add</a><br>
+      <!-- TODO change names of edits to comply with reqirements -->
+    <h1>Add Publication</h1>
+</header>
+{{render "import"}}
+<section id="mainPubAdd">
+    <form role="form">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Publication Title </span>
+            <input type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon1">
+        </div>
+
+        <br>
+
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Publication Website</span>
+            <input type="text" class="form-control" placeholder="www.atsomewebsite.com" aria-describedby="basic-addon1">
+        </div>
+
+        <br>
+
+        <div class="input-group">
+            <div class="checkbox">
+                <label><input type="checkbox">Is Completed</label>
+            </div>
+        </div>
+        <!-- Below will be greyed out if checkbox is activated -->
+        <!-- Below will be greyed out if checkbox is activated -->
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Due Date</span>
+            <input type="text" class="form-control" placeholder="dd/mm/yyyy" aria-describedby="basic-addon1">
+        </div>
+        <!-- fix dropdown -->
+        <br>
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Select lifecycle states <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							<li><a href="#">inProgress</a></li>
+							<li><a href="#">Submitted</a></li>
+							<li><a href="#">Accepted</a></li>
+							<li><a href="#">InRevision</a></li>
+							<li><a href="#">Abandoned</a></li>
+            </ul>
+
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Progress</span>
+            <input type="text" class="form-control" placeholder="40%" aria-describedby="basic-addon1"> <!--Update Progress bar when this changes-->
+        </div>
+            <div class="progress"> <!--Just for illustration for now-->
+                <div class="progress-bar progress-bar-striped active" role="progressbar"aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                    40%
+                </div>
+            </div>
+        <br>
+        <div class="panel panel-default">
+            <div class="panel-heading">Collaborators</div>
+                <div class="panel-body">
+                    <section>
+                        <div class="list-group" id="listUsersOutput"></div>
+                        <div class="panel-body">
+                            <div class="form-group">
+															<!-- {{#each model as |page|}}
+																{{#each page.name as |sub|}}
+																<a href="#" class="list-group-item">{{sub.name}}</a>
+																{{/each}}
+															{{/each}} -->
+															<a href="#" class="list-group-item">TEMP COLLABORATOR</a>
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle marginLeft" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Add Collaborator <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+									<!-- {{#each model as |page|}}
+										{{#each page.name as |sub|}}
+										<li><a href="query"> {{sub.name}} </a></li>
+										{{/each}}
+									{{/each}} -->
+									<a href="#" class="list-group-item">TEMP COLLABORATOR</a>
+                </ul>
+
+            </div>
+            <br>
+        </div>
+        <!-- add seperate handlebars for dropdown -->
+        <br>
+
+
+        <button type="submit" class="btn btn-danger marginBottom">Add Publication</button>
+    </form>
+
+</section>

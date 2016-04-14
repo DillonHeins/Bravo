@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 var FileChecker = Ember.Object.extend(
 {
-	isBinaryFile: function(bytes, size) 
+	isBinaryFile: function(bytes, size)
 	{
 	  if(size > 1024)
 	  {
@@ -29,7 +29,7 @@ var FileChecker = Ember.Object.extend(
 	  		// console.log("2) ascii++");
 	  		ascii++;
 	  	}
-	  	else 
+	  	else
 	  	{
 	  		// console.log("1) other++");
 	  		other++;
@@ -61,7 +61,7 @@ export default Ember.Controller.extend(
 			var file = document.getElementById('file-choose').value;
 			var splArray;
 
-			if(OSName === "Windows") 
+			if(OSName === "Windows")
 			{
 				splArray = file.split('\\');
 			}
@@ -88,14 +88,14 @@ export default Ember.Controller.extend(
 		{
 			var isBinary = false;
 			var reader = new FileReader();
-			reader.onload = function(event) 
+			reader.onload = function(event)
 			{
 				var contents = event.target.result;
 				var fileCheck = FileChecker.create();
 				isBinary = fileCheck.isBinaryFile(contents, document.getElementById('file-choose').files[0].size);
 			};
 
-			reader.onerror = function(event) 
+			reader.onerror = function(event)
 			{
 				console.error("File could not be read! Code " + event.target.error.code);
 			};
@@ -104,7 +104,7 @@ export default Ember.Controller.extend(
 			if(document.getElementById('file-choose').value != null && isBinary == false)
 			{
 				var file = this.get('fileName').split('.');
-				
+
 				if(file[file.length - 1] === "csv")
 				{
 					return true;

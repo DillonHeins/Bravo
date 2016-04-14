@@ -1,48 +1,39 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    model() {
-        let todos = [
-            {
-                name: "Publications",
-                url: "#",
-                sub: [{
-                    name: "Add",
-                    url: "/publication/add",
-                }, {
-                    name: "Edit",
-                    url: "publication/edit",
-                }, {
-                    name: "View",
-                    url: "publication/view",
-                }],
-            },
-            {
-				name: "Reporting",
+	model () {
+		let pages = [{
+				name: "Publications",
 				url: "#",
-                sub: [{
-                    name: "Query",
-                    url: "/reporting/query",
-                }, {
-                    name: "View",
-                    url: "/reporting/view",
-                }],
-            },
-            {
-                name: "Persons",
-                url: "#",
-                sub: [{
-                    name: "Add",
-                    url: "/persons/add",
-                }, {
-                    name: "Edit",
-                    url: "/persons/edit",
-                }, {
-                    name: "Add Research",
-                    url: "/persons/add-research",
-                }],
-            }
-        ];
-        return todos;
-    }
+				sub: [{
+					name: "List",
+					url: "publications",
+				}, {
+					name: "Add",
+					url: "publications/add",
+				}],
+		}, {
+				name: "People",
+				url: "#",
+				sub: [{
+					name: "List",
+					url: "people",
+				}, {
+					name: "Add",
+					url: "people/add",
+				}, {
+					name: "Add Research Group",
+					url: "people/addresearch",
+				}],
+		}, {
+				name: "Reports",
+				url: "#",
+				sub: [{
+					name: "Query",
+					url: "reports/query",
+				}],
+		}];
+
+		return pages;
+	}
 });
