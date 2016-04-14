@@ -24,7 +24,7 @@ public class NotificationsBean {
         @param emailList[] it will be an array containing all the email addresses the report must be sent to
         @param file this will be the generated report file that needs to be sent as an attachment with the email
      */
-    public void sendReport(String emailList[], String file) {
+    public boolean sendReport(String emailList[], String file) {
         /*
             This function must take the list of emails and add each one to be sent to, ask buildMessage to generate the appropriate message
             and receive the email's body from buildMessage.
@@ -36,16 +36,21 @@ public class NotificationsBean {
          */
         String message = "";
         //submitMultipartMail(emailList[0], message,file);
+        
+        boolean success = false;
 
         File f = new File(reportPathString + file);
         if (f.exists() && !f.isDirectory()) { 	//test if file exists
             for (int i = 0; i < emailList.length; i++) {
                 if (emailList[i] != null && !emailList[i].isEmpty()) {
                     message = buildMessage(emailList[i], "Report");
-                    submitMultipartMail(emailList[i], "Report ready to download", message, file);
+                    if(!submitMultipartMail(emailList[i], "Report ready to download", message, file))
+                        success = false;
                 }
             }
         }
+        
+        return success;
     }
 
     public boolean[] Login() { //JSONObject removed and becomes mocked instead for now
