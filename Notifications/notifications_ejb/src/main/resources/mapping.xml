@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm    
+  http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+  version="2.0">
+    <entity class="bravo.notifications.ejb.Tbl_users"> 
+      <table name="tbl_users" />
+      <named-query name="listUsers">
+        <query>SELECT a FROM Tbl_users a</query>
+      </named-query>       
+      <attributes>
+       <id name="pk_tbl_users_id">
+          <generated-value strategy="IDENTITY" />
+        </id>
+        <basic name="tbl_users_first_name">
+          <column name="tbl_users_first_name" nullable="true"/>
+        </basic>
+        <basic name="tbl_users_last_name">
+          <column name="tbl_users_last_name" nullable="true"/>
+        </basic> 
+        <basic name="tbl_users_email">
+          <column name="tbl_users_email" nullable="true"/>
+        </basic>
+        <basic name="tbl_users_password">
+          <column name="tbl_users_password" nullable="true"/>
+        </basic>
+      </attributes>
+    </entity>
+    <entity class="bravo.notifications.ejb.Tbl_log"> 
+      <table name="tbl_log" />
+      <named-query name="listLog">
+        <query>SELECT a FROM Tbl_log a</query>
+      </named-query>       
+      <attributes>
+       <id name="pk_tbl_log_id">
+          <generated-value strategy="IDENTITY" />
+        </id>
+        <basic name="fk_tbl_log_user_id">
+          <column name="fk_tbl_log_user_id" nullable="false"/>
+        </basic>
+        <basic name="tbl_log_error_location">
+          <column name="tbl_log_error_location" nullable="true"/>
+        </basic> 
+        <basic name="tbl_log_description">
+          <column name="tbl_log_description" nullable="true"/>
+        </basic>
+        <basic name="tbl_log_errordatetime">
+          <column name="tbl_log_errordatetime" nullable="true"/>
+        </basic>
+      </attributes>
+    </entity>
+    <entity class="bravo.notifications.ejb.Tbl_reminders"> 
+      <table name="tbl_reminders" />
+      <named-query name="listReminders">
+        <query>SELECT a FROM Tbl_reminders a</query>
+      </named-query>       
+      <attributes>
+       <id name="pk_tbl_reminders_id">
+          <generated-value strategy="IDENTITY" />
+        </id>
+        <basic name="fk_tbl_reminders_user_id">
+          <column name="fk_tbl_reminders_user_id" nullable="false"/>
+        </basic>
+        <basic name="tbl_reminders_reminderdatetime">
+          <column name="tbl_reminders_reminderdatetime" nullable="true"/>
+        </basic> 
+        <basic name="tbl_reminders_message">
+          <column name="tbl_reminders_message" nullable="true"/>
+        </basic>
+        <basic name="tbl_reminders_duedate">
+          <column name="tbl_reminders_duedate" nullable="true"/>
+        </basic>
+      </attributes>
+    </entity>   
+</entity-mappings>
