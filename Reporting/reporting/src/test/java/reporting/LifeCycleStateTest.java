@@ -15,6 +15,10 @@ public class LifeCycleStateTest {
 	private PersonServiceBean person;
 	@Autowired
 	private PublicationServiceBean publication;
+	@Autowired
+	private ResearchGroupServiceBean group;
+	@Autowired
+	private ResearcherCategoryServiceBean category;
 	
 	@Test
 	public void testPersonGet() {
@@ -28,4 +32,27 @@ public class LifeCycleStateTest {
 		List<Publication> pubs = publication.getPublcationsByPerson(p);
 		Assert.assertNotNull(pubs);
 	}
+	
+	@Test
+	public void testLifeCycleGet() {
+		Person p = person.getPersonByID(1);
+		List<Publication> pubs = publication.getPublcationsByPerson(p);
+		Publication thisPub = pubs.get(0);
+		Assert.assertNotNull(thisPub);
+	}
+	
+	@Test
+	public void testResearchGroupGet() {
+		Person p = person.getPersonByID(1);
+		ResearchGroup thisGroup = group.getResearchGroupByID(p.getResearchGroupID());
+		Assert.assertNotNull(thisGroup);
+	}
+	
+	@Test
+	public void testResearcherCategoryGet() {
+		Person p = person.getPersonByID(1);
+		ResearcherCategory thisCategory = category.getResearcherCategoryByID(p.getResearchCategoryID());
+		Assert.assertNotNull(thisCategory);
+	}
+	
 }
