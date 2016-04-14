@@ -124,28 +124,35 @@
           </div>
       </div>      
       <button class="btn btn-danger" id="updatePerson">Save Changes</button>
-	  <button class="btn btn-danger" data-toggle="modal" data-target="#DownloadFile">Export to CSV file</button> <!-- Implement functionality to this button -->
+	     <button class="btn btn-danger" data-toggle="modal" data-target="#DownloadFile">Export to CSV file</button> <!-- Implement functionality to this button -->
+       <div id="message">
+
+      </div>
     </div>
 
     <script type="text/javascript">
-      $(document).ready(function() {
+      function loadPeople() {
         $.ajax({
-            type: 'GET',
-            url: '../../../people/webapi/peopleResource/getPeople',
-            success: function (data, textStatus, jqXHR) {
-                for (var i = 0; i < data.people.length; ++i) {
-                    var obj = data.people[i];
+              type: 'GET',
+              url: '../../../people/webapi/peopleResource/getPeople',
+              success: function (data, textStatus, jqXHR) {
+                  for (var i = 0; i < data.people.length; ++i) {
+                      var obj = data.people[i];
 
-                    $("#people").append($('<option>', {
-                        value: obj.email,
-                        text: obj.firstName
-                    }));
-                }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert('error: ' + textStatus);
-            }
-        });
+                      $("#people").append($('<option>', {
+                          value: obj.email,
+                          text: obj.firstName
+                      }));
+                  }
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                  alert('error: ' + textStatus);
+              }
+          });
+      }
+
+      $(document).ready(function() {
+        loadPeople();
       });
 
       $('#people').on('change', function() {
@@ -173,7 +180,7 @@
         });
       });
 
-      $("#updateUser").on("click", function() {
+      $("#updatePerson").on("click", function() {
           $.ajax({
            type: 'POST',
            contentType: 'application/json',
@@ -181,8 +188,9 @@
            dataType: 'json',
            data: formToJSON(),
            success: function (data, textStatus, jqXHR) {
-               alert(data);
-               console.log(data);
+               $("#message").html("Person updated successfully");
+               $("#people").html("<option>...</option>")
+               loadPeople();
            },
            error: function (jqXHR, textStatus, errorThrown) {
                alert('error: ' + textStatus);
