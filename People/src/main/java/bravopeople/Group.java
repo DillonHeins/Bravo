@@ -10,6 +10,7 @@ import java.util.*;
  */
 class Group extends Entity implements GroupInterface {
 	private String name;
+	private Boolean active;
 	private ArrayList<Entity> entities;		// Composite Pattern
 
 	/**
@@ -77,7 +78,7 @@ class Group extends Entity implements GroupInterface {
      */
     public void activate()
     {
-
+	this.active = true;
     }
 
     /**
@@ -85,6 +86,6 @@ class Group extends Entity implements GroupInterface {
      */
     public void deactivate()
     {
-
+	this.active = false;
     }
 }
