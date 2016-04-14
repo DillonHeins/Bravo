@@ -1,0 +1,27 @@
+<header id="currLocation">
+	You are here - <a href="/">home</a>-&gt;<a href="/publications">publications</a>-&gt;<a href="/publications/view/{{model.id}}">view</a><br>
+	<h1>View Publication</h1>
+</header>
+<section id="mainPubAdd">
+	<div class="panel panel-default">
+		<div class="panel-body" id="pubContainer">
+			<div class="well well-lg">
+				<PRE class="pubname" data-name="{{model.title}}">Title:                           {{model.title}}</PRE>
+				<PRE class="group">Group:                         {{model.group}}</PRE>
+				<PRE class="pubtype">Publication Type:    {{model.type}}</PRE>
+				<PRE class="due">Due Date:                    {{model.due}}</PRE>
+				<PRE class="state">State:                             {{model.state}}</PRE>
+				<div class="exportTo">
+					<div class="progress">
+						<div class="progress-bar progress-bar-striped active" role="progressbar"
+						aria-valuenow="{{model.progress}}%" aria-valuemin="0" aria-valuemax="100%" style="width:{{model.progress}}%">
+						Progress Completed: {{model.progress}}%
+						</div>
+					</div>
+					<div class="btn-group"><a class="btn btn-danger" href="{{model.title}}.csv" download>Export to CSV</a></div>
+					{{gen-button model.progress 100 model.title}}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

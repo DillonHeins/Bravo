@@ -1,52 +1,116 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script type="text/javascript" src="jquery.min.js"></script>
-    </head>
-    <body>
-        <h1>Enter Publication</h1>
-        <form method="POST" action="publications/webapi/publicationsResource/addPublication">
-            Title: <input name="title" type="text">
-            Staff Number: <input name="staffNumber" type="text">
-            <input type="submit">
-        </form>
-        
-        <h1>Enter Person</h1>
-        <!-- <form method="POST" action="/webapi/people/addPerson"> -->
-            First Name: <input name="firstName" type="text" id="firstName">
-            Surname: <input name="surname" type="text" id="surname">
-            Staff Number: <input name="staffNumber" type="text" id="staffNumber">
-            <input type="button" id="addPerson" value="clik">
-        <!-- </form> -->
+	<html>
+	<head>
+		<title>Researcher Report System</title>
+		<meta charset="UTF-8">
 
-        <a href="../people/webapi/peopleResource/getPerson">GetPerson</a>
+		<!-- imports -->
+		<!-- TODO: <link rel="import" href="./navbar.html">
+		<link rel="import" href="./bootstrap.html"> -->
 
-        <script type="text/javascript">
-        	$("#addPerson").on("click", function() {
-        		$.ajax({
-        			type: 'POST',
-                    contentType: 'application/json',
-        			url: '../people/webapi/peopleResource/addPerson',
-        			dataType: 'json',
-        			data: formToJSON(),
-        			success: function(data, textStatus, jqXHR){
-                        alert('Person created successfully');
-                    },
-                    error: function(jqXHR, textStatus, errorThrown){
-                        alert('error: ' + textStatus);
-                    }
-        		});
-        	});
+		<!-- JQuery -->
+		<script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
 
-            function formToJSON() {
-                return JSON.stringify({
-                    "firstName": $('#firstName').val(),
-                    "surname": $('#surname').val(),
-                    "staffNumber": $('#staffNumber').val()
-                });
-            }
-        </script>
-    </body>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+		<!-- Javascript imports -->
+		<script type="text/javascript" src="./js/primary.js"></script>
+
+		<!-- CSS imports -->
+		<link rel="stylesheet" type="text/css" href="./css/primary.css">
+		<link rel="stylesheet" type="text/css" href="./css/home.css">
+		<link href='https://fonts.googleapis.com/css?family=Raleway:,400,100,600' rel='stylesheet' type='text/css'>
+
+		<!-- Javascript -->
+		<script>
+			
+		</script>
+	</head>
+	<body onload="init();">
+    	<img src="http://www.up.ac.za/themes/up/img/up-logo.jpg" alt="UP Logo" id="logo">
+		</div>
+		<!-- TODO: <div id="navbar_space"></div> -->
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navMain" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="navMain">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="./">Home <span class="sr-only">(current)</span></a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Publications <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="./publications/add/addPublication.html">Add Publication</a></li>
+								<li><a href="./publications/view/viewPublication.html">View Publication</a></li>
+								<li><a href="./publications/change/editPublication.html">Edit Publication</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Other section</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Persons <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="./persons/add/addUser.html">Add Person</a></li>
+								<li><a href="./persons/edit/editUser.html">Edit Person</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Add Research Catagory</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notifications <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="./notifications/set/setNotification.html">Set Notification</a></li>
+								<li><a href="./notifications/view/viewNotification.html">View Notifications</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reporting <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="./reporting/query/queryReport.html">Query Report</a></li>
+								<li><a href="./reporting/result/viewReport.html">Query Report</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Other section</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Import/Export <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="./importexport/import/">Import</a></li>
+								<li><a href="./importexport/export/">Export</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Other section</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div id="main">
+			<header>
+				<h1>Welcome to the Researcher Report System</h1>
+			</header>
+			<section id="login">
+				<form role="form" class="form">
+					<h2>Please log in</h2>
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input type="input" class="form-control" id="username" required>
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="input" class="form-control" id="password" required>
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			</section>
+		</div>
+	</body>
 </html>

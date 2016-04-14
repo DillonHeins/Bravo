@@ -6,7 +6,7 @@
 *   This File defines the Person Interface to be implemented.
 */
 
-package bravopeople;
+package bravo.people.interfaces;
 import java.util.LinkedList;
 
 
