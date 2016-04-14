@@ -36,7 +36,8 @@ public class PeopleResource {
     @Path("addPerson")
     public Response addPerson(PersonModel personModel) {
         peopleBean.addPerson(personModel.getFirstName(), personModel.getSurname(),
-                personModel.getStaffNumber(), personModel.getEmail(), personModel.getGroup());
+                personModel.getStaffNumber(), personModel.getEmail(), personModel.getGroup(),
+                personModel.getOrganisation());
         return Response.ok("{}", MediaType.APPLICATION_JSON).build();
     }
     

@@ -3,11 +3,12 @@ package bravo.people.ejb;
 import bravo.people.implementations.Person;
 import bravo.people.entity.*;
 import bravo.people.implementations.Group;
+import bravo.people.implementations.Organisation;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import static org.mockito.Mockito.*;
+import javax.persistence.Query;
 
 /**
  *
@@ -16,26 +17,26 @@ import static org.mockito.Mockito.*;
 @Stateless
 @LocalBean
 public class PeopleBean {
-    public void addPerson(String firstName, String surname, String staffNumber, String email, String groupName) {
+    public void addPerson(String firstName, String surname, String staffNumber, String email, String groupName, String organisationName) {
         Person person = new Person(firstName, surname, staffNumber, email);
         Group group = new Group(groupName);
-        PersonEntity personEntity = new PersonEntity(person, group);
+        Organisation organisation = new Organisation(organisationName);
+        PersonEntity personEntity = new PersonEntity(person, group, organisation);
         em.persist(personEntity);
     }
 
     public String getID() {
-        Long ID = (Long) em.createNamedQuery("getID").getSingleResult();
-        return "" + ID;
+        Query query = em.createNamedQuery("getID");
+        query.setParameter("emailAddress", "kenny@gmail.com");
+        Long ID = (Long) query.getSingleResult();
+        return "xx" + ID;
     }
     
     public String getPerson() {
-        PersonEntity personEntity = em.find(PersonEntity.class, 851L);
-//        List<String> firstNames = (List<String>) em.createNamedQuery("getPerson").getResultList();
+        PersonEntity personEntity = em.find(PersonEntity.class, 1051L);
         return personEntity.getPerson().getFirstName() + " " + personEntity.getPerson().getSurname() + " "
                 + personEntity.getPerson().getStaffNumber() + " " + personEntity.getPerson().getEmail() + " "
                 + personEntity.getGroup().getName();
-//        Person tempPerson = (Person) em.createNamedQuery("getPerson").getSingleResult();
-//        return tempPerson.getEmail() + " " + tempPerson.getName();
     }
     
     @PersistenceContext

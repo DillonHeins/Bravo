@@ -24,7 +24,7 @@ import javax.persistence.OneToOne;
     @NamedQuery(name = "getPerson",
         query = "SELECT p.person FROM PersonEntity p WHERE p.person.staffNumber = '14035538'"),
     @NamedQuery(name="getID",
-              query="SELECT p.id FROM PersonEntity p WHERE p.person.firstName = 'Thomas'")
+              query="SELECT p.id FROM PersonEntity p WHERE p.person.emailAddress = :emailAddress")
 })
 public class PersonEntity implements Serializable {
 
@@ -46,9 +46,10 @@ public class PersonEntity implements Serializable {
         
     }
     
-    public PersonEntity(Person person, Group group) {
+    public PersonEntity(Person person, Group group, Organisation organisation) {
         this.person = person;
         this.group = group;
+        this.organisation = organisation;
     }
     
     public Person getPerson() {
@@ -65,6 +66,14 @@ public class PersonEntity implements Serializable {
 
     public void setGroup(Group group) {
         this.group = group;
+    }
+    
+    public Organisation getOrganisation() {
+        return this.organisation;
+    }
+    
+    public void setOrganisation(Organisation organisation) {
+        this.organisation = organisation;
     }
 
     public Long getId() {
@@ -98,6 +107,5 @@ public class PersonEntity implements Serializable {
     @Override
     public String toString() {
         return "bravo.people.entity.PersonEntity[ id=" + id + " ]";
-    }
-    
+    }    
 }

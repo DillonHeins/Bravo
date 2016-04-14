@@ -15,7 +15,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Group implements GroupInterface {
 
-    private String name;
+    private String groupName;
 
     /**
      * Default constructor - Dummy object creation
@@ -24,7 +24,7 @@ public class Group implements GroupInterface {
     }
 
     public Group(String groupName) {
-        this.name = groupName;
+        this.groupName = groupName;
     }
 
     /**
@@ -43,7 +43,7 @@ public class Group implements GroupInterface {
      * @return Group's name
      */
     public String getName() {
-        return this.name;
+        return this.groupName;
     }
 
     /**
@@ -59,7 +59,7 @@ public class Group implements GroupInterface {
      * @param name Group's name
      */
     public void setName(String name) {
-        this.name = name;
+        this.groupName = name;
     }
 
     /*public void addEntity(Entity entity)

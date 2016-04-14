@@ -17,6 +17,7 @@ public class PersonModel implements PersonModelInterface {
     private String staffNumber;
     private String email;
     private String group;
+    private String organisation;
 
     @Override
     public String getFirstName() {
@@ -70,11 +71,11 @@ public class PersonModel implements PersonModelInterface {
 
     @Override
     public String getOrganisation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.organisation;
     }
 
     @Override
     public void setOrganisation(String organisation) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.organisation = organisation;
     }
 }

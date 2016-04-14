@@ -11,7 +11,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Organisation implements OrganisationInterface {
 
-    private String name;
+    private String organisationName;
     //String ID;
 
     /**
@@ -26,7 +26,7 @@ public class Organisation implements OrganisationInterface {
      * @param organisation_name Name of the organisation
      */
     public Organisation(String organisation_name) {
-        name = organisation_name;
+        organisationName = organisation_name;
     }
 
     /**
@@ -35,7 +35,7 @@ public class Organisation implements OrganisationInterface {
      * @param name Name of the Orgnisation
      */
     public void setName(String name) {
-        this.name = name;
+        this.organisationName = name;
     }
 
     /**
@@ -44,6 +44,6 @@ public class Organisation implements OrganisationInterface {
      * @return name of the Organisation
      */
     public String getName() {
-        return name;
+        return organisationName;
     }
 }
