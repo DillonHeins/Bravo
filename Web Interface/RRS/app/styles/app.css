@@ -8,6 +8,10 @@
 a{
 	color:#e4432d;
 }
+form{
+	padding-left: 25%;
+	padding-right: 25%;
+}
 
 #up-logo {
 	padding-top: 10px;
