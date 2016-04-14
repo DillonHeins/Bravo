@@ -26,6 +26,7 @@
         </div>
 
         <input type="button" id="addPerson" value="AddPerson">
+        <input type="button" id="updatePerson" value="UpdatePerson">
 
         <a href="../people/webapi/peopleResource/getPeople">GetPeople</a>
 
@@ -48,6 +49,23 @@
                     data: JSON.stringify({
                         "email": $("#email2").val()
                     }),
+                    success: function (data, textStatus, jqXHR) {
+                        alert(data);
+                        console.log(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert('error: ' + textStatus);
+                    }
+                });
+            });
+            
+            $("#updatePerson").on("click", function() {
+                $.ajax({
+                    type: 'POST',
+                    contentType: 'application/json',
+                    url: '../people/webapi/peopleResource/updatePerson',
+                    dataType: 'json',
+                    data: formToJSON(),
                     success: function (data, textStatus, jqXHR) {
                         alert(data);
                         console.log(data);

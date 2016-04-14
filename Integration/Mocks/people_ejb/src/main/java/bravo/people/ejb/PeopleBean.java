@@ -7,6 +7,7 @@ import bravo.people.implementations.Organisation;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 import javax.persistence.EntityManager;
@@ -26,6 +27,17 @@ public class PeopleBean {
         Organisation organisation = new Organisation(organisationName);
         PersonEntity personEntity = new PersonEntity(person, group, organisation);
         em.persist(personEntity);
+    }
+    
+    @PermitAll
+    public void updatePerson(String firstName, String surname, String staffNumber, String email, String group, String organisation) {
+        Long ID = getID(email);
+        PersonEntity personEntity = em.find(PersonEntity.class, ID);
+        personEntity.getPerson().setFirstName(firstName);
+        personEntity.getPerson().setSurname(surname);
+        personEntity.getPerson().setStaffNumber(staffNumber);
+        personEntity.getGroup().setName(group);
+        personEntity.getOrganisation().setName(organisation);
     }
 
     public Long getID(String email) {

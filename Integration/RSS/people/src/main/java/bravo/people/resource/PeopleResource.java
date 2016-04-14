@@ -55,6 +55,16 @@ public class PeopleResource {
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Path("updatePerson")
+    public Response updatePerson(PersonModel personModel) {
+        peopleBean.updatePerson(personModel.getFirstName(), personModel.getSurname(),
+                personModel.getStaffNumber(), personModel.getEmail(), personModel.getGroup(),
+                personModel.getOrganisation());
+        return Response.ok("{}", MediaType.APPLICATION_JSON).build();
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     @Path("getPerson")
     public Response getPerson(Email email) {
         PersonEntity personEntity = peopleBean.getPerson(email.getEmail());
