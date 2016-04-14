@@ -12,35 +12,64 @@
             Staff Number: <input name="staffNumber" type="text">
             <input type="submit">
         </form>
-        
+
         <A href="../people/webapi/peopleResource/getID">Get ID</a>
+
+        <div>
+            <h1>Enter Person</h1><br>
+            First Name: <input name="firstName" type="text" id="firstName"><br>
+            Surname: <input name="surname" type="text" id="surname"><br>
+            Staff Number: <input name="staffNumber" type="text" id="staffNumber"><br>
+            Email: <input name="email" type="text" id="email"><br>
+            Group Name: <input name="group" type="text" id="group"><br>
+            Organisation: <input name="organisation" type="text" id="organisation"><br>
+        </div>
+
+        <input type="button" id="addPerson" value="AddPerson">
+
+        <a href="../people/webapi/peopleResource/getPeople">GetPeople</a>
+
+        <input type="button" id="getPeople" value="getPeople">
+
+        <select id="people">
+            <option>...</option>
+        </select>
         
-        <h1>Enter Person</h1>
-        <!-- <form method="POST" action="/webapi/people/addPerson"> -->
-            First Name: <input name="firstName" type="text" id="firstName">
-            Surname: <input name="surname" type="text" id="surname">
-            Staff Number: <input name="staffNumber" type="text" id="staffNumber">
-            Group Name: <input name="group" type="text" id="group">
-            <input type="button" id="addPerson" value="clik">
-        <!-- </form> -->
-
-        <a href="../people/webapi/peopleResource/getPerson">GetPerson</a>
-
         <script type="text/javascript">
-            $("#addPerson").on("click", function() {
-                    $.ajax({
-                            type: 'POST',
-                contentType: 'application/json',
-                            url: '../people/webapi/peopleResource/addPerson',
-                            dataType: 'json',
-                            data: formToJSON(),
-                            success: function(data, textStatus, jqXHR){
-                    alert('Person created successfully');
-                },
-                error: function(jqXHR, textStatus, errorThrown){
-                    alert('error: ' + textStatus);
-                }
-                    });
+            $("#getPeople").on("click", function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '../people/webapi/peopleResource/getPeople',
+                    success: function (data, textStatus, jqXHR) {
+                        for (var i = 0; i < data.people.length; ++i) {
+                            var obj = data.people[i];
+                            
+                            $("#people").append($('<option>', {
+                                value: obj.email,
+                                text: obj.firstName
+                            }));
+                        } 
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert('error: ' + textStatus);
+                    }
+                });
+            });
+
+            $("#addPerson").on("click", function () {
+                $.ajax({
+                    type: 'POST',
+                    contentType: 'application/json',
+                    url: '../people/webapi/peopleResource/addPerson',
+                    dataType: 'json',
+                    data: formToJSON(),
+                    success: function (data, textStatus, jqXHR) {
+                        alert('Person created successfully');
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert('error: ' + textStatus);
+                    }
+                });
             });
 
             function formToJSON() {
@@ -48,7 +77,9 @@
                     "firstName": $('#firstName').val(),
                     "surname": $('#surname').val(),
                     "staffNumber": $('#staffNumber').val(),
-                    "group": $("#group").val()
+                    "email": $("#email").val(),
+                    "group": $("#group").val(),
+                    "organisation": $("#organisation").val()
                 });
             }
         </script>

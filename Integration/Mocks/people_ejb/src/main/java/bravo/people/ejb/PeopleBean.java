@@ -4,6 +4,9 @@ import bravo.people.implementations.Person;
 import bravo.people.entity.*;
 import bravo.people.implementations.Group;
 import bravo.people.implementations.Organisation;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 import javax.persistence.EntityManager;
@@ -36,7 +39,23 @@ public class PeopleBean {
         PersonEntity personEntity = em.find(PersonEntity.class, 1051L);
         return personEntity.getPerson().getFirstName() + " " + personEntity.getPerson().getSurname() + " "
                 + personEntity.getPerson().getStaffNumber() + " " + personEntity.getPerson().getEmail() + " "
-                + personEntity.getGroup().getName();
+                + personEntity.getGroup().getName() + personEntity.getOrganisation().getName();
+    }
+    
+    public Map<String, String> getPeopleList() {
+        Query query = em.createQuery("SELECT p.person.emailAddress, p.person.firstName FROM PersonEntity p");
+        List<Object[]> resultList = query.getResultList();
+        Map<String, String> resultMap = new HashMap<>(resultList.size());
+        for (Object[] result : resultList) {
+            resultMap.put((String) result[0], (String) result[1]);
+        }
+        
+        return resultMap;
+    }
+    
+    public void deleteAll() {
+        Query query = em.createQuery("DELETE FROM PersonEntity");
+        query.executeUpdate();
     }
     
     @PersistenceContext

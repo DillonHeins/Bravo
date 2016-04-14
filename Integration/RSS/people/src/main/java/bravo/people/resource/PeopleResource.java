@@ -17,6 +17,16 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import bravo.people.implementations.PersonModel;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import javax.json.JsonObject;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
 /**
  *
@@ -52,14 +62,43 @@ public class PeopleResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Path("getPerson")
     public String getPerson() {
-        String persons = "";
+        String persons = "xxx";
         
 //        for (int i = 0; i < peopleBean.getPerson().size(); ++i) {
 //            persons += peopleBean.getPerson().get(i) + "\n";
 //        }
         
-        return peopleBean.getPerson();
+        peopleBean.deleteAll();
+
+        return "xxx";
 //        return peopleBean.getPerson();
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("getPeople")
+    public Response getPeople() throws IOException {
+        JSONObject jsonObject = new JSONObject();
+        Collection<JSONObject> items = new ArrayList<JSONObject>();
+        Map<String, String> temp = peopleBean.getPeopleList();
+        
+        Iterator it = temp.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            JSONObject person = new JSONObject();
+            person.put("email", pair.getKey());
+            person.put("firstName", pair.getValue());
+            
+            items.add(person);
+            it.remove();
+        }
+        
+//        JSONArray arr = new JSONArray();
+//        arr.add(items);
+        
+        jsonObject.put("people", items);
+        
+        return Response.ok(jsonObject.toString(), MediaType.APPLICATION_JSON).build();
     }
     
     @EJB
