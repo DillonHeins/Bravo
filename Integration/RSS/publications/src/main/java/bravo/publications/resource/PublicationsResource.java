@@ -8,6 +8,7 @@ package bravo.publications.resource;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import bravo.publications.ejb.*;
+import bravo.publications.interfaces.PublicationsInterface;
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
@@ -24,6 +25,7 @@ public class PublicationsResource {
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Path("addPublication")
+    @Override
     public void addPublication(@FormParam("title") String title, @FormParam("staffNumber") String staffNumber) {
         publicationsBean.addPublication(title, staffNumber);
     }
@@ -31,6 +33,7 @@ public class PublicationsResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Path("getPublications")
+    @Override
     public String getPublications() {
         String titles = "";
         
