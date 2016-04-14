@@ -1,6 +1,7 @@
-package bravopeople;
+package bravo.people.implementations;
 
 import java.util.*;
+import bravo.people.interfaces.GroupInterface;
 
 /**
  * <h1>Group</h1>

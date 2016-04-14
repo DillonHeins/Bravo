@@ -7,6 +7,7 @@
 
 package bravo.people.interfaces;
 import java.util.LinkedList;
+import bravo.people.implementation;
 
 
 public interface PersonInterface

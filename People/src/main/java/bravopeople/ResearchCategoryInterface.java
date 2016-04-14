@@ -4,7 +4,7 @@
  *	This file defines the Interface for the Research Category Class.
  *	The class defines the attributes of the user of the system.
  */
-package bravopeople;
+package bravo.people.interfaces;
 import java.util.Date;
 
 public interface ResearchCategoryInterface

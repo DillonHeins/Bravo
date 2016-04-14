@@ -5,8 +5,9 @@
   *	The class defines the attributes of the user of the system.
   */
 
-package bravopeople;
+package bravo.people.implementations;
 import java.util.LinkedList;
+import bravo.people.interfaces.PersonInterface;
 
 public class Person extends Entity implements PersonInterface
 {

@@ -1,6 +1,7 @@
 package bravo.people.interfaces;
 
 import java.util.ArrayList;
+import bravo.people.implementation;
 
 /**
  * <h1>Group Interface</h1>
