@@ -15,7 +15,9 @@ import java.util.logging.Logger;
  */
 
 public class NotificationsBean {
-
+    
+     Logger logger = Logger.getLogger(NotificationsBean.class.getName());
+    
     private String reportPathString = "C:/temp/reports/";	//the path where reports are stored
 
     /*
@@ -61,8 +63,8 @@ public class NotificationsBean {
 
         try {
             //postgreSQL database connection ,assuming that the database name is accounts & there is a table called users
-            Connection c = DriverManager.getConnection("jdbc:derby://localhost:1527/mockDB [Jakes on JAKES]");     //"jdbc:postgresql://localhost:5432/mockDB","postgres", "postgres");
-            Statement stmt = c.createStatement();
+            Connection c = DriverManager.getConnection("jdbc:derby://localhost:1527/mockDB [Jakes on JAKES]");     //"jdbc:postgresql://localhost:5432/mockDB","postgres", "postgres");                     // Hint: Cannot mock connection while it is like this, in order to mock a sucessful connection
+            Statement stmt = c.createStatement();                                                                                                                                                                                                                                                   // create getConnection function outside of  Login() function
             ResultSet rs = stmt.executeQuery("SELECT * FROM Users;");
             while (rs.next()) {
                 //String person=rs.getString("person");
@@ -107,28 +109,36 @@ public class NotificationsBean {
         // Need to call this function in the login function after checking if reminder needs to be sent
         boolean failedEmail = false;
                 
-        if (emailList.length > 0)
+        if (emailList != null && emailList.length > 0)
         {
-            for (int i = 0; i < emailList.length; i++)  
+            for (String emailList1 : emailList)
             {
-                String message = buildMessage(emailList[i], "Reminder");
-               if (submitTextMail(emailList[i], "2 Day Reminder", message) == false)
-               {
-                   failedEmail = true;
-               }
+                try
+                {
+                    String message = buildMessage(emailList1, "Reminder");
+                    if (!submitTextMail(emailList1, "2 Day Reminder", message)) {
+                        failedEmail = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    failedEmail = true;
+                }
             }
             
-            if (failedEmail == true)
+            if (failedEmail)
             {
-               System.out.println("One or more emails failed to send");
-                return false;
+               logger.log(Level.INFO, "One or more emails failed to send");
+               return false;
             }
             else 
             {
+                logger.log(Level.INFO, "Success");
                 return true;
             }
         }
         
+        logger.log(Level.INFO, "No email to send");
         return false;
     }
 
@@ -164,7 +174,7 @@ public class NotificationsBean {
         @param email this variable allows the sql request to the data base to allow us to get teh user's name for the mail;
         @param typeOfRequest specifies the type of request it will be eg a notification or a change notice.
      */
-    private String buildMessage(String email, String typeOfRequest) { // Frederick
+    protected String buildMessage(String email, String typeOfRequest) { // Frederick                                                                                // HINT: Had to change to protected in order to mock for unit test
         /*
                 This will take the client's name and add it to the message to give it a personal touch
                 The type of request will let the function know which template file to use.
@@ -179,8 +189,8 @@ public class NotificationsBean {
             username = rs.toString();
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());                                                                                              
+           // System.exit(0);                                                                                                                                                                                 // HINT: NO! Closes server when error occurs, rather just handle the exception
         }
 
         if (typeOfRequest.equals("Reminder")) {
