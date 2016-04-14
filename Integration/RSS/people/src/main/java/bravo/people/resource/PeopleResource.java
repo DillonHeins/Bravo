@@ -36,13 +36,6 @@ import org.json.simple.JSONValue;
  */
 @Path("peopleResource")
 public class PeopleResource {
-    /*@POST
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Path("addPerson")
-    public void addPerson(@FormParam("firstName") String firstName, @FormParam("surname") String surname, @FormParam("staffNumber") String staffNumber) {
-        peopleBean.addPerson(firstName, surname, staffNumber);
-    }*/
-    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("addPerson")
@@ -98,9 +91,6 @@ public class PeopleResource {
             items.add(person);
             it.remove();
         }
-        
-//        JSONArray arr = new JSONArray();
-//        arr.add(items);
         
         jsonObject.put("people", items);
         

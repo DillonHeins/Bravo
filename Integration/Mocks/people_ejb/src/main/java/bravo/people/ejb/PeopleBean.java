@@ -2,6 +2,7 @@ package bravo.people.ejb;
 
 import bravo.people.implementations.Person;
 import bravo.people.entity.*;
+import bravo.people.exceptions.AddPersonException;
 import bravo.people.implementations.Group;
 import bravo.people.implementations.Organisation;
 import java.util.HashMap;
@@ -12,6 +13,7 @@ import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
 /**
@@ -21,23 +23,35 @@ import javax.persistence.Query;
 @Stateless
 @LocalBean
 public class PeopleBean {
-    public void addPerson(String firstName, String surname, String staffNumber, String email, String groupName, String organisationName) {
-        Person person = new Person(firstName, surname, staffNumber, email);
-        Group group = new Group(groupName);
-        Organisation organisation = new Organisation(organisationName);
-        PersonEntity personEntity = new PersonEntity(person, group, organisation);
-        em.persist(personEntity);
+    public boolean addPerson(String firstName, String surname, String staffNumber, String email, String groupName, String organisationName) {
+        try {
+            Person person = new Person(firstName, surname, staffNumber, email);
+            Group group = new Group(groupName);
+            Organisation organisation = new Organisation(organisationName);
+            PersonEntity personEntity = new PersonEntity(person, group, organisation);
+            em.persist(personEntity);
+        } catch (PersistenceException pe) {
+            return false;
+        }
+        
+        return true;
     }
     
     @PermitAll
-    public void updatePerson(String firstName, String surname, String staffNumber, String email, String group, String organisation) {
-        Long ID = getID(email);
-        PersonEntity personEntity = em.find(PersonEntity.class, ID);
-        personEntity.getPerson().setFirstName(firstName);
-        personEntity.getPerson().setSurname(surname);
-        personEntity.getPerson().setStaffNumber(staffNumber);
-        personEntity.getGroup().setName(group);
-        personEntity.getOrganisation().setName(organisation);
+    public boolean updatePerson(String firstName, String surname, String staffNumber, String email, String group, String organisation) {
+        try {
+            Long ID = getID(email);
+            PersonEntity personEntity = em.find(PersonEntity.class, ID);
+            personEntity.getPerson().setFirstName(firstName);
+            personEntity.getPerson().setSurname(surname);
+            personEntity.getPerson().setStaffNumber(staffNumber);
+            personEntity.getGroup().setName(group);
+            personEntity.getOrganisation().setName(organisation);
+        } catch(PersistenceException pe) {
+            return false;
+        }
+        
+        return true;
     }
 
     public Long getID(String email) {

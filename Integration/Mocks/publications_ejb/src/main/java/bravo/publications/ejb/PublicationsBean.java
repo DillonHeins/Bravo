@@ -1,4 +1,4 @@
-package bravo.publications.ejb;
+;package bravo.publications.ejb;
 
 import bravo.publications.entity.*;
 import bravo.publications.interfaces.PublicationsInterface;
