@@ -8,6 +8,7 @@ package bravo.publications.resource;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import bravo.publications.ejb.*;
+import bravo.publications.interfaces.PublicationsInterface;
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;

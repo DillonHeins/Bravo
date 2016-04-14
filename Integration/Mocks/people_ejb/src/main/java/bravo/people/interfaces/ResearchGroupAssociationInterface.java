@@ -1,7 +1,7 @@
 package bravo.people.interfaces;
 
 import java.util.Date;
-import bravo.people.ejb.Group;
+import bravo.people.implementations.Group;
 
 /**
  * <h1>Association interface with a research group</h1>
