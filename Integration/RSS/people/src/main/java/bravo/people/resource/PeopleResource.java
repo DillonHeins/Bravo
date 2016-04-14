@@ -7,6 +7,8 @@ package bravo.people.resource;
 
 import javax.ws.rs.Path;
 import bravo.people.ejb.*;
+import bravo.people.entity.PersonEntity;
+import bravo.people.implementations.Email;
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
@@ -51,27 +53,20 @@ public class PeopleResource {
         return Response.ok("{}", MediaType.APPLICATION_JSON).build();
     }
     
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    @Path("getID")
-    public String getID() {
-        return peopleBean.getID();
-    }
-    
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     @Path("getPerson")
-    public String getPerson() {
-        String persons = "xxx";
+    public Response getPerson(Email email) {
+        PersonEntity personEntity = peopleBean.getPerson(email.getEmail());
+        JSONObject person = new JSONObject();
         
-//        for (int i = 0; i < peopleBean.getPerson().size(); ++i) {
-//            persons += peopleBean.getPerson().get(i) + "\n";
-//        }
-        
-        peopleBean.deleteAll();
+        person.put("firstName", personEntity.getPerson().getFirstName());
+        person.put("surname", personEntity.getPerson().getSurname());
+        person.put("email", personEntity.getPerson().getEmail());
+        person.put("group", personEntity.getGroup().getName());
+        person.put("organisation", personEntity.getOrganisation().getName());
 
-        return "xxx";
-//        return peopleBean.getPerson();
+        return Response.ok(person.toString(), MediaType.APPLICATION_JSON).build();
     }
     
     @GET

@@ -28,18 +28,17 @@ public class PeopleBean {
         em.persist(personEntity);
     }
 
-    public String getID() {
+    public Long getID(String email) {
         Query query = em.createNamedQuery("getID");
-        query.setParameter("emailAddress", "kenny@gmail.com");
+        query.setParameter("emailAddress", email);
         Long ID = (Long) query.getSingleResult();
-        return "xx" + ID;
+        return ID;
     }
     
-    public String getPerson() {
-        PersonEntity personEntity = em.find(PersonEntity.class, 1051L);
-        return personEntity.getPerson().getFirstName() + " " + personEntity.getPerson().getSurname() + " "
-                + personEntity.getPerson().getStaffNumber() + " " + personEntity.getPerson().getEmail() + " "
-                + personEntity.getGroup().getName() + personEntity.getOrganisation().getName();
+    public PersonEntity getPerson(String email) {
+        Long ID = getID(email);
+        PersonEntity personEntity = em.find(PersonEntity.class, ID);
+        return personEntity;
     }
     
     public Map<String, String> getPeopleList() {

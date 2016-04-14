@@ -31,11 +31,33 @@
 
         <input type="button" id="getPeople" value="getPeople">
 
+        <input type="email" id="email2">
+        <input type="button" id="getPerson" value="getPerson">
+
         <select id="people">
             <option>...</option>
         </select>
-        
+
         <script type="text/javascript">
+            $("#getPerson").on("click", function () {
+                $.ajax({
+                    type: 'POST',
+                    contentType: 'application/json',
+                    url: '../people/webapi/peopleResource/getPerson',
+                    dataType: 'json',
+                    data: JSON.stringify({
+                        "email": $("#email2").val()
+                    }),
+                    success: function (data, textStatus, jqXHR) {
+                        alert(data);
+                        console.log(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert('error: ' + textStatus);
+                    }
+                });
+            });
+
             $("#getPeople").on("click", function () {
                 $.ajax({
                     type: 'GET',
@@ -43,12 +65,12 @@
                     success: function (data, textStatus, jqXHR) {
                         for (var i = 0; i < data.people.length; ++i) {
                             var obj = data.people[i];
-                            
+
                             $("#people").append($('<option>', {
                                 value: obj.email,
                                 text: obj.firstName
                             }));
-                        } 
+                        }
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         alert('error: ' + textStatus);
