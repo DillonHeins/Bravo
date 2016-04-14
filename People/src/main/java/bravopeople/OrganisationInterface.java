@@ -1,9 +1,9 @@
+
 /**
-*	Author: Charl Jansen van Vuuren
-*	Student number: 13054903
-*	Bravo-People
-*	Organisation Interface
-*   This File defines the Organisation Interface to be implemented.
+ * <h1>Organisation Interface</h1>
+ * This File defines the Organisation Interface to be implemented.
+ * @author Bravo Team
+ * @version 1.0
 */
 
 package bravopeople;

@@ -1,5 +1,5 @@
 /**
-  *    @author Bravo Team
+  * @author Bravo Team
   *	@version 1.0
   *	This file defines the Organization Class for the Researcher Support System (RSS).
   */

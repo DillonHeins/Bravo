@@ -1,10 +1,9 @@
 /**
-*	Author: Charl Jansen van Vuuren
-*	Student number: 13054903
-*	Bravo-People
-*	Person Interface
-*   This File defines the Person Interface to be implemented.
-*/
+ * @author Bravo Team
+ * @version 1.0
+ * Person Interface
+ * This File defines the Person Interface to be implemented.
+ */
 
 package bravo.people.interfaces;
 import java.util.LinkedList;

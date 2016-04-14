@@ -1,5 +1,5 @@
 /**
-  *    @author Bravo Team
+  * @author Bravo Team
   *	@version 1.0
   *	This file defines the Person Class for the Researcher Support System (RSS).
   *	The class defines the attributes of the user of the system.

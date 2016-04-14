@@ -3,7 +3,10 @@ package bravo.people.interfaces;
 import java.util.ArrayList;
 
 /**
- * Created by matthew on 2016/03/26.
+ * <h1>Group Interface</h1>
+ * Interface for the Group Class.
+ * @author Bravo Team
+ * @version 1.0
  */
 public interface GroupInterface
 {

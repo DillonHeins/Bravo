@@ -1,5 +1,7 @@
 package bravo.people.entity;
 
+import bravo.people.implementations.Group;
+import bravo.people.implementations.Organisation;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,13 +9,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
+import bravo.people.implementations.Person;
+import javax.persistence.Embedded;
+import javax.persistence.FetchType;
+import javax.persistence.NamedQueries;
+import javax.persistence.OneToOne;
+
 /**
- *
- * @author Dillon
+ * @author Bravo Team
+ *	@version 1.0
+ *	Entity used for persistent data storage.
  */
+
 @Entity
-@NamedQuery(name = "getPerson",
-        query = "SELECT p.firstName FROM PersonEntity p WHERE p.staffNumber = '14035538'")
+@NamedQueries({
+        @NamedQuery(name = "getPerson",
+                query = "SELECT p.person FROM PersonEntity p WHERE p.person.staffNumber = :id"),
+        @NamedQuery(name="getID",
+                query="SELECT p.id FROM PersonEntity p WHERE p.person.emailAddress = :emailAddress")
+})
 public class PersonEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -21,42 +35,47 @@ public class PersonEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String firstName;
-    private String surname;
-    private String staffNumber;
+    @Embedded
+    Person person;
+
+    @Embedded
+    Group group;
+
+    @Embedded
+    Organisation organisation;
 
     public PersonEntity() {
 
     }
 
-    public PersonEntity(String firstName, String surname, String staffNumber) {
-        this.firstName = firstName;
-        this.surname = surname;
-        this.staffNumber = staffNumber;
+    public PersonEntity(Person person, Group group, Organisation organisation) {
+        this.person = person;
+        this.group = group;
+        this.organisation = organisation;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
-    public String getSurname() {
-        return surname;
+    public Group getGroup() {
+        return group;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setGroup(Group group) {
+        this.group = group;
     }
 
-    public String getStaffNumber() {
-        return staffNumber;
+    public Organisation getOrganisation() {
+        return this.organisation;
     }
 
-    public void setStaffNumber(String staffNumber) {
-        this.staffNumber = staffNumber;
+    public void setOrganisation(Organisation organisation) {
+        this.organisation = organisation;
     }
 
     public Long getId() {
@@ -91,5 +110,4 @@ public class PersonEntity implements Serializable {
     public String toString() {
         return "bravo.people.entity.PersonEntity[ id=" + id + " ]";
     }
-
 }

@@ -1,9 +1,11 @@
 package bravopeople;
 
 import java.util.ArrayList;
-
 /**
- * Created by matthew on 2016/03/26.
+ * @author Bravo Team
+ *	@version 1.0
+ *	This file defines the User Class for the management of user rights.
+ *	The class defines the attributes of the user of the system.
  */
 public class User
 {

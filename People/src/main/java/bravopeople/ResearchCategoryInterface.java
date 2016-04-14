@@ -1,9 +1,9 @@
 /**
-*	Author: Mpho Baloyi
-*	Student number: 14133670
-*	Bravo-People
-*	Research Category Interface
-*/
+ * @author Bravo Team
+ *	@version 1.0
+ *	This file defines the Interface for the Research Category Class.
+ *	The class defines the attributes of the user of the system.
+ */
 package bravopeople;
 import java.util.Date;
 
