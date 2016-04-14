@@ -56,6 +56,12 @@ a{
 	padding-right: 10px;
 }
 
+#main > section {
+	width: 80%;
+	margin-left: 10%;
+	margin-bottom: 10%;
+}
+
 #currLocation {
 	background-color: rgba(245,175,0, 0.4);
 	width: 100%;

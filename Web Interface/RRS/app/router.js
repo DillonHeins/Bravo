@@ -23,6 +23,7 @@ Router.map(function() {
     this.route('query');
     this.route('view');
   });
+  this.route('home', {path: '/'});
 });
 
 export default Router;

@@ -3,22 +3,45 @@
     <h1>Add Research Group</h1>
 </header>
 <section>
-	<form class="center-form" role="form">
+  {{render "import"}}
+	<form class="center-form" role="form" id="addResearchGroup">
         <div class="form-group">
           <label for="name">Research Group Name:</label>
-          <input type="input" class="form-control" id="name">
+          <input type="input" class="form-control" id="name" value="New Research Group">
         </div>
         <div class="form-group">
           <label for="category">Category:</label>
-          <input type="input" class="form-control" id="category">
+          <input type="input" class="form-control" id="category" value="New Category">
         </div>
-		<div class="form-group">
-          <label for="surname">Participant Name:</label>
-          <input type="input" class="form-control" id="pname"><br/><input type="button" class="btn btn-danger" value="Add Participant">
+        <div class="panel panel-default">
+            <div class="panel-heading">Researchers</div>
+                <div class="panel-body">
+                    <section>
+                        <div class="list-group" id="listUsersOutput"></div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                              <a href="#" class="list-group-item collaborator">Researcher 1</a>
+                              <a href="#" class="list-group-item collaborator">Researcher 2</a>
+                              <a href="#" class="list-group-item collaborator">Researcher 3</a>
+                              <a href="#" class="list-group-item collaborator">Researcher 4</a>
+                              <a href="#" class="list-group-item collaborator">Researcher 5</a>
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle marginLeft" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Add Researcher <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <a href="#" class="list-group-item">Researcher 6</a>
+                  <a href="#" class="list-group-item">Researcher 7</a>
+                  <a href="#" class="list-group-item">Researcher 8</a>
+                </ul>
+            </div>
+            <br>
         </div>
-  <textarea rows="10" cols="20">
-  </textarea><br/>
-   <button type="submit" class="btn btn-danger">Add Group</button>
+   <button type="submit" class="btn btn-danger marginBottom" {{action 'sendAJAX'}}>Add Group</button>
 </form>
 </section>
-<!-- {{render "import"}} -->
