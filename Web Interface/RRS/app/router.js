@@ -6,24 +6,22 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('home', {path: '/'});
-  this.route('import', { path: '/import'});
-  //TODO: Create a route and add sub routes to it. E.g.:
-  this.route('publication', {path: '/publication'}, function () {
-    this.route('add', { path: '/add'});
-    this.route('edit', { path: '/edit'});
-    this.route('view', { path: '/view'});
+  this.route('publications', function() {
+    this.route('view', {path: '/view/:publication_id'});
+    this.route('edit', {path: '/edit/:publication_id'});
+    this.route('add');
   });
-
-  this.route('reporting', { path: '/reporting' }, function() {
-    this.route('query', { path: '/query' });
-    this.route('view', { path: '/view' });
+  this.route('people', function() {
+    this.route('add');
+    this.route('view', {path: '/view/:person_id'});
+    this.route('addresearch');
+    this.route('edit', {path: '/edit/:person_id'});
   });
+  this.route('import');
 
-  this.route('persons', { path: '/persons' }, function() {
-    this.route('edit', { path: '/edit' });
-    this.route('add', { path: '/add' });
-    this.route('add-research', { path: '/add-research' });
+  this.route('reports', function() {
+    this.route('query');
+    this.route('view');
   });
 });
 
