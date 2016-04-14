@@ -1,9 +1,10 @@
-<header id="currLocation">
+ <header id="currLocation">
     You are here - <a href="/">home</a>-&gt;<a href="/people">people</a>-&gt;<a href="/people/addresearch">add-research</a><br>
     <h1>Add Research Group</h1>
 </header>
 <section>
-	<form class="center-form" role="form">
+{{render "import"}}
+  <form class="center-form" role="form">
         <div class="form-group">
           <label for="name">Research Group Name:</label>
           <input type="input" class="form-control" id="name">
@@ -12,7 +13,7 @@
           <label for="category">Category:</label>
           <input type="input" class="form-control" id="category">
         </div>
-		<div class="form-group">
+    <div class="form-group">
           <label for="surname">Participant Name:</label>
           <input type="input" class="form-control" id="pname"><br/><input type="button" class="btn btn-danger" value="Add Participant">
         </div>
@@ -21,4 +22,3 @@
    <button type="submit" class="btn btn-danger">Add Group</button>
 </form>
 </section>
-<!-- {{render "import"}} -->

@@ -28,6 +28,7 @@
 
 #error
 {
+	position: absolute;
 	color: red;
 	font-weight: bold;
 	font-size: 9pt;

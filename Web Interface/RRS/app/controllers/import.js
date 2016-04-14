@@ -1,55 +1,56 @@
 import Ember from 'ember';
 
-var FileChecker = Ember.Object.extend(
-{
-	isBinaryFile: function(bytes, size)
-	{
-	  if(size > 1024)
-	  {
-	  	size = 1024;
-	  }
+// var FileChecker = Ember.Object.extend(
+// {
+// 	isBinaryFile: function(bytes, size)
+// 	{
+// 	  if(size > 1024)
+// 	  {
+// 	  	size = 1024;
+// 	  }
 
-	  var ascii = 0, other = 0;
+// 	  var ascii = 0, other = 0;
 
-	  for(var i = 0; i < bytes.length; i++)
-	  {
-	  	var b = bytes[i];
-	  	if(b < String.fromCharCode(0x09))
-	  	{
-	  		return true;
-	  	}
+// 	  for(var i = 0; i < size; i++)
+// 	  {
+// 	  	var b = bytes[i];
+// 	  	if(b < String.fromCharCode(0x09))
+// 	  	{
+// 	  		return true;
+// 	  	}
 
-	  	if(b == String.fromCharCode(0x09) || b == String.fromCharCode(0x0A) || b == String.fromCharCode(0x0C) || b == String.fromCharCode(0x0D))
-	  	{
-	  		// console.log("1) ascii++");
-	  		ascii++;
-	  	}
-	  	else if(b >= String.fromCharCode(0x20) && b <= String.fromCharCode(0x7E))
-	  	{
-	  		// console.log("2) ascii++");
-	  		ascii++;
-	  	}
-	  	else
-	  	{
-	  		// console.log("1) other++");
-	  		other++;
-	  	}
-	  }
+// 	  	if(b == String.fromCharCode(0x09) || b == String.fromCharCode(0x0A) || b == String.fromCharCode(0x0C) || b == String.fromCharCode(0x0D))
+// 	  	{
+// 	  		ascii++;
+// 	  	}
+// 	  	else if(b >= String.fromCharCode(0x20) && b <= String.fromCharCode(0x7E))
+// 	  	{
+// 	  		ascii++;
+// 	  	}
+// 	  	else
+// 	  	{
+// 	  		other++;
+// 	  	}
+// 	  }
 
-	  if(other == 0)
-	  {
-	  	return false;
-	  }
+// 	  if(other == 0)
+// 	  {
+// 	  	return false;
+// 	  }
 
-	  return 100 * other / (ascii + other) > 95;
-	}
-});
+// 	  return 100 * other / (ascii + other) > 95;
+// 	}
+// });
 
 export default Ember.Controller.extend(
 {
 	fileName: null,
 	actions:
 	{
+/**
+* @function [fileChange] 
+* Executed when the file is either dragged or chosen to upload. Just splits the path into the name of the file with the extension and determines OS to do this.
+*/
 		fileChange()
 		{
 			var OSName="Unknown OS";
@@ -77,6 +78,10 @@ export default Ember.Controller.extend(
 			if(this.get('fileName') == "")
 				document.getElementById('resets').style.visibility = "hidden";
 		},
+/**
+* @function [reset]
+* Resets the fileName to an empty string and hides the error div.
+*/
 		reset()
 		{
 			this.set('fileName', "");
@@ -84,24 +89,29 @@ export default Ember.Controller.extend(
 			document.getElementById('resets').style.visibility = "hidden";
 			document.getElementById("error").innerHTML = "";
 		},
+/**
+* @function [isCSV]
+* Determines if the file is a csv file or not by just checking the file extension.
+*/
 		isCSV()
 		{
-			var isBinary = false;
-			var reader = new FileReader();
-			reader.onload = function(event)
-			{
-				var contents = event.target.result;
-				var fileCheck = FileChecker.create();
-				isBinary = fileCheck.isBinaryFile(contents, document.getElementById('file-choose').files[0].size);
-			};
+			// var isBinary = false;
+			// var reader = new FileReader();
+			// reader.onload = readSuccess;
+			// function readSuccess(event)
+			// {
+			// 	var contents = event.target.result;
+			// 	var fileCheck = FileChecker.create();
+			// 	// isBinary = fileCheck.isBinaryFile(contents, document.getElementById('file-choose').files[0].size);
+			// };
 
-			reader.onerror = function(event)
-			{
-				console.error("File could not be read! Code " + event.target.error.code);
-			};
+			// reader.onerror = function(event)
+			// {
+			// 	console.error("File could not be read! Code " + event.target.error.code);
+			// };
 
-			reader.readAsText(document.getElementById('file-choose').files[0]);
-			if(document.getElementById('file-choose').value != null && isBinary == false)
+			// reader.readAsBinaryString(document.getElementById('file-choose').files[0]);
+			if(document.getElementById('file-choose').value != null/* && isBinary == false*/)
 			{
 				var file = this.get('fileName').split('.');
 
@@ -115,11 +125,15 @@ export default Ember.Controller.extend(
 					return false;
 				}
 			}
-			else if(isBinary == true)
+			else
 			{
-				document.getElementById("error").innerHTML = "Error! Invalid File Format";
 				return false;
 			}
+			// else if(isBinary == true)
+			// {
+			// 	document.getElementById("error").innerHTML = "Error! Invalid File Format";
+			// 	return false;
+			// }
 		}
 	}
 });
