@@ -73,6 +73,7 @@ public class PeopleResource {
         person.put("firstName", personEntity.getPerson().getFirstName());
         person.put("surname", personEntity.getPerson().getSurname());
         person.put("email", personEntity.getPerson().getEmail());
+        person.put("staffNumber", personEntity.getPerson().getStaffNumber());
         person.put("group", personEntity.getGroup().getName());
         person.put("organisation", personEntity.getOrganisation().getName());
 
