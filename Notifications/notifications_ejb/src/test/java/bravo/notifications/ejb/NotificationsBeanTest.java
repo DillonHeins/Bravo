@@ -40,7 +40,7 @@ public class NotificationsBeanTest {
     public void testSendReminderOneEmailFail() throws Exception {
         // Setup
         doReturn("Test email message").when(notificationsBean).buildMessage(anyString(), anyString());
-        doReturn(false).when(notificationsBean).submitTextMail(anyString(), anyString(), anyString());
+        doReturn(false).when(notificationsBean).submitTextMail(anyString(), anyString(), anyString());  //comment to send email
 
         String[] emailList = new String[2];
         emailList[0] = "u10297902@tuks.co.za";

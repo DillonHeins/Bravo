@@ -219,7 +219,7 @@ public class NotificationsBean {
         String username = "";
         String message = "";
 
-        try {
+        /*try {
             Connection c = DriverManager.getConnection("jdbc:derby://localhost:1527/mockDB [Jakes on JAKES]");     //"jdbc:postgresql://localhost:5432/mockDB","postgres", "postgres");
             Statement stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT FirstName, LastName FROM Users WHERE Email = '" + email + "';");
@@ -228,7 +228,7 @@ public class NotificationsBean {
             e.printStackTrace();
             System.err.println(e.getClass().getName() + ": " + e.getMessage());                                                                                              
            // System.exit(0);                                                                                                                                                                                 // HINT: NO! Closes server when error occurs, rather just handle the exception
-        }
+        }*/
 
         if (typeOfRequest.equals("Reminder")) {
             String pm = ""; //sql request to get personal message set by user
