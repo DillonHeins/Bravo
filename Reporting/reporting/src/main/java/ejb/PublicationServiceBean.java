@@ -18,8 +18,8 @@ public class PublicationServiceBean {
 	private EntityManager entityManager;
 		
 	public List<Publication> getPublcationsByPerson(Person person) {
-		Query query = entityManager.createQuery("SELECT p.Publication WHERE p.PersonID = :personID");
+		Query query = entityManager.createQuery("SELECT p.Publication WHERE p.personID = :personID");
 		query.setParameter("personID", person.getPersonID());
-		return query.getResultList();
+		return (List<Publication>) query.getResultList();
 	}
 }

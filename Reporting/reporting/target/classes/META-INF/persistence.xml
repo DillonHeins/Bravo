@@ -10,9 +10,10 @@
 		<class>entity.Publishedstate</class>
 		<class>entity.Person</class>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/people"/>
-			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://mysql.touchthenations.net:3306/ttn_sam"/>
+			<property name="javax.persistence.jdbc.user" value="ttn_sam"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.password" value="s0meP@ss"/>
 		</properties>
 	</persistence-unit>
 </persistence>

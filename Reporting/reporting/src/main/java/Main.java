@@ -1,19 +1,10 @@
 import java.util.List;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
+import entity.*;
 
-import ejb.*;
-import entity.Lifecyclestate;
-import entity.Publication;
-
-public class Client {
-	
-	public void doStuff() throws NamingException {
+public class Main {
+	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("reporting");
 		EntityManager em = emf.createEntityManager();
 		
@@ -27,5 +18,9 @@ public class Client {
 		List<Publication> list = (List<Publication>) query.getResultList();
 		for(Publication pub: list) 
 			System.out.println(pub.getPublicationTypeID());
+		
+		/*Publicationauthor p = em.find(Publicationauthor.class, 2);
+		System.out.println(p.getPersonID());*/
+		//System.out.println("Success");
 	}
 }

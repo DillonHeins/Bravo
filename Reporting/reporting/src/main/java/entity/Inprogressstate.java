@@ -10,6 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="inprogressstate")
 @NamedQuery(name="Inprogressstate.findAll", query="SELECT i FROM Inprogressstate i")
 public class Inprogressstate implements Serializable {
 	private static final long serialVersionUID = 1L;

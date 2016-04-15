@@ -10,6 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="lifecyclestate")
 @NamedQuery(name="Lifecyclestate.findAll", query="SELECT l FROM Lifecyclestate l")
 public class Lifecyclestate implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -17,11 +18,11 @@ public class Lifecyclestate implements Serializable {
 	@Id
 	private int lifeCycleStateID;
 
-	private byte accepted;
+	private boolean accepted;
 
-	private byte inRevision;
+	private boolean inRevision;
 
-	private byte submitted;
+	private boolean submitted;
 
 	//bi-directional many-to-one association to Inprogressstate
 	@ManyToOne
@@ -48,27 +49,27 @@ public class Lifecyclestate implements Serializable {
 		this.lifeCycleStateID = lifeCycleStateID;
 	}
 
-	public byte getAccepted() {
+	public boolean getAccepted() {
 		return this.accepted;
 	}
 
-	public void setAccepted(byte accepted) {
+	public void setAccepted(boolean accepted) {
 		this.accepted = accepted;
 	}
 
-	public byte getInRevision() {
+	public boolean getInRevision() {
 		return this.inRevision;
 	}
 
-	public void setInRevision(byte inRevision) {
+	public void setInRevision(boolean inRevision) {
 		this.inRevision = inRevision;
 	}
 
-	public byte getSubmitted() {
+	public boolean getSubmitted() {
 		return this.submitted;
 	}
 
-	public void setSubmitted(byte submitted) {
+	public void setSubmitted(boolean submitted) {
 		this.submitted = submitted;
 	}
 
