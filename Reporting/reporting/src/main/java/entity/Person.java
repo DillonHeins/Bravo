@@ -9,9 +9,21 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="person")
-@NamedQuery(name="Person.findAll", query="SELECT p FROM Person p")
+@Table(name = "person")
+@NamedQueries
+({
+    @NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p"),
+    @NamedQuery(name = "Person.findByPersonid", query = "SELECT p FROM Person p WHERE p.personID = :personid"),
+    @NamedQuery(name = "Person.findByEmail", query = "SELECT p FROM Person p WHERE p.emails = :email"),
+    @NamedQuery(name = "Person.findByFirstname", query = "SELECT p FROM Person p WHERE p.firstNames = :firstname"),
+    @NamedQuery(name = "Person.findByOrgid", query = "SELECT p FROM Person p WHERE p.organizationID = :orgid"),
+    @NamedQuery(name = "Person.findByRcatid", query = "SELECT p FROM Person p WHERE p.researchCategoryID = :rcatid"),
+    @NamedQuery(name = "Person.findByRgroupid", query = "SELECT p FROM Person p WHERE p.researchGroupID = :rgroupid"),
+    @NamedQuery(name = "Person.findBySurname", query = "SELECT p FROM Person p WHERE p.surname = :surname")
+})
+
 public class Person implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -29,7 +41,16 @@ public class Person implements Serializable {
 
 	private String surname;
 
-	public Person() {
+	public Person(int id, String fName, String sName, String mail){
+		super();
+		this.personID = id;
+		this.firstNames = fName;
+		this.surname = sName;
+		this.emails = mail;
+	}
+	
+	public Person(){
+		super();
 	}
 
 	public int getPersonID() {

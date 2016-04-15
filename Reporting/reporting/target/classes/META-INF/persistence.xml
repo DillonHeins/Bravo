@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="reporting" transaction-type="RESOURCE_LOCAL">
-		<class>entity.Inprogressstate</class>
-		<class>entity.Lifecyclestate</class>
-		<class>entity.Publicationauthor</class>
-		<class>entity.Publicationdetail</class>
-		<class>entity.Publication</class>
-		<class>entity.Publicationstate</class>
-		<class>entity.Publishedstate</class>
-		<class>entity.Person</class>
+	<persistence-unit name="reporting">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>model.Active</class>
+		<class>model.Activestate</class>
+		<class>model.Inprogressstate</class>
+		<class>model.Lifecyclestate</class>
+		<class>model.Notactive</class>
+		<class>model.Organization</class>
+		<class>model.Person</class>
+		<class>model.Publicationauthor</class>
+		<class>model.Publicationdetail</class>
+		<class>model.Publication</class>
+		<class>model.Publicationstate</class>
+		<class>model.Publicationtarget</class>
+		<class>model.Publicationtype</class>
+		<class>model.Publicationtypestate</class>
+		<class>model.Publishedstate</class>
+		<class>model.Researchercategory</class>
+		<class>model.Researchgroup</class>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://mysql.touchthenations.net:3306/ttn_sam"/>
+			<property name="javax.persistence.schema-generation.create-database-schemas" value="true"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/> 
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://mysql.touchthenations.net:3306/ttn_sam"/> 
 			<property name="javax.persistence.jdbc.user" value="ttn_sam"/>
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.password" value="s0meP@ss"/>
+			<property name="javax.persistence.jdbc.password" value="s0meP@ss"/> 			
 		</properties>
 	</persistence-unit>
 </persistence>

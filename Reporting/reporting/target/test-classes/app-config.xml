@@ -3,7 +3,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.springframework.org/schema/beans
          http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
-         <bean id="personBean" class="org.springframework.ejb.access.LocalStatelessSessionProxyFactoryBean">
+	 <bean id="personBean">
          	<property name="jndiName">
          		<value>PersonServiceBean</value>
          	</property>
@@ -17,6 +17,30 @@
          	</property>
          	<property name="businessInterface">
          		<value>PublicationServiceBeanService</value>
+         	</property>
+         </bean>
+	<bean id="lifeCycleStateBean">
+         	<property name="jndiName">
+         		<value>LifecyclestateServiceBean</value>
+         	</property>
+         	<property name="businessInterface">
+         		<value>LifecyclestateBeanService</value>
+         	</property>
+         </bean>
+         <bean id="ResearchGroupBean">
+         	<property name="jndiName">
+         		<value>ResearchGroupServiceBean</value>
+         	</property>
+         	<property name="businessInterface">
+         		<value>ResearchGroupBeanService</value>
+         	</property>
+         </bean>
+         <bean id="ResearcherCategoryBean">
+         	<property name="jndiName">
+         		<value>ResearcherCategoryServiceBean</value>
+         	</property>
+         	<property name="businessInterface">
+         		<value>ResearcherCategoryBeanService</value>
          	</property>
          </bean>
          </beans>

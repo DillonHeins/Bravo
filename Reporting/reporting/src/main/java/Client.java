@@ -9,9 +9,23 @@ import javax.persistence.Query;
 
 import ejb.*;
 import entity.Lifecyclestate;
+import entity.Person;
 import entity.Publication;
 
 public class Client {
+	private EntityManagerFactory emf;
+	private EntityManager entityManager;
+	
+	public Client() {
+		emf = Persistence.createEntityManagerFactory("reporting");
+		entityManager = emf.createEntityManager();
+	}
+	
+	public List<Publication> getPublcationsByPerson(Person person) {
+		Query query = entityManager.createQuery("SELECT p.Publication WHERE p.personID = :personID");
+		query.setParameter("personID", person.getPersonID());
+		return (List<Publication>) query.getResultList();
+	}
 	
 	public void doStuff() throws NamingException {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("reporting");

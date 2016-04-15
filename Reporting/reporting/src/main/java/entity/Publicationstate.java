@@ -11,17 +11,27 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="publicationstate")
-@NamedQuery(name="Publicationstate.findAll", query="SELECT p FROM Publicationstate p")
+@Table(name = "publicationstate")
+@NamedQueries({
+    @NamedQuery(name = "Publicationstate.findAll", query = "SELECT p FROM Publicationstate p"),
+    @NamedQuery(name = "Publicationstate.findByPublicationStateID", query = "SELECT p FROM Publicationstate p WHERE p.publicationStateID = :publicationStateID"),
+    @NamedQuery(name = "Publicationstate.findByLifeCycleStateID", query = "SELECT p FROM Publicationstate p WHERE p.lifeCycleStateID = :lifeCycleStateID"),
+    @NamedQuery(name = "Publicationstate.findByChangeDate", query = "SELECT p FROM Publicationstate p WHERE p.changeDate = :changeDate")})
 public class Publicationstate implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Basic(optional = false)
+	@Column(name = "publicationStateID")
 	private int publicationStateID;
 
+	@Column(name = "changeDate")
 	@Temporal(TemporalType.DATE)
 	private Date changeDate;
 
+	@Lob
+	@Column(name = "changeReason")
 	private String changeReason;
 
 	//bi-directional many-to-one association to Publication

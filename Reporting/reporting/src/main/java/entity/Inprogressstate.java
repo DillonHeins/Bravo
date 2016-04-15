@@ -10,16 +10,23 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="inprogressstate")
-@NamedQuery(name="Inprogressstate.findAll", query="SELECT i FROM Inprogressstate i")
+@Table(name = "inprogressstate")
+@NamedQueries({
+    @NamedQuery(name = "Inprogressstate.findAll", query = "SELECT i FROM Inprogressstate i"),
+    @NamedQuery(name = "Inprogressstate.findByInProgressID", query = "SELECT i FROM Inprogressstate i WHERE i.inProgressID = :inProgressID"),
+    @NamedQuery(name = "Inprogressstate.findByPercentageComplete", query = "SELECT i FROM Inprogressstate i WHERE i.percentageComplete = :percentageComplete")})
 public class Inprogressstate implements Serializable {
-	private static final long serialVersionUID = 1L;
-
+	
+	 private static final long serialVersionUID = 1L;
+    
 	@Id
+	@Basic(optional = false)
+	@Column(name = "inProgressID")
 	private int inProgressID;
-
+	
+	@Column(name = "percentageComplete")
 	private int percentageComplete;
-
+    
 	//bi-directional many-to-one association to Lifecyclestate
 	@OneToMany(mappedBy="inprogressstate")
 	private List<Lifecyclestate> lifecyclestates;
