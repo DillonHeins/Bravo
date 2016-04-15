@@ -20,6 +20,10 @@
 					</div>
 					<div class="btn-group"><a class="btn btn-danger" href="{{generateCSV model.title model.group model.type model.due model.state model.progress}}" download>Export to CSV</a></div>
 					{{gen-button model.progress 100 model.title}}
+					<div class="btn-group">
+						<a class="btn btn-danger" href="{{model.title}}.csv" download>Export to CSV</a>
+						{{gen-button model.progress 100 model.title}}
+					</div>
 				</div>
 			</div>
 		</div>
