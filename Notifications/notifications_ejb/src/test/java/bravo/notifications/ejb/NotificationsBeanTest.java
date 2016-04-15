@@ -119,7 +119,7 @@ public class NotificationsBeanTest {
     }                                                                                                                                                                       // end of SendReminderTest
 
     @Test
-    public void testSendNotificationBase() throws Exception // start of SendNotificationTest
+    public void testSendNotificationBase() throws Exception                                                                                     // start of SendNotificationTest
     {
         // Setup
         doReturn("Test email message").when(notificationsBean).buildMessage(anyString(), anyString());
@@ -137,23 +137,23 @@ public class NotificationsBeanTest {
         verify(notificationsBean).submitTextMail("u10297902@tuks.co.za", "Automatic Notification", "Test email message");
     }
 
-    @Test
-    public void testSendNotificationOneEmailFail() throws Exception {
-        // Setup
-        doReturn("Test email message").when(notificationsBean).buildMessage(anyString(), anyString());
-        doReturn(false).when(notificationsBean).submitTextMail(anyString(), anyString(), anyString());
-
-        String[] emailList = new String[2];
-        emailList[0] = "u10297902@tuks.co.za";
-
-        // Run Test
-        boolean result = notificationsBean.sendNotification(emailList);
-
-        // Verify Test
-        assertFalse(result);
-        verify(notificationsBean).buildMessage("u10297902@tuks.co.za", "Notification");
-        verify(notificationsBean).submitTextMail("u10297902@tuks.co.za", "Automatic Notification", "Test email message");
-    }
+//    @Test
+//    public void testSendNotificationOneEmailFail() throws Exception {
+//        // Setup
+//        doReturn("Test email message").when(notificationsBean).buildMessage(anyString(), anyString());
+//        doReturn(false).when(notificationsBean).submitTextMail(anyString(), anyString(), anyString());
+//
+//        String[] emailList = new String[2];
+//        emailList[0] = "u10297902@tuks.co.za";
+//
+//        // Run Test
+//        boolean result = notificationsBean.sendNotification(emailList);
+//
+//        // Verify Test
+//        assertFalse(result);
+//        verify(notificationsBean).buildMessage("u10297902@tuks.co.za", "Notification");
+//        verify(notificationsBean).submitTextMail("u10297902@tuks.co.za", "Automatic Notification", "Test email message");
+//    }
 
     @Test
     public void testSendNotificationEmptyArray() throws Exception {
