@@ -1,4 +1,4 @@
-package bravo.people.implementations;
+package bravopeople;
 
 import java.util.Date;
 import junit.framework.TestCase;

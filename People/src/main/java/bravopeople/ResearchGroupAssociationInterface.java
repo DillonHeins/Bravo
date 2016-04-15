@@ -1,4 +1,4 @@
-package bravo.people.interfaces;
+package bravopeople;
 
 import java.util.Date;
 

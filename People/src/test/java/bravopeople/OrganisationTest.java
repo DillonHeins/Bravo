@@ -1,4 +1,4 @@
-package bravo.people.implementations;
+package bravopeople;
 
 import junit.framework.TestCase;
 

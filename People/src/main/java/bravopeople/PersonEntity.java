@@ -1,7 +1,5 @@
-package bravo.people.entity;
+package bravopeople;
 
-import bravo.people.implementations.Group;
-import bravo.people.implementations.Organisation;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
-import bravo.people.implementations.Person;
 import javax.persistence.Embedded;
 import javax.persistence.FetchType;
 import javax.persistence.NamedQueries;

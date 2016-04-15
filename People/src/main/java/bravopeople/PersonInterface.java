@@ -5,9 +5,8 @@
  * This File defines the Person Interface to be implemented.
  */
 
-package bravo.people.interfaces;
+package bravopeople;
 import java.util.LinkedList;
-import bravo.people.implementation;
 
 
 public interface PersonInterface
@@ -82,7 +81,7 @@ public interface PersonInterface
      * 
      * @return List of Organisations the Person belongs to.
      */
-    public LinkedList<Organisation> getOrganisation();
+    //public LinkedList<Organisation> getOrganisation();
     
     /**
      * 
@@ -115,14 +114,5 @@ public interface PersonInterface
      *                                          RESEARCHER
      *                                          RESEARCHGROUPLEADER
      */
-    public UserRight getUserRights();
-    
-    /**
-     * 
-     * @return string of the object, to be defined in concrete classes
-     */
-    @Override
-    public String toString();
-    
-    
+    public String getUserRights();
 }

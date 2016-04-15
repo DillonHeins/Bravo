@@ -1,7 +1,6 @@
-package bravo.people.implementations;
+package bravopeople;
 
 import java.util.Date;
-import bravo.people.interfaces.ResearchGroupAssociationInterface;
 
 /**
  * <h1>Association class with a research group</h1>

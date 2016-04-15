@@ -3,10 +3,9 @@
   *	@version 1.0
   *	This file defines the Organization Class for the Researcher Support System (RSS).
   */
-	
-package bravo.people.implementations;
 
-import bravo.people.interfaces.OrganisationInterface;
+package bravopeople;
+
 
 class Organisation implements OrganisationInterface
 {

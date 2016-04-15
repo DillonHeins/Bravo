@@ -1,7 +1,6 @@
-package bravo.people.implementations;
+package bravopeople;
 
 import java.util.ArrayList;
-import bravo.people.interfaces.UserInterface;
 /**
  * @author Bravo Team
  *	@version 1.0
@@ -20,6 +19,7 @@ public class User implements UserInterface
 
     private boolean hasAuth(String auth)
     {
+        return false;
     }
 
     public void addPerson(Person person)
@@ -42,12 +42,12 @@ public class User implements UserInterface
 
     }
 
-    public void addResearcherCategory(ResearcherCategory rc)
+    public void addResearcherCategory(ResearchCategory rc)
     {
 
     }
 
-    public void modifyResearcherCategory(ResearcherCategory rc)
+    public void modifyResearcherCategory(ResearchCategory rc)
     {
 
     }

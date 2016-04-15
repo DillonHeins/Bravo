@@ -1,4 +1,4 @@
-package bravo.people.interfaces;
+package bravopeople;
 
 import java.util.ArrayList;
 
@@ -18,9 +18,9 @@ public interface UserInterface
 
     public void addResearchGroupAssociation(ResearchGroupAssociation rga);
 
-    public void addResearcherCategory(ResearcherCategory rc);
+    public void addResearcherCategory(ResearchCategory rc);
 
-    public void modifyResearcherCategory(ResearcherCategory rc);
+    public void modifyResearcherCategory(ResearchCategory rc);
 
     public void addResearchGroup(Group group);
 

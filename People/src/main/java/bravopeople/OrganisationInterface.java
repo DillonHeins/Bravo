@@ -6,9 +6,8 @@
  * @version 1.0
 */
 
-package bravo.people.interfaces;
+package bravopeople;
 
-import bravo.people.implementation;
 
 public interface OrganisationInterface
 {        	

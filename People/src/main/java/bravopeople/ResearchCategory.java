@@ -1,6 +1,5 @@
-package bravo.people.implementations;
+package bravopeople;;
 import java.util.Date;
-import bravo.people.interfaces.ResearchCategoryInterface;
 
 /**
  * @author Bravo Team
