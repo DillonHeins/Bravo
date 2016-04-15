@@ -1,6 +1,5 @@
 <header id="currLocation">
-    You are here - <a href="/">home</a>-&gt;<a href="/publications">publications</a>-&gt;<a href="/publications/add">add</a><br>
-      <!-- TODO change names of edits to comply with reqirements -->
+    You are here - <a href="/">home</a>-&gt;<a href="/publications">publications</a>-&gt;<a href="/publications/edit/{{model.id}}">add</a><br>
     <h1>Add Publication</h1>
 </header>
 <section id="mainPubAdd">
@@ -9,26 +8,44 @@
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Publication Title </span>
             <input type="text" class="form-control" placeholder="Title" id="title" aria-describedby="basic-addon1" value="Some new paper on Ember.js" required>
+
         </div>
         <br>
         <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Publication Website</span>
+            <span class="input-group-addon" id="basic-addon1">Publication URL</span>
             <input type="text" class="form-control" placeholder="Website" id="website" aria-describedby="basic-addon1" value="www.somesite.com" required>
         </div>
+		<div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Group</span>
+            <input id ="group" type="text" class="form-control" placeholder="alpha" aria-describedby="basic-addon1" value="Alpha">
+        </div>
         <br>
+		<select id="type" class="form-control">
+            <option><a href="#">Publication Type</a></option>
+            <option><a href="#">Conference</a></option>
+            <option><a href="#">Journal</a></option>
+            <option><a href="#">Research</a></option>
+            <option><a href="#">Tutorial</a></option>
+            <option><a href="#">Review</a></option>
+            <option><a href="#">Other</a></option>
+        </select>
         <div class="input-group">
             <div class="checkbox">
                 <label><input type="checkbox" id="isComplete">Is Completed</label>
             </div>
+
+            <input id ="website" type="text" class="form-control" placeholder="www.atsomewebsite.com" aria-describedby="basic-addon1">
+
         </div>
-        <!-- Below will be greyed out if checkbox is activated -->
-        <!-- Below will be greyed out if checkbox is activated -->
         <br>
         <div class="input-group">
+
             <span class="input-group-addon" id="basic-addon1">Due Date</span>
             <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="dueDate" aria-describedby="basic-addon1" value="25/08/2016" required>
+            <span class="input-group-addon" id="basic-addon1">Group</span>
+            <input id ="group" type="text" class="form-control" placeholder="alpha" aria-describedby="basic-addon1">
+
         </div>
-        <!-- fix dropdown -->
         <br>
         <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -46,12 +63,52 @@
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Progress</span>
             <input type="text" class="form-control" placeholder="40%" id="progress" aria-describedby="basic-addon1" value="40" required> <!--Update Progress bar when this changes-->
+        
+
+        <select id="type" class="form-control">
+            <option><a href="#">Publication Type</a></option>
+            <option><a href="#">Conference</a></option>
+            <option><a href="#">Journal</a></option>
+            <option><a href="#">Research</a></option>
+            <option><a href="#">Tutorial</a></option>
+            <option><a href="#">Review</a></option>
+            <option><a href="#">Other</a></option>
+        </select>
+
+        <br>
+        <div id="group" class="input-group">
+            <div class="checkbox">
+                <label><input id="checkbox1" type="checkbox">Is Completed</label>
+            </div>
         </div>
-            <div class="progress"> <!--Just for illustration for now-->
-                <div class="progress-bar progress-bar-striped active" role="progressbar"aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-                    40%
+        <br>
+        <div id="notcomplete">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Due Date</span>
+                <input id="dueDate" type="text" class="form-control" placeholder="dd/mm/yyyy" aria-describedby="basic-addon1" value="{{model.due}}">
+            </div>
+            <br>
+
+            <select id="selected" class="form-control">
+                <option><a href="#">Lifestyle State</a></option>
+                <option><a href="#">inProgress</a></option>
+                <option><a href="#">Submitted</a></option>
+                <option><a href="#">Accepted</a></option>
+                <option><a href="#">InRevision</a></option>
+                <option><a href="#">Abandoned</a></option>
+            </select>
+            <br>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Progress</span>
+                <input id="progress1text" type="text" class="form-control" aria-describedby="basic-addon1" value="{{model.progress}}"> <!--Update Progress bar when this changes-->
+            </div>
+            <div class="progress">
+                <div id="progress1" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                    Progress : 0%
                 </div>
             </div>
+        </div>
         <br>
         <div class="panel panel-default">
             <div class="panel-heading">Collaborators</div>
@@ -82,6 +139,8 @@
             </div>
             <br>
         </div>
+        <br>
+        <!-- add seperate handlebars for dropdown -->
         <br>
         <button type="submit" class="btn btn-danger marginBottom" {{action "sendAJAX"}}>Add Publication</button>
     </form>

@@ -16,23 +16,22 @@
 	<button type="submit" class="btn btn-danger marginBottom">View Publication</button>
 </form> -->
 <section>
-	<div class="panel panel-default">
-		<div class="panel-body" id="pubContainer">
-		{{#each model as |publication|}}
-			<div class="well well-lg">
-				<PRE class="pubname" data-name="{{publication.title}}">Title:                            {{publication.title}}</PRE>
-				<PRE class="group">Group:                         {{publication.group}}</PRE>
-				<PRE class="pubtype">Publication Type:      {{publication.type}}</PRE>
-				<PRE class="due">Due Date:                    {{publication.due}}</PRE>
-				<PRE class="state">State:                            {{publication.state}}</PRE>
-				<div class="exportTo">
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped active" role="progressbar"
-						aria-valuenow="{{publication.progress}}%" aria-valuemin="0" aria-valuemax="100%" style="width:{{publication.progress}}%">
-						Progress Completed: {{publication.progress}}%
-						</div>
+<div class="panel panel-default">
+	<div class="panel-body" id="pubContainer">
+	{{#each model as |publication|}}
+		<div class="well well-lg">
+			<PRE class="pubname" data-name="{{publication.title}}">Title:                           {{publication.title}}</PRE>
+			<PRE class="group">Group:                         {{publication.group}}</PRE>
+			<PRE class="Author">Author:                         {{publication.author}}</PRE>
+			<PRE class="pubtype">Publication Type:    {{publication.type}}</PRE>
+			<PRE class="due">Due Date:                    {{publication.due}}</PRE>
+			<PRE class="state">State:                             {{publication.state}}</PRE>
+			<div class="exportTo">
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar"
+					aria-valuenow="{{publication.progress}}%" aria-valuemin="0" aria-valuemax="100%" style="width:{{publication.progress}}%">
+					Progress Completed: {{publication.progress}}%
 					</div>
-					<!-- <div class="btn-group"><a class="btn btn-danger class" href="{{publication.title}}.csv" download>Export to CSV</a></div> -->
 					<div class="btn-group"><a class="btn btn-danger" href="/publications/view/{{publication.id}}">View Publication</a></div>
 					<div class="btn-group"><a class="btn btn-danger" href="/publications/edit/{{publication.id}}">Edit Publication</a></div>
 				</div>
