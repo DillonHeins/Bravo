@@ -75,6 +75,14 @@ public class PeopleResource {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Path("deleteAll")
+    public String deleteAll() {
+        peopleBean.deleteAll();
+        return "xxx";
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("getPeople")
     public Response getPeople() throws IOException {
         JSONObject jsonObject = new JSONObject();
