@@ -38,6 +38,25 @@ public class NotificationsBeanTest
     }
     
     @Test
+    public void testSendReminderOneEmailFail() throws Exception
+    {
+        // Setup
+        doReturn("Test email message").when(notificationsBean).buildMessage(anyString(), anyString());
+        doReturn(false).when(notificationsBean).submitTextMail(anyString(), anyString(), anyString());
+        
+        String[] emailList = new String[2];
+        emailList[0] = "u10297902@tuks.co.za";
+        
+        // Run Test
+        boolean result = notificationsBean.sendReminder(emailList);
+        
+        // Verify Test
+        assertFalse(result);
+        verify(notificationsBean).buildMessage("u10297902@tuks.co.za", "Reminder");
+        verify(notificationsBean).submitTextMail("u10297902@tuks.co.za", "2 Day Reminder", "Test email message");
+    }
+    
+    @Test
     public void testSendReminderEmptyArray() throws Exception
     {
         // Setup
@@ -55,16 +74,16 @@ public class NotificationsBeanTest
     @Test
     public void testSendReminderNullArray() throws Exception
     {
-//         // Setup
-//        String[] emailList;
-//        
-//         // Run Test
-//        boolean result = notificationsBean.sendReminder(emailList);
-//        
-//        // Verify Test
-//        assertFalse(result);
-//        verify(notificationsBean, never()).buildMessage(anyString(), anyString());
-//        verify(notificationsBean, never()).submitTextMail(anyString(), anyString(), anyString());
+         // Setup
+        String[] emailList = null;
+        
+         // Run Test
+        boolean result = notificationsBean.sendReminder(emailList);
+        
+        // Verify Test
+        assertFalse(result);
+        verify(notificationsBean, never()).buildMessage(anyString(), anyString());
+        verify(notificationsBean, never()).submitTextMail(anyString(), anyString(), anyString());
     }
     
     @Test(expected=Exception.class)
@@ -100,10 +119,10 @@ public class NotificationsBeanTest
         boolean result = notificationsBean.sendReminder(emailList);
         
         // Verify Test
-        assertTrue(result);
+        assertFalse(result);
         verify(notificationsBean).buildMessage("u10297902@tuks.co.za", "Reminder");
         verify(notificationsBean).submitTextMail("u10297902@tuks.co.za", "2 Day Reminder", "Test email message");
-    }                                                                                                                                                                                                                     // end of SendReminderTest
+    }                                                                                                                                                                       // end of SendReminderTest
 }
 
 ///**
