@@ -94,16 +94,48 @@ public class NotificationsBean {
         @param emailList[] it will be an array containing all the email addresses the notification must be sent to
         other parameters still unsure
      */
-    public void sendNotification(String emailList[]) {
+    public boolean sendNotification(String emailList[]) {
         /*
             The email list must receive their notifications as per request, 
             Thus each mail must be sent one by one so each user can get his/her personalised notfication.
             This will still buildMessage as that function will get the personalised message from the data base.
          */
-        for (int i = 0; i < emailList.length; i++) {
-            String message = buildMessage(emailList[i], "Notification");
-            submitTextMail(emailList[i], "Automatic Notification", message);
+        boolean failedEmail = false;
+                
+        if (emailList != null && emailList.length > 0)
+        {
+            for (String emailList1 : emailList) {
+                try {
+                    String message = buildMessage(emailList1, "Notification");
+                    if (!submitTextMail(emailList1, "Automatic Notification", message)) {
+                        failedEmail = true;
+                        failedEmail(emailList1, "Automatic Notification", message);
+                        logEntry("Email failed to deliver to " + emailList1);
+                    }
+                    else
+                    {
+                        logEntry("Notification sent to " + emailList1);
+                    }
+                }catch (Exception ex)
+                {
+                    failedEmail = true;
+                }
+            }
+            
+            if (failedEmail)
+            {
+               logger.log(Level.INFO, "One or more emails failed to send");
+               return false;
+            }
+            else 
+            {
+                logger.log(Level.INFO, "Success");
+                return true;
+            }
         }
+        
+        logger.log(Level.INFO, "No email to send");
+        return false;
     }
 
     /*
