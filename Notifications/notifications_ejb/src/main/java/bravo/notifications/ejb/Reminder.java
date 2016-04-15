@@ -7,7 +7,7 @@ import java.util.logging.*;
 
 public class Reminder extends TimerTask
 {
-    public boolean remind() throws SQLException
+    public void remind() throws SQLException
     {
       //connection to db
       Connection c = DriverManager.getConnection("jdbc:derby://localhost:1527/mockDB [Jakes on JAKES]");     //"jdbc:postgresql://localhost:5432/mockDB","postgres", "postgres");
@@ -28,12 +28,9 @@ public class Reminder extends TimerTask
           ResultSet rs2 = stmt.executeQuery("SELECT Email FROM Users WHERE UserID == " + reminderFID + ";");
           emails[0] = rs2.getString("Email");
 
-          bravo.notifications.ejb.NotificationsBean obj = new bravo.notifications.ejb.NotificationsBean();
-          obj.sendReminder(emails);
+          new NotificationsBean().sendReminder(emails);
         }
       }
-
-      return true;
     }
 
     @Override
