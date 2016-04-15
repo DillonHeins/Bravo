@@ -53,42 +53,42 @@ public class NotificationsBean {
         return success;
     }
 
-    public boolean[] Login() { //JSONObject removed and becomes mocked instead for now
-        //email address & password of JSON object
-        JSONObject s = new JSONObject();
-        String Jmail = s.getString("email");
-        String Jpass = s.getString("password");
-
-        //initializing array of structure [fail,user , group head,admin]
-        boolean arr[] = new boolean[4];
-        arr[0] = true;
-        arr[1] = false;
-        arr[2] = false;
-        arr[3] = false;
-
-        try {
-            //postgreSQL database connection ,assuming that the database name is accounts & there is a table called users
-            Connection c = DriverManager.getConnection("jdbc:derby://localhost:1527/mockDB [Jakes on JAKES]");     //"jdbc:postgresql://localhost:5432/mockDB","postgres", "postgres");                     // Hint: Cannot mock connection while it is like this, in order to mock a sucessful connection
-            Statement stmt = c.createStatement();                                                                                                                                                                                                                                                   // create getConnection function outside of  Login() function
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Users;");
-            while (rs.next()) {
-                //String person=rs.getString("person");
-                String email = rs.getString("Email");
-                String pass = rs.getString("Password");
-
-                //checking for matching login details
-                if (email.compareTo(Jmail) == 0 && pass.compareTo(Jpass) == 0) {
-                    arr[0] = false;
-                    break;// the commented out code is at the end of the file
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
-        }
-        return arr;
-    }
+//    public boolean[] Login() { //JSONObject removed and becomes mocked instead for now
+//        //email address & password of JSON object
+//        JSONObject s = new JSONObject();
+//        String Jmail = s.getString("email");
+//        String Jpass = s.getString("password");
+//
+//        //initializing array of structure [fail,user , group head,admin]
+//        boolean arr[] = new boolean[4];
+//        arr[0] = true;
+//        arr[1] = false;
+//        arr[2] = false;
+//        arr[3] = false;
+//
+//        try {
+//            //postgreSQL database connection ,assuming that the database name is accounts & there is a table called users
+//            Connection c = DriverManager.getConnection("jdbc:derby://localhost:1527/mockDB [Jakes on JAKES]");     //"jdbc:postgresql://localhost:5432/mockDB","postgres", "postgres");                     // Hint: Cannot mock connection while it is like this, in order to mock a sucessful connection
+//            Statement stmt = c.createStatement();                                                                                                                                                                                                                                                   // create getConnection function outside of  Login() function
+//            ResultSet rs = stmt.executeQuery("SELECT * FROM Users;");
+//            while (rs.next()) {
+//                //String person=rs.getString("person");
+//                String email = rs.getString("Email");
+//                String pass = rs.getString("Password");
+//
+//                //checking for matching login details
+//                if (email.compareTo(Jmail) == 0 && pass.compareTo(Jpass) == 0) {
+//                    arr[0] = false;
+//                    break;// the commented out code is at the end of the file
+//                }
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+//            System.exit(0);
+//        }
+//        return arr;
+//    }
 
     /*
         @param emailList[] it will be an array containing all the email addresses the notification must be sent to
