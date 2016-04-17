@@ -8,6 +8,10 @@
 a{
 	color:#e4432d;
 }
+form{
+	/*padding-left: 20%;
+	padding-right: 20%;*/
+}
 
 #up-logo {
 	padding-top: 10px;
@@ -54,6 +58,12 @@ a{
 #main {
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+#main > section {
+	width: 80%;
+	margin-left: 10%;
+	margin-bottom: 10%;
 }
 
 #currLocation {

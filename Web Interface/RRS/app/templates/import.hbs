@@ -1,4 +1,4 @@
-{{!-- <div id="importFromCSV"> --}}
+<div id="importFromCSV">
 	<button class="btn btn-danger marginBottom" data-toggle="modal" data-target="#UploadFile">Import from CSV file</button>
 
 	<div id="UploadFile" class="modal fade" role="dialog">
@@ -18,7 +18,7 @@
 
 									<img src="http://s7.postimg.org/x0wdbwv17/csv_file_upload.png" alt="Upload CSV File" id="csvimg"/>
 
-								<input type="file" id="file-choose" style="height:100px;" onchange={{action 'fileChange'}} required/>
+								<input type="file" id="file-choose" style="height:100px;" accept=".csv" onchange={{action 'fileChange'}} required/>
 								<h5 id="fileName">{{fileName}}</h5><button type="reset" id="resets" class="btn btn-link" style="visibility:hidden" onclick={{action 'reset'}}><span id="trash">Remove</span></button>
 							</div>
 						</div>
@@ -27,10 +27,12 @@
 						<br/>
 						<div class="btn-group" style="padding-top: 15px; margin-left: 35%;">
 							<button type="submit" class="btn btn-danger" onclick={{action "isCSV"}}>Upload File</button>
-							<button type="reset" class="btn btn-danger" data-dismiss="modal" id="reset" onclick={{action 'reset'}}><span class="glyphicon glyphicon-cancel"></span>Cancel</button>
+							<button type="reset" class="btn btn-danger" data-dismiss="modal" id="reset" onclick={{action 'reset'}}>Cancel</button>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+ <br/>

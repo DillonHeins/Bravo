@@ -4,7 +4,7 @@ export default [{
 	author: "Linda Marshall, Vreda Pieterse",
 	type: "Conference Paper",
 	progress: "100",
-	state: "In Progress",
+	state: "Completed",
 	due: "24/04/16"
 }, {
 	title: "Something to do with AI",

@@ -2,19 +2,21 @@
 	You are here - <a href="/">home</a>-&gt;<a href="/people">people</a><br>
 	<h1>List People</h1>
 </header>
-<div class="panel panel-default">
-	<div class="panel-body" id="pubContainer">
-	{{#each model as |person|}}
-		<div class="well well-lg">
-			<PRE class="title">Title:                           {{person.title}}</PRE>
-			<PRE class="name">Name:                         {{person.name}}</PRE>
-			<PRE class="surname">Surname:    {{person.surname}}</PRE>
-			<PRE class="organization">Organization:                    {{person.organization}}</PRE>
-			<PRE class="email">E-mail:                             {{person.email}}</PRE>
-			<PRE class="field">Research field:                             {{person.field}}</PRE>
-			<div class="btn-group"><a class="btn btn-danger" href="/people/view/{{person.id}}">View Person</a></div>
-			<div class="btn-group"><a class="btn btn-danger" href="/people/edit/{{person.id}}">Edit Person</a></div>
+<section>
+	<div class="panel panel-default">
+		<div class="panel-body" id="pubContainer">
+		{{#each model as |person|}}
+			<div class="well well-lg">
+				<PRE class="title">Title:                          {{person.title}}</PRE>
+				<PRE class="name">Name:                       {{person.name}}</PRE>
+				<PRE class="surname">Surname:                  {{person.surname}}</PRE>
+				<PRE class="organization">Organization:            {{person.organization}}</PRE>
+				<PRE class="email">E-mail:                        {{person.email}}</PRE>
+				<PRE class="field">Research field:          {{person.field}}</PRE>
+				<div class="btn-group"><a class="btn btn-danger" href="/people/view/{{person.id}}">View Person</a></div>
+				<div class="btn-group"><a class="btn btn-danger" href="/people/edit/{{person.id}}">Edit Person</a></div>
+			</div>
+		{{/each}}
 		</div>
-	{{/each}}
 	</div>
-</div>
+</section>

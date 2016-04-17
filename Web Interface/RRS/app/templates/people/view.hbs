@@ -2,15 +2,17 @@
 	You are here - <a href="/">home</a>-&gt;<a href="/people">people</a>-&gt;<a href="/people/view/{{model.id}}">view</a><br>
 	<h1>View Person</h1>
 </header>
-<div class="panel panel-default">
-	<div class="panel-body" id="pubContainer">
-		<div class="well well-lg">
-			<PRE class="title">Title:                           {{model.title}}</PRE>
-			<PRE class="name">Name:                         {{model.name}}</PRE>
-			<PRE class="surname">Surname:    {{model.surname}}</PRE>
-			<PRE class="organization">Organization:                    {{model.organization}}</PRE>
-			<PRE class="email">E-mail:                             {{model.email}}</PRE>
-			<PRE class="field">Research field:                             {{model.field}}</PRE>
+<section>
+	<div class="panel panel-default">
+		<div class="panel-body" id="pubContainer">
+			<div class="well well-lg">
+				<PRE class="title">Title:                          {{model.title}}</PRE>
+				<PRE class="name">Name:                       {{model.name}}</PRE>
+				<PRE class="surname">Surname:                  {{model.surname}}</PRE>
+				<PRE class="organization">Organization:            {{model.organization}}</PRE>
+				<PRE class="email">E-mail:                        {{model.email}}</PRE>
+				<PRE class="field">Research field:          {{model.field}}</PRE>
+			</div>
 		</div>
 	</div>
-</div>
+</section>

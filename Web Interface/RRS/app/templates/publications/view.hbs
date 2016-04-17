@@ -6,11 +6,12 @@
 	<div class="panel panel-default">
 		<div class="panel-body" id="pubContainer">
 			<div class="well well-lg">
-				<PRE class="pubname" data-name="{{model.title}}">Title:                           {{model.title}}</PRE>
-				<PRE class="group">Group:                         {{model.group}}</PRE>
-				<PRE class="pubtype">Publication Type:    {{model.type}}</PRE>
-				<PRE class="due">Due Date:                    {{model.due}}</PRE>
-				<PRE class="state">State:                             {{model.state}}</PRE>
+			<PRE class="pubname" data-name="{{model.title}}">Title:                           {{model.title}}</PRE>
+			<PRE class="group">Group:                        {{model.group}}</PRE>
+			<PRE class="Author">Author:                        {{model.author}}</PRE>
+			<PRE class="pubtype">Publication Type:     {{model.type}}</PRE>
+			<PRE class="due">Due Date:                  {{model.due}}</PRE>
+			<PRE class="state">State:                          {{model.state}}</PRE>
 				<div class="exportTo">
 					<div class="progress">
 						<div class="progress-bar progress-bar-striped active" role="progressbar"
@@ -18,8 +19,10 @@
 						Progress Completed: {{model.progress}}%
 						</div>
 					</div>
-					<div class="btn-group"><a class="btn btn-danger" href="{{model.title}}.csv" download>Export to CSV</a></div>
-					{{gen-button model.progress 100 model.title}}
+					<div class="btn-group">
+						<a class="btn btn-danger" href="{{generateCSV model.title model.group model.type model.due model.state model.progress}}" download>Export to CSV</a>
+						{{gen-button model.progress 100 model.title}}
+					</div>
 				</div>
 			</div>
 		</div>
