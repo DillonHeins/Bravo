@@ -33,7 +33,7 @@ public class Value
     {
         return "Value{" +
                 "id=" + id +
-                ", quote='" + quote + '\'' +
+                ", quote='" + userRights + '\'' +
                 '}';
     }
 }

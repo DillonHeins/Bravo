@@ -13,4 +13,46 @@
     <string name="nathan_dunkley">Nathan Dunkley - 14145759</string>
     <string name="login">Login</string>
     <string name="up_logo_description">University of pretoria logo</string>
+    <string name="title_activity_person">Person</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="report">Report</string>
+    <string name="group">Research Group</string>
+    <string name="user">User</string>
+    <string name="admin">Administrator</string>
+    <string name="search">Search User</string>
+    <string name="add_user">Add User</string>
+    <string name="remove_user">Remove User</string>
+    <string name="title_activity_main22">Main22Activity</string>
+    <string name="title_activity_research_group">Research Group</string>
+    <string name="title_activity_view_research_group">View Research Group</string>
+    <string name="person_edit_details">Edit details</string>
+    <string name="title_activity_person__details">Person_Details</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_person_details">User Details</string>
+    <string name="surname">Surname</string>
+    <string name="email">Email</string>
+    <string name="cellphone">Cellphone</string>
+    <string name="notifications">Notifications</string>
+    <string name="staff_number">Staff Number</string>
+    <string name="save">Save</string>
+    <string name="title_activity_add_publication">Add Publication</string>
+    <string name="title_activity_view_publication">View Publication</string>
+    <string name="title_activity_publications">Publications</string>
+    <string name="publications">Publications</string>
+    <string name="enter_publication_details">Enter the details of the publication to be added:</string>
+    <string name="url">URL</string>
+    <string name="due_date">Due Date</string>
+    <string name="complete_question">Complete?</string>
+    <string name="progress">Progress(%)</string>
+    <string name="submit">Submit</string>
+    <string name="modify_publication">Modify Publication</string>
+    <string name="active">Active?</string>
+    <string name="name">Name</string>
+
+    <string name="title_activity_change_publication">Change Publication</string>
+    <string name="change_publication_details">Change the publication detail as necessary</string>
+    <string name="title_activity_admin">Admin</string>
 </resources>

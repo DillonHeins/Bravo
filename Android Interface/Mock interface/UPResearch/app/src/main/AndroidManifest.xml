@@ -21,7 +21,112 @@
         <activity
             android:name=".home"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PersonActivity"
+            android:label="@string/title_activity_person"
+            android:parentActivityName=".home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.slugger7.upresearch.home" />
+        </activity>
+        <activity
+            android:name=".PersonDetails"
+            android:label="@string/title_activity_person_details"
+            android:parentActivityName=".PersonActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.slugger7.upresearch.PersonActivity" />
+        </activity>
+        <activity
+            android:name=".Publications"
+            android:label="@string/title_activity_publications"
+            android:parentActivityName=".home"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.slugger7.upresearch.home" />
+
+        <activity
+            android:name=".AddPublication"
+            android:label="@string/title_activity_add_publication"
+            android:parentActivityName=".Publications"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.slugger7.upresearch.Publications" />
+        </activity>
+        <activity
+            android:name=".ViewPublication"
+            android:label="@string/title_activity_view_publication"
+            android:parentActivityName=".Publications"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.slugger7.upresearch.Publications" />
+        </activity>
+        <activity
+            android:name=".ResearchGroup"
+            android:label="@string/title_activity_research_group"
+            android:parentActivityName=".home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.slugger7.upresearch.home" />
+        </activity>
+        <activity
+            android:name=".ViewResearchGroup"
+            android:label="@string/title_activity_view_research_group"
+            android:parentActivityName=".ResearchGroup"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.slugger7.upresearch.ResearchGroup" />
+        </activity>
+        <activity
+            android:name=".AddToGroup"
+            android:label="@string/add_user"
+            android:parentActivityName=".ViewResearchGroup">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.slugger7.upresearch.ResearchGroup" />
+        </activity>
+        <activity
+            android:name=".RemoveFromGroup"
+            android:label="@string/remove_user"
+            android:parentActivityName=".ViewResearchGroup">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ViewResearchGroup" />
+        </activity>
+        <activity
+            android:name=".ChangePublication"
+            android:label="@string/title_activity_change_publication"
+            android:parentActivityName=".ViewPublication">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ViewPublication" />
+        </activity>
+        <activity
+            android:name=".Admin"
+            android:label="@string/title_activity_admin"
+            android:parentActivityName=".home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.slugger7.upresearch.home" />
+        </activity>
+        <activity
+            android:name=".AddResearchCategory"
+            android:label="@string/add_research_category"
+            android:parentActivityName=".Admin">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.slugger7.upresearch.Admin" />
+        </activity>
     </application>
 
 </manifest>

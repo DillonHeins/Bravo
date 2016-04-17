@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.slugger7.upresearch.ViewResearchGroup">
+
+    <item
+        android:id="@+id/add_user_to_group"
+        android:orderInCategory="203"
+        android:title="@string/add_user"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/remove_user_from_group"
+        android:orderInCategory="204"
+        android:title="@string/remove_user"
+        app:showAsAction="never"
+        />
+</menu>
