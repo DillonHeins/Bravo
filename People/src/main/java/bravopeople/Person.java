@@ -1,5 +1,5 @@
 /**
-  *    @author Bravo Team
+  * @author Bravo Team
   *	@version 1.0
   *	This file defines the Person Class for the Researcher Support System (RSS).
   *	The class defines the attributes of the user of the system.
@@ -8,7 +8,7 @@
 package bravopeople;
 import java.util.LinkedList;
 
-public class Person extends Entity implements PersonInterface
+public class Person extends PersonEntity implements PersonInterface
 {
 	private String Name;
 	private String Surname;
@@ -33,7 +33,7 @@ public class Person extends Entity implements PersonInterface
 		Surname = "Surname";
 		ID= "00000000000";
 		email_address = "email@domain.com";
-        rights = RESEARCHER;
+        rights = UserRight.RESEARCHER;
 		
 		organisations = new LinkedList<Organisation>();
 		research_groups = new LinkedList<ResearchGroupAssociation>();
@@ -46,6 +46,10 @@ public class Person extends Entity implements PersonInterface
 	*	@param surname Surmane of the person
 	*	@param id Identity number of the person
 	*	@param email Email Address of the person
+    *   @param right The rights the person has. Can be:
+    *                                              ADMIN
+    *                                              RESEARCHER
+    *                                              RESEARCHGROUPLEADER
 	*/
 	Person(String name,String surname,String id,String email, String right)
 	{
@@ -55,6 +59,22 @@ public class Person extends Entity implements PersonInterface
 		setID(id);
         setUserRights(right);
 	}
+
+    /**
+     * 	Constructor creates a person object
+     * 	@param  name Name of the person
+     *	@param surname Surmane of the person
+     *	@param id Identity number of the person
+     *	@param email Email Address of the person
+     */
+    Person(String name,String surname,String id,String email)
+    {
+        setName(name);
+        setSurname(surname);
+        setEmail(email);
+        setID(id);
+        setUserRights("RESEARCHER");
+    }
 	
 	/**
 	* Setter 	
@@ -76,7 +96,7 @@ public class Person extends Entity implements PersonInterface
 	
 	/**
 	* Setter 	
-	* @param name The name of the person
+	* @param id The name of the person
 	*/
 	public void setID(String id)
 	{
@@ -160,13 +180,12 @@ public class Person extends Entity implements PersonInterface
 	* Getter
 	* @return the list of organisations this person belongs to or may return null if they do not belong to any organisations.
 	*/
-	
-	public LinkedList<Organisation> getOrganisation()
-	{
-		if(this.organisations.isEmpty())
-			return null;
-		return organisations;
-	}
+//	public LinkedList<Organisation> getOrganisation()
+//	{
+//		if(this.organisations.isEmpty())
+//			return null;
+//		return organisations;
+//	}
 	
 	/**
 	* Getter
@@ -204,11 +223,11 @@ public class Person extends Entity implements PersonInterface
 	public void setUserRights(String right)
     {
         if (right.toUpperCase().equals("ADMIN"))
-            rights = ADMIN;
+            rights = UserRight.ADMIN;
         else if (right.toUpperCase().equals("RESEARCHER"))
-            rights = RESEARCHER;
+            rights = UserRight.RESEARCHER;
         else if (right.toUpperCase().equals("RESEARCHGROUPLEADER"))
-            rights = RESEARCHGROUPLEADER;
+            rights = UserRight.RESEARCHGROUPLEADER;
     }
 
     /**
@@ -218,11 +237,15 @@ public class Person extends Entity implements PersonInterface
      *                                          RESEARCHER
      *                                          RESEARCHGROUPLEADER
      */
-    public UserRight getUserRights()
+    public String getUserRights()
     {
-        return rights;
+		if(rights == UserRight.ADMIN)
+			return "ADMIN";
+		else if (rights == UserRight.RESEARCHER)
+			return "RESEARCHER";
+		else
+			return "RESEARCHGROUPLEADER";
     }
-
 }
 
   

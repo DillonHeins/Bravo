@@ -1,11 +1,13 @@
-package bravopeople;
+package bravopeople;;
 import java.util.Date;
+
 /**
-*
-* @author Aiden Malan
-* 12265731
-* Bravo-People
-*/
+ * @author Bravo Team
+ *	@version 1.0
+ *	This file defines the Research Category Class for the Researcher Support System (RSS).
+ *	The class defines the attributes of the user of the system.
+ */
+
 public class ResearchCategory  implements ResearchCategoryInterface
 {
 	

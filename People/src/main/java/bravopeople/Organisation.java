@@ -1,22 +1,24 @@
 /**
-  *    @author Bravo Team
+  * @author Bravo Team
   *	@version 1.0
   *	This file defines the Organization Class for the Researcher Support System (RSS).
   */
-	
+
 package bravopeople;
+
 
 class Organisation implements OrganisationInterface
 {
-	String name;
-	//String ID;
+	String Name;
+	String ID;
 	
 	/**
 	* Default Constructor with dummy data
 	*/
 	Organisation()
 	{
-		name="Organisation";
+		Name="Organisation";
+		ID="00000000000";
 	}
 	
 	/**
@@ -25,7 +27,18 @@ class Organisation implements OrganisationInterface
 	*/
 	Organisation(String organisation_name)
 	{
-		name = organisation_name;
+		Name = organisation_name;
+	}
+	
+	/**
+	* 	Constructor creates a Organisation object with ID parameter. added incase object requires ID upon creation
+	* 	@param  organisation_name Name of the organisation
+	* 	@param id ID of the person
+	*/
+	Organisation(String organisation_name, String id)
+	{
+		Name = organisation_name;
+		ID = id;
 	}
 	
 	/**
@@ -33,7 +46,20 @@ class Organisation implements OrganisationInterface
 	* @param name Name of the Orgnisation
 	*/
 	public void setName(String name)
-	{}
+	{
+		Name=name;
+		
+	}
+	
+	/**
+	* Setter
+	* @param ID of the person
+	*/
+	public void setID(String id)
+	{
+		ID=id;
+		
+	}
 		
 	/**
 	* Getter
@@ -41,7 +67,7 @@ class Organisation implements OrganisationInterface
 	*/	
 	public  String getName()
 	{
-		return name;
+		return Name;
 	}
 }
 
