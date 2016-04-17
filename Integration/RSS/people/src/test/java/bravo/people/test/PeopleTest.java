@@ -13,6 +13,10 @@ import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
 import bravo.people.implementations.Person;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.simple.JSONObject;
 import org.junit.BeforeClass;
 import org.junit.Test;
 /**
@@ -33,6 +37,15 @@ public class PeopleTest {
         
         when(mockPeopleBean.updatePerson("Pieter", "Pieters", "14778144", "piet@gmail.com", "ESPRESO", "UP"))
                 .thenReturn(true);
+        
+        when(mockPeopleBean.getID("piet@gmail.com"))
+                .thenReturn(105L);
+        
+        Map<String, String> map = new HashMap<>();
+        map.put("piet@gmail.com", "Piet");
+        map.put("bob@gmail.com", "Bobby");
+        
+        when(mockPeopleBean.getPeopleList()).thenReturn(map);
         
         Person person = new Person("Piet", "Pieters", "14014457", "piet@gmail.com");
         Group group = new Group("CIRG");
@@ -68,6 +81,12 @@ public class PeopleTest {
     }
     
     @Test
+    public void testGetID() {
+        Long l = 105L;
+        assertEquals(l, mockPeopleBean.getID("piet@gmail.com"));
+    }
+    
+    @Test
     public void testGetPerson() {
         assertEquals("Piet", mockPersonEntity.getPerson().getFirstName());
         assertEquals("Pieters", mockPersonEntity.getPerson().getSurname());
@@ -78,7 +97,13 @@ public class PeopleTest {
     }
     
     @Test
-    public void testGetPeople() {
+    public void testGetPeopleList() {
+        Map map = mockPeopleBean.getPeopleList();
         
+        Map<String, String> temp = new HashMap<>();
+        temp.put("piet@gmail.com", "Piet");
+        temp.put("bob@gmail.com", "Bobby");
+        
+        assertEquals(temp ,map);
     }
 }
