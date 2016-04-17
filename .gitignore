@@ -37,18 +37,3 @@ captures/
 
 # Keystore files
 *.jks
-/Integration/RSS/people_test/target/
-/Integration/RSS/ejb_test/target/
-/Integration/RSS/people_ejb/target/
-/Integration/RSS/reporting_ejb/target/
-/Integration/RSS/publications_test/target/
-/Integration/publications_ejb/target/
-/Integration/RSS/main/target/
-/Integration/RSS/people/target/
-/Integration/RSS/publications/target/
-/Integration/Mocks/publications_ejb/target/
-/Integration/Mocks/people_ejb/target/
-/Integration/Mocks/reporting_ejb/target/
-/Integration/RSS/reporting/target/
-/Integration/Mocks/notifications_ejb/target/
-/Integration/RSS/notifications/target/

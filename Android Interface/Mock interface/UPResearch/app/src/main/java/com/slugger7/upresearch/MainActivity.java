@@ -9,8 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView username;
-    private TextView password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void login(View view) {
         //Getting the text fields
-        username = (TextView) findViewById(R.id.txt_username);
-        password = (TextView) findViewById(R.id.txt_password);
+        TextView username = (TextView) findViewById(R.id.txt_username);
+        TextView password = (TextView) findViewById(R.id.txt_password);
 
         assert username != null;
         assert password != null;
@@ -35,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         {
             Intent intent = new Intent(this, home.class); // Creating the intent to start a new activity
             finish(); // Closing the current activity
-            getAccessRights();
             startActivity(intent); // Starting the new activity
         }
         else
@@ -47,16 +45,5 @@ public class MainActivity extends AppCompatActivity {
             password.setText("");
             username.requestFocus();
         }
-
-    }
-
-    /**
-     * This function sends a request to the server for user access rights and will receive those rights as well as if the user
-     * is authorised for any acess at all.
-     * @return boolean array
-     */
-    public void getAccessRights()
-    {
-
     }
 }
