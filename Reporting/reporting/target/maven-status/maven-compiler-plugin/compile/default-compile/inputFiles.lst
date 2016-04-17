@@ -1,15 +1,21 @@
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\ejb\PersonServiceBean.java
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\ejb\PublicationServiceBean.java
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\Client.java
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\entity\Publicationdetail.java
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\entity\Publicationstate.java
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\entity\Inprogressstate.java
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\Person.java
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\entity\Lifecyclestate.java
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\entity\Publicationauthor.java
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\entity\Publishedstate.java
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\Group.java
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\entity\Publication.java
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\Entity.java
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\PersonReport.java
-C:\Users\Charl\Documents\COS301 Pracs\Bravo\Reporting\reporting\src\main\java\entity\Person.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\entity\Publishedstate.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\entity\Publicationdetail.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\Person.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\PersonReport.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\Client.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\entity\Person.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\ejb\LifecyclestateServiceBean.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\Group.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\entity\Publication.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\ejb\ResearchGroupServiceBean.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\ejb\PersonServiceBean.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\entity\Inprogressstate.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\Entity.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\entity\Publicationstate.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\entity\Lifecyclestate.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\entity\Publicationauthor.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\entity\ResearcherCategory.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\ejb\ResearcherCategoryServiceBean.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\ejb\PublicationServiceBean.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\entity\Organization.java
+C:\Users\dZiLafho\Documents\workspace\reporting\src\main\java\entity\ResearchGroup.java
