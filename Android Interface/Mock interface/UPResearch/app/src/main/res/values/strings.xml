@@ -55,4 +55,5 @@
     <string name="title_activity_change_publication">Change Publication</string>
     <string name="change_publication_details">Change the publication detail as necessary</string>
     <string name="title_activity_admin">Admin</string>
+    <string name="add_research_category">Add Research Category</string>
 </resources>
